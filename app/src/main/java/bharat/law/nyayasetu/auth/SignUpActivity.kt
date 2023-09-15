@@ -1,15 +1,22 @@
-package dev.redfox.moneymanager.auth
+package bharat.law.nyayasetu.auth
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.MainActivity
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.ActivitySignUpBinding
+import bharat.law.nyayasetu.models.RegisterData
+import bharat.law.nyayasetu.utils.AppSession
+import bharat.law.nyayasetu.utils.Constants
+import bharat.law.nyayasetu.viewmodels.LawyerViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 
@@ -17,6 +24,8 @@ class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
     var isLSP = 0
     private lateinit var email:String
+
+    private val lawyerViewModel: LawyerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,16 +78,36 @@ class SignUpActivity : AppCompatActivity() {
                 ) && pass.isNotEmpty()
             ) {
                 if (isLSP ==1){
+                    val registerData = RegisterData(
+                        name,
+                        email,
+                        pass,
+                        isLSP
+                    )
+                    lawyerViewModel.registerUser(registerData)
 
                 } else if (isLSP == 0) {
+                    val registerData = RegisterData(
+                        name,
+                        email,
+                        pass,
+                        isLSP
+                    )
+                    lawyerViewModel.registerUser(registerData)
 
                 }
-
+                AppSession(this).putString(Constants.NAME, name)
 
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
             }
         }
+
+        lawyerViewModel.registerResponse.observe(this, Observer {
+            if (it.body()!!.message == Constants.REGISTER_SUCCESS) {
+                goToLogin()
+            }
+        })
     }
 
 
@@ -89,11 +118,10 @@ class SignUpActivity : AppCompatActivity() {
         finish()
     }
 
-    fun EncodeString(string: String): String? {
-        return string.replace(".", ",")
-    }
-
-    fun DecodeString(string: String): String? {
-        return string.replace(",", ".")
+    private fun goToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
     }
 }
