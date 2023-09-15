@@ -16,6 +16,7 @@
     <color name="subtle_red">#D2FFC8D2</color>
     <color name="dark">#4D4D4D</color>
     <color name="grey">#727272</color>
+    <color name="light_grey">#CBCBCB</color>
     <color name="material_grey">#EFEFEF</color>
     <color name="trans">#00FFFFFF</color>
     <color name="card_color1">#FFF1D4</color>
