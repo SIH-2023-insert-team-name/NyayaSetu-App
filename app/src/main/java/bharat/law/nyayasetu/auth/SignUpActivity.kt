@@ -6,10 +6,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import bharat.law.nyayasetu.MainActivity
+import bharat.law.nyayasetu.R
+import bharat.law.nyayasetu.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.*
-import dev.refox.moneymanager.R
-import dev.refox.moneymanager.MainActivity
-import dev.refox.moneymanager.databinding.ActivitySignUpBinding
+
 
 
 class SignUpActivity : AppCompatActivity() {
