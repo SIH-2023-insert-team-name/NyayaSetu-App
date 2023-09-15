@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".client.ui.HomeFragment">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,21 +17,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
         android:layout_marginTop="10dp">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="start"
-            android:layout_weight="1"
-            android:src="@drawable/ic_law_justice" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_gravity="end"
-            android:layout_weight="1"
-            android:src="@drawable/ic_swach_bharat" />
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_law_justice" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_swach_bharat"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <ImageView
@@ -46,9 +60,11 @@
         android:layout_marginTop="10dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvLawyerAppointment"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
+            app:rippleColor="@color/white"
             android:layout_weight="1"
             android:backgroundTint="@color/material_grey">
 
@@ -60,6 +76,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvNotaryAppointment"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
@@ -74,6 +91,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvDocumentWriter"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -94,6 +112,7 @@
         android:layout_marginTop="10dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvReview"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
@@ -108,6 +127,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvLeaderboard"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
@@ -122,6 +142,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvLegalAssist"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -142,6 +163,7 @@
         android:layout_marginTop="10dp">
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvLegalAidClinic"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
@@ -156,6 +178,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvRewards"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_marginEnd="10dp"
@@ -170,6 +193,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvConsultancy"
             android:layout_width="0dp"
             android:layout_height="150dp"
             android:layout_weight="1"
@@ -183,3 +207,4 @@
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </LinearLayout>
+</ScrollView>

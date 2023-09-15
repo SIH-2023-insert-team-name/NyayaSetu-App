@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_homeFragment_to_helpFragment"
             app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_lawyerAppointmentFragment"
+            app:destination="@id/lawyerAppointmentFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -35,4 +38,9 @@
             android:id="@+id/action_helpFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/lawyerAppointmentFragment"
+        android:name="bharat.law.nyayasetu.client.ui.LawyerAppointmentFragment"
+        android:label="fragment_lawyer_appointment"
+        tools:layout="@layout/fragment_lawyer_appointment" />
 </navigation>
