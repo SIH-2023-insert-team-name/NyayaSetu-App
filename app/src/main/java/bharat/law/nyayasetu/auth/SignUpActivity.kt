@@ -27,7 +27,6 @@ class SignUpActivity : AppCompatActivity() {
         window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.yellow))
 
 
-
         binding.tvSignIn.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

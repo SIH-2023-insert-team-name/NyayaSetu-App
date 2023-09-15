@@ -131,7 +131,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:src="@drawable/ic_document_writer" />
+                android:src="@drawable/ic_legal_assist" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
@@ -152,7 +152,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:src="@drawable/ic_lawyer_appointment" />
+                android:src="@drawable/ic_legal_aid_clinic" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -166,7 +166,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:src="@drawable/ic_notary_appointment" />
+                android:src="@drawable/ic_rewards" />
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -179,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
-                android:src="@drawable/ic_document_writer" />
+                android:src="@drawable/ic_consultancy" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 </LinearLayout>
