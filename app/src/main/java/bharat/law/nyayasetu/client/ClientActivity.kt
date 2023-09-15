@@ -11,18 +11,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ClientActivity : AppCompatActivity() {
     lateinit var binding:ActivityClientBinding
-    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityClientBinding.inflate(layoutInflater)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        navController = navHostFragment.navController
+        binding.clientBottomNav.setupWithNavController(navController)
+
         setContentView(binding.root)
 
-        bottomNavigationView = binding.clientBottomNav
-
-        val navHostFragment = supportFragmentManager.findFragmentById(binding.fragmentContainer.id) as NavHostFragment
-        navController = navHostFragment.navController
-
-        bottomNavigationView.setupWithNavController(navController)
     }
 }
