@@ -8,7 +8,9 @@ import androidx.navigation.ui.setupWithNavController
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.ActivityClientBinding
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ClientActivity : AppCompatActivity() {
     lateinit var binding:ActivityClientBinding
     private lateinit var navController: NavController

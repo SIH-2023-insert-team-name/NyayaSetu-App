@@ -6,23 +6,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import com.google.firebase.auth.FirebaseAuth
-import dev.refox.moneymanager.MainActivity
-import dev.refox.moneymanager.R
-import dev.refox.moneymanager.databinding.ActivityLoginBinding
+import bharat.law.nyayasetu.R
+import bharat.law.nyayasetu.databinding.ActivityLoginBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.yellow))
-        firebaseAuth = FirebaseAuth.getInstance()
+
 
         binding.tvSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
@@ -37,23 +37,6 @@ class LoginActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
 
-                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
-                    if (it.isSuccessful) {
-
-                        val sharedPreference = getSharedPreferences("LOGIN", Context.MODE_PRIVATE)
-                        val editor = sharedPreference.edit()
-                        editor.putBoolean("hasLoggedIn", true)
-                        editor.apply()
-
-
-                        val intent = Intent(this, MainActivity::class.java)
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                        startActivity(intent)
-                        finish()
-                    } else {
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                    }
-                }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
 

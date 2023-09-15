@@ -6,15 +6,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.google.firebase.auth.*
-import dev.refox.moneymanager.R
-import dev.refox.moneymanager.MainActivity
-import dev.refox.moneymanager.databinding.ActivitySignUpBinding
+import bharat.law.nyayasetu.MainActivity
+import bharat.law.nyayasetu.R
+import bharat.law.nyayasetu.databinding.ActivitySignUpBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var firebaseAuth: FirebaseAuth
+    var isLSP = 0
     private lateinit var email:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.yellow))
-        firebaseAuth = FirebaseAuth.getInstance()
+
 
 
         binding.tvSignIn.setOnClickListener {
@@ -40,6 +41,24 @@ class SignUpActivity : AppCompatActivity() {
             val pass = binding.etPassword.text.toString()
             val confirmPass = binding.confirmPassEt.text.toString()
 
+            val selectedRadioButtonId = binding.radioGroup.checkedRadioButtonId
+            val result = when (selectedRadioButtonId) {
+                R.id.radioButtonYes -> 1
+                R.id.radioButtonNo -> 0
+                else -> -1 // No radio button selected
+            }
+
+            if (result!=-1){
+               if (result==1){
+                   isLSP=1
+               } else {
+                   isLSP=0
+               }
+            } else {
+                Toast.makeText(this, "No Option Selected", Toast.LENGTH_SHORT).show()
+            }
+
+
             val sharedPref = getSharedPreferences("LOGIN", Context.MODE_PRIVATE)
             val editor2 = sharedPref.edit()
             editor2.putBoolean("hasLoggedIn", true)
@@ -50,41 +69,15 @@ class SignUpActivity : AppCompatActivity() {
                     confirmPass
                 ) && pass.isNotEmpty()
             ) {
+                if (isLSP ==1){
 
-                firebaseAuth.createUserWithEmailAndPassword(email, confirmPass)
-                    .addOnSuccessListener {
+                } else if (isLSP == 0) {
 
-//                        binding.etEmail.text?.clear()
-//                        binding.etName.text?.clear()
-
-                        Toast.makeText(this, "Success", Toast.LENGTH_SHORT).show()
-
-                        startMainActivity()
-
-                    }.addOnFailureListener {
-                    if (it is FirebaseAuthInvalidUserException) {
-                        Toast.makeText(
-                            this,
-                            "Email cannot be used to create account",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } else if (it is FirebaseAuthUserCollisionException) {
-                        Toast.makeText(this, "Email Already Exists", Toast.LENGTH_SHORT).show()
-                    } else if (pass != confirmPass) {
-                        Toast.makeText(this, "Check Password", Toast.LENGTH_SHORT).show()
-                    } else if (it is FirebaseAuthWeakPasswordException) {
-                        Toast.makeText(this, "Weak Password", Toast.LENGTH_SHORT).show()
-                    } else if (it is FirebaseAuthEmailException) {
-                        Toast.makeText(this, "Incorrect Email", Toast.LENGTH_SHORT).show()
-                    } else {
-                        Toast.makeText(this, "Unknown error", Toast.LENGTH_SHORT).show()
-                    }
-                    it.printStackTrace()
                 }
+
 
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
-
             }
         }
     }
