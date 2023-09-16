@@ -104,7 +104,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         lawyerViewModel.registerResponse.observe(this, Observer {
-            if (it.body()!!.message == Constants.REGISTER_SUCCESS) {
+            if (it.body()?.message == Constants.REGISTER_SUCCESS) {
                 goToLogin()
             }
         })

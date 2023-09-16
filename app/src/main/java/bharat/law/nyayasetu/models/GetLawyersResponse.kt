@@ -1,6 +1,7 @@
 package bharat.law.nyayasetu.models
 
 data class GetLawyersResponse(
+    val name:String,
     val __v: Int,
     val _id: String,
     val aadhar: String,
