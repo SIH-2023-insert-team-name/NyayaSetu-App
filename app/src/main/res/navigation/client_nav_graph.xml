@@ -12,16 +12,21 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
-            app:destination="@id/profileFragment" />
+            app:destination="@id/profileFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_helpFragment"
-            app:destination="@id/helpFragment" />
+            app:destination="@id/helpFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_homeFragment_to_lawyerAppointmentFragment"
             app:destination="@id/lawyerAppointmentFragment" />
         <action
             android:id="@+id/action_homeFragment_to_consultancyFragment"
             app:destination="@id/consultancyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_legalAidClinicFragment"
+            app:destination="@id/legalAidClinicFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -45,10 +50,43 @@
         android:id="@+id/lawyerAppointmentFragment"
         android:name="bharat.law.nyayasetu.client.ui.LawyerAppointmentFragment"
         android:label="fragment_lawyer_appointment"
-        tools:layout="@layout/fragment_lawyer_appointment" />
+        tools:layout="@layout/fragment_lawyer_appointment" >
+        <action
+            android:id="@+id/action_lawyerAppointmentFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_lawyerAppointmentFragment_to_bottomSheetDialogFragment"
+            app:destination="@id/bottomSheetDialogFragment" />
+    </fragment>
     <fragment
         android:id="@+id/consultancyFragment"
         android:name="bharat.law.nyayasetu.client.ui.ConsultancyFragment"
         android:label="fragment_consultancy"
-        tools:layout="@layout/fragment_consultancy" />
+        tools:layout="@layout/fragment_consultancy" >
+        <action
+            android:id="@+id/action_consultancyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/legalAidClinicFragment"
+        android:name="bharat.law.nyayasetu.client.ui.LegalAidClinicFragment"
+        android:label="fragment_legal_aid_clinic"
+        tools:layout="@layout/fragment_legal_aid_clinic" >
+        <action
+            android:id="@+id/action_legalAidClinicFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/bottomSheetDialogFragment"
+        android:name="bharat.law.nyayasetu.client.ui.BottomSheetDialogFragment"
+        android:label="BottomSheetDialogFragment" >
+        <action
+            android:id="@+id/action_bottomSheetDialogFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="bharat.law.nyayasetu.client.ui.ChatFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat" />
 </navigation>

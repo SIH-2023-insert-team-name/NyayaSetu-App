@@ -10,5 +10,6 @@ class Constants {
         const val AUTH_TOKEN = "auth"
         const val NAME = "name"
         const val IS_LOGIN = "false"
+        const val CRIMINAL_CATEGORY = "criminal"
     }
 }

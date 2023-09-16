@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import bharat.law.nyayasetu.adapter.ConsultancyAdapter
 import bharat.law.nyayasetu.databinding.FragmentConsultancyBinding
 import bharat.law.nyayasetu.models.GetLawyersResponse
@@ -45,7 +46,7 @@ class ConsultancyFragment : Fragment() {
             adapter.notifyDataSetChanged()
             binding.rvConsutancy.setHasFixedSize(true)
             binding.rvConsutancy.adapter = adapter
-            binding.rvConsutancy.layoutManager = GridLayoutManager(context,1)
+            binding.rvConsutancy.layoutManager = LinearLayoutManager(context)
             adapter.notifyDataSetChanged()
         })
         return binding.root

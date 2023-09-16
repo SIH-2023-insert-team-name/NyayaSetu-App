@@ -206,5 +206,7 @@
                 android:src="@drawable/ic_consultancy" />
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
+
 </LinearLayout>
+
 </ScrollView>
