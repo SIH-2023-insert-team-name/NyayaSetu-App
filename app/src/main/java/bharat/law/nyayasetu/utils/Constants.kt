@@ -11,5 +11,16 @@ class Constants {
         const val NAME = "name"
         const val IS_LOGIN = "false"
         const val CRIMINAL_CATEGORY = "criminal"
+        const val BANKRUPTCY_CATEGORY = "criminal"
+        const val CORPORATE_CATEGORY = "business"
+        const val CONSTITUTIONAL_CATEGORY = "constitutional"
+        const val EMPLOYMENT_CATEGORY = "employment and labour"
+        const val ENTERTAINMENT_CATEGORY = "entertainment"
+        const val ESTATE_CATEGORY = "estate planning"
+        const val FAMILY_CATEGORY = "family"
+        const val IMMIGRATION_CATEGORY = "immigration"
+        const val INTELLECTUAL_CATEGORY = "itellectual property"
+        const val PERSONAL_CATEGORY = "personal injury"
+        const val TAX_CATEGORY = "tax"
     }
 }

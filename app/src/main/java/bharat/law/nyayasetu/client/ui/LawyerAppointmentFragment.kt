@@ -40,9 +40,53 @@ class LawyerAppointmentFragment : Fragment() {
         lawyerViewModel.getLSPResponse.observe(viewLifecycleOwner, Observer {
             lawyerList = it.body()!! as ArrayList<GetLawyersResponse>
 
+            binding.cvBankruptcy.setOnClickListener {
+                val bankruptcyList = filterList(Constants.BANKRUPTCY_CATEGORY,lawyerList)
+                setupBottomSheetDialog(bankruptcyList)
+            }
+            binding.cvCorporate.setOnClickListener {
+                val corporateList = filterList(Constants.CORPORATE_CATEGORY,lawyerList)
+                setupBottomSheetDialog(corporateList)
+            }
+            binding.cvConstitutional.setOnClickListener {
+                val constitutionalList = filterList(Constants.CONSTITUTIONAL_CATEGORY,lawyerList)
+                setupBottomSheetDialog(constitutionalList)
+            }
             binding.cvCriminal.setOnClickListener {
                 val criminalList = filterList(Constants.CRIMINAL_CATEGORY,lawyerList)
                 setupBottomSheetDialog(criminalList)
+            }
+            binding.cvEmployment.setOnClickListener {
+                val employmentList = filterList(Constants.EMPLOYMENT_CATEGORY,lawyerList)
+                setupBottomSheetDialog(employmentList)
+            }
+            binding.cvEntertainment.setOnClickListener {
+                val entertainmentList = filterList(Constants.ENTERTAINMENT_CATEGORY,lawyerList)
+                setupBottomSheetDialog(entertainmentList)
+            }
+            binding.cvEstate.setOnClickListener {
+                val estateList = filterList(Constants.ESTATE_CATEGORY,lawyerList)
+                setupBottomSheetDialog(estateList)
+            }
+            binding.cvFamily.setOnClickListener {
+                val familyList = filterList(Constants.FAMILY_CATEGORY,lawyerList)
+                setupBottomSheetDialog(familyList)
+            }
+            binding.cvImmigration.setOnClickListener {
+                val immigrationList = filterList(Constants.IMMIGRATION_CATEGORY,lawyerList)
+                setupBottomSheetDialog(immigrationList)
+            }
+            binding.cvIntellectual.setOnClickListener {
+                val intellectualList = filterList(Constants.INTELLECTUAL_CATEGORY,lawyerList)
+                setupBottomSheetDialog(intellectualList)
+            }
+            binding.cvPersonal.setOnClickListener {
+                val personalList = filterList(Constants.PERSONAL_CATEGORY,lawyerList)
+                setupBottomSheetDialog(personalList)
+            }
+            binding.cvTax.setOnClickListener {
+                val taxList = filterList(Constants.TAX_CATEGORY,lawyerList)
+                setupBottomSheetDialog(taxList)
             }
         })
 
