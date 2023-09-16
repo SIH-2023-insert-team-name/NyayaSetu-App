@@ -45,7 +45,7 @@ class ConsultancyFragment : Fragment() {
             adapter.notifyDataSetChanged()
             binding.rvConsutancy.setHasFixedSize(true)
             binding.rvConsutancy.adapter = adapter
-            binding.rvConsutancy.layoutManager = GridLayoutManager(context,2)
+            binding.rvConsutancy.layoutManager = GridLayoutManager(context,1)
             adapter.notifyDataSetChanged()
         })
         return binding.root

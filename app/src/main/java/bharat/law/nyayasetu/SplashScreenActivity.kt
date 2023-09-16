@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.core.view.postDelayed
+import bharat.law.nyayasetu.auth.LoginActivity
 import bharat.law.nyayasetu.auth.SignUpActivity
 import bharat.law.nyayasetu.client.ClientActivity
 import bharat.law.nyayasetu.databinding.ActivitySplashScreenBinding
+import bharat.law.nyayasetu.utils.AppSession
+import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -19,9 +22,18 @@ class SplashScreenActivity : AppCompatActivity() {
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        var isLogin = AppSession(this).getBoolean(Constants.IS_LOGIN)
         binding.root.postDelayed(2500) {
-                startActivity(Intent(this, SignUpActivity::class.java))
+
+            if(isLogin){
+                startActivity(Intent(this, ClientActivity::class.java))
                 finish()
+            }
+            else{
+                startActivity(Intent(this, LoginActivity::class.java))
+                finish()
+            }
+
 
         }
     }

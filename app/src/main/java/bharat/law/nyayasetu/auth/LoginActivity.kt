@@ -80,6 +80,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToClient() {
+        AppSession(this).put(Constants.IS_LOGIN,true)
         val intent = Intent(this, ClientActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)

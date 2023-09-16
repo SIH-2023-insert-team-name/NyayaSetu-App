@@ -9,5 +9,6 @@ class Constants {
         const val LSP_STRING = "LSP String"
         const val AUTH_TOKEN = "auth"
         const val NAME = "name"
+        const val IS_LOGIN = "false"
     }
 }
