@@ -2,6 +2,7 @@ package bharat.law.nyayasetu.client.ui
 
 import android.app.Dialog
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,6 +31,7 @@ class BottomSheetDialogFragment(val lawyerList: MutableList<GetLawyersResponse>)
         binding = BottomSheetDialogFragmentBinding.inflate(chatInflater)
 
         authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+        Log.d("authdebz", authToken)
         setupFullHeight()
         onClick()
         setupRecyclerView()

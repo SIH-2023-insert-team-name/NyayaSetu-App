@@ -58,10 +58,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         lawyerViewModel.authResponse.observe(this, Observer {
-            if (it.body()!!.message == Constants.AUTH_SUCCESS) {
-                var isLSP = it.body()!!.isLSP
-                AppSession(this).putString(Constants.LSP_STRING, it.body()!!.isLSP.toString())
-                AppSession(this).putString(Constants.AUTH_TOKEN, it.body()!!.token)
+            if (it.body()?.message == Constants.AUTH_SUCCESS) {
+                val isLSP = it.body()?.isLSP
+                AppSession(this).putString(Constants.LSP_STRING, it.body()?.isLSP.toString())
+                AppSession(this).putString(Constants.AUTH_TOKEN, it.body()?.token)
 
                 if(isLSP == 1){
                     goToLawyer()
