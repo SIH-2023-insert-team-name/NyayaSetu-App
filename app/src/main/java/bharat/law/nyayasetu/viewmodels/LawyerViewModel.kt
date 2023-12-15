@@ -3,8 +3,10 @@ package bharat.law.nyayasetu.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import bharat.law.nyayasetu.models.AddLspData
+import bharat.law.nyayasetu.models.AddDocWriterData
+import bharat.law.nyayasetu.models.AddLawyerData
 import bharat.law.nyayasetu.models.AddLspDataResponse
+import bharat.law.nyayasetu.models.AddNotaryData
 import bharat.law.nyayasetu.models.AddUserData
 import bharat.law.nyayasetu.models.AddUserDataResponse
 import bharat.law.nyayasetu.models.AuthUserData
@@ -55,9 +57,23 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
         }
     }
 
-    fun addLSP(authToken: String, addLspData: AddLspData) {
+    fun addLawyer(authToken: String, addLspData: AddLawyerData) {
         viewModelScope.launch {
-            val addLResponse = repository.addLSP(authToken, addLspData)
+            val addLResponse = repository.addLawyer(authToken, addLspData)
+            _addLSPResponse.value = addLResponse
+        }
+    }
+
+    fun addNotary(authToken: String, addNotaryData: AddNotaryData) {
+        viewModelScope.launch {
+            val addLResponse = repository.addNotary(authToken, addNotaryData)
+            _addLSPResponse.value = addLResponse
+        }
+    }
+
+    fun addDocWriter(authToken: String, addDocWriterData: AddDocWriterData) {
+        viewModelScope.launch {
+            val addLResponse = repository.addDocWriter(authToken, addDocWriterData)
             _addLSPResponse.value = addLResponse
         }
     }

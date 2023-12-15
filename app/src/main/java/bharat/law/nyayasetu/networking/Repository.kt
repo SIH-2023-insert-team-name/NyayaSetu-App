@@ -1,7 +1,9 @@
 package bharat.law.nyayasetu.networking
 
-import bharat.law.nyayasetu.models.AddLspData
+import bharat.law.nyayasetu.models.AddDocWriterData
+import bharat.law.nyayasetu.models.AddLawyerData
 import bharat.law.nyayasetu.models.AddLspDataResponse
+import bharat.law.nyayasetu.models.AddNotaryData
 import bharat.law.nyayasetu.models.AddUserData
 import bharat.law.nyayasetu.models.AddUserDataResponse
 import bharat.law.nyayasetu.models.AuthUserData
@@ -22,8 +24,16 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
         return apiInterface.authUser(authUserData)
     }
 
-    suspend fun addLSP(authToken: String,addLspData: AddLspData): Response<AddLspDataResponse> {
-        return apiInterface.addLSP(authToken,addLspData)
+    suspend fun addLawyer(authToken: String,addLspData: AddLawyerData): Response<AddLspDataResponse> {
+        return apiInterface.addLawyer(authToken,addLspData)
+    }
+
+    suspend fun addNotary(authToken: String,addNotaryData: AddNotaryData): Response<AddLspDataResponse> {
+        return apiInterface.addNotary(authToken,addNotaryData)
+    }
+
+    suspend fun addDocWriter(authToken: String,addDocWriterData: AddDocWriterData): Response<AddLspDataResponse> {
+        return apiInterface.addDocWriter(authToken,addDocWriterData)
     }
 
     suspend fun addClient(authToken: String,addUserData: AddUserData): Response<AddUserDataResponse> {
@@ -31,6 +41,6 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
     }
 
     suspend fun getLSP(authToken: String): Response<List<GetLawyersResponse>> {
-        return apiInterface.getLSP(authToken)
+        return apiInterface.getLawyers(authToken)
     }
 }
