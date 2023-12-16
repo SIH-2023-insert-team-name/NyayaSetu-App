@@ -36,8 +36,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Book Appointment"
-        android:textSize="18dp"
+        android:text="@string/book_appointment"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textStyle="bold"

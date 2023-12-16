@@ -7,16 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddPersonalDetailsBinding
-import bharat.law.nyayasetu.databinding.FragmentLSPSelectionBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class AddPersonalDetailsFragment : Fragment() {
 
     private var _binding: FragmentAddPersonalDetailsBinding? = null
+
+    val args: AddPersonalDetailsFragmentArgs by navArgs()
     private val binding
         get() = _binding!!
     override fun onCreateView(
@@ -29,6 +31,15 @@ class AddPersonalDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnNext.setOnClickListener{
+            val bundle = Bundle()
+            bundle.putString("lspTpe", args.lspType)
+
+            val fragment = AddWorkDetailsFragment()
+            fragment.arguments = bundle
+            findNavController().navigate(R.id.action_addPersonalDetailsFragment_to_addWorkDetailsFragment, bundle)
+        }
 
         ArrayAdapter.createFromResource(
             requireContext(),

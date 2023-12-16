@@ -9,7 +9,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 <LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".client.ui.LawyerAppointmentFragment"
     android:orientation="vertical">
 
@@ -28,14 +28,19 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_gravity="start"
-                android:src="@drawable/ic_law_justice" />
+                android:src="@drawable/ic_law_justice"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_gravity="end"
                 android:src="@drawable/ic_swach_bharat"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
@@ -80,7 +85,7 @@
                 android:textAlignment="center"
                 android:layout_margin="15dp"
                 android:textStyle="bold"
-                android:text="Bankruptcy Lawyer"/>
+                android:text="@string/bankruptcy_lawyer"/>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -98,7 +103,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Corporate Lawyer"
+                android:text="@string/corporate_lawyer"
                 android:layout_margin="15dp" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -117,7 +122,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Constitutional Lawyer"
+                android:text="@string/constitutional_lawyer"
                 android:layout_margin="15dp" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -145,7 +150,7 @@
                 android:textAlignment="center"
                 android:layout_margin="15dp"
                 android:textStyle="bold"
-                android:text="Criminal Defense Lawyer"/>
+                android:text="@string/criminal_defense_lawyer"/>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -163,7 +168,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Employment and Labour Lawyer"
+                android:text="@string/employment_and_labour_lawyer"
                 android:layout_margin="15dp" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -181,7 +186,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Entertainment Lawyer"
+                android:text="@string/entertainment_lawyer"
                 android:layout_margin="15dp" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -209,7 +214,7 @@
                 android:textAlignment="center"
                 android:layout_margin="15dp"
                 android:textStyle="bold"
-                android:text="Estate Planning Lawyer"/>
+                android:text="@string/estate_planning_lawyer"/>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -227,7 +232,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Family Lawyer"
+                android:text="@string/family_lawyer"
                 android:layout_margin="15dp" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -246,7 +251,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Immigration Lawyer"
+                android:text="@string/immigration_lawyer"
                 android:layout_margin="15dp" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -275,7 +280,7 @@
                 android:textAlignment="center"
                 android:layout_margin="15dp"
                 android:textStyle="bold"
-                android:text="Intellectual Property Lawyer"/>
+                android:text="@string/intellectual_property_lawyer"/>
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
@@ -293,7 +298,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Personal Injury Lawyer"
+                android:text="@string/personal_injury_lawyer"
                 android:layout_margin="15dp" />
         </com.google.android.material.card.MaterialCardView>
 
@@ -312,7 +317,7 @@
                 android:layout_gravity="center"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:text="Tax Lawyer"
+                android:text="@string/tax_lawyer"
                 android:layout_margin="15dp" />
 
         </com.google.android.material.card.MaterialCardView>
@@ -326,7 +331,7 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="50dp"
-            android:text="Book an Appointment"
+            android:text="@string/book_an_appointment"
             app:layout_constraintBottom_toBottomOf="parent" />
 
 </LinearLayout>

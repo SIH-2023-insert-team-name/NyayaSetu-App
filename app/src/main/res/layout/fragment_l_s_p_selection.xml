@@ -209,7 +209,7 @@
         android:layout_height="56dp"
         android:backgroundTint="@color/material_blue"
         android:text="@string/next"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="20dp" />

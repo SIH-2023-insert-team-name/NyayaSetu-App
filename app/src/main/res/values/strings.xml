@@ -39,6 +39,32 @@
     <string name="enter_location">Enter Location</string>
     <string name="location_of_service">Location of Service</string>
     <string name="other_details">Other Details</string>
+    <string name="type_your_email">Type your Email</string>
+    <string name="type_your_password">Type Your Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="not_registered_yet">Not Registered Yet ?</string>
+    <string name="sign_up">Sign Up !</string>
+    <string name="type_your_name">Type your Name</string>
+    <string name="retype_your_password">Retype Your Password</string>
+    <string name="are_you_a_legal_service_provider">Are you a legal service provider?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="already_registered_sign_in">Already Registered , Sign In !</string>
+    <string name="available_lawyers">Available Lawyers</string>
+    <string name="book_appointment">Book Appointment</string>
+    <string name="bankruptcy_lawyer">Bankruptcy Lawyer</string>
+    <string name="corporate_lawyer">Corporate Lawyer</string>
+    <string name="constitutional_lawyer">Constitutional Lawyer</string>
+    <string name="criminal_defense_lawyer">Criminal Defense Lawyer</string>
+    <string name="employment_and_labour_lawyer">Employment and Labour Lawyer</string>
+    <string name="entertainment_lawyer">Entertainment Lawyer</string>
+    <string name="estate_planning_lawyer">Estate Planning Lawyer</string>
+    <string name="family_lawyer">Family Lawyer</string>
+    <string name="immigration_lawyer">Immigration Lawyer</string>
+    <string name="intellectual_property_lawyer">Intellectual Property Lawyer</string>
+    <string name="personal_injury_lawyer">Personal Injury Lawyer</string>
+    <string name="tax_lawyer">Tax Lawyer</string>
+    <string name="book_an_appointment">Book an Appointment</string>
 
 
     <string-array name="gender_array">

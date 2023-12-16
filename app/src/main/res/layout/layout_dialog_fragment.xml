@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Name:Debayan"
+            tools:text="Name:Debayan"
             android:textSize="16sp" />
 
         <TextView
@@ -29,7 +30,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Age:54"
+            tools:text="Age:54"
             android:textSize="16sp" />
 
         <TextView
@@ -39,7 +40,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Category:Criminal"
+            tools:text="Category:Criminal"
             android:textSize="16sp" />
 
         <TextView
@@ -49,7 +50,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Experience:5"
+            tools:text="Experience:5"
             android:textSize="16sp" />
 
         <TextView
@@ -59,7 +60,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Gender:M"
+            tools:text="Gender:M"
             android:textSize="16sp" />
 
         <TextView
@@ -69,7 +70,7 @@
             android:layout_marginVertical="5dp"
             android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/sofiaprosoftmedium"
-            android:text="Rating:432"
+            tools:text="Rating:432"
             android:textSize="16sp" />
 
         <com.google.android.material.card.MaterialCardView

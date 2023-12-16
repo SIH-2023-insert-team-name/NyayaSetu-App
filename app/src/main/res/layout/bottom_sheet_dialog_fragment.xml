@@ -22,22 +22,27 @@
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:layout_gravity="start"
-                android:src="@drawable/ic_law_justice" />
+                android:src="@drawable/ic_law_justice"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="40dp"
                 android:layout_gravity="end"
                 android:src="@drawable/ic_swach_bharat"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Available Lawyers"
-        android:textSize="18dp"
+        android:text="@string/available_lawyers"
+        android:textSize="18sp"
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textStyle="bold"

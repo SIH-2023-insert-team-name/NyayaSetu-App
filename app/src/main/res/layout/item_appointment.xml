@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvLawyer"
@@ -47,7 +48,7 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/sofiaprosoftbold"
                     android:maxLines="1"
-                    android:text="Advocate Keshab Kataruka"
+                    tools:text="Advocate Keshab Kataruka"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -66,7 +67,7 @@
                         android:ellipsize="end"
                         android:fontFamily="@font/sofiaprosoftmedium"
                         android:maxLines="2"
-                        android:text="Civil Defence Lawyer" />
+                        tools:text="Civil Defence Lawyer" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -75,7 +76,7 @@
                         android:layout_marginTop="5dp"
 
                         android:ellipsize="end"
-                        android:text="  |  " />
+                        tools:text="  |  " />
 
                     <TextView
                         android:id="@+id/tvExperince"
@@ -87,7 +88,7 @@
                         android:ellipsize="end"
                         android:fontFamily="@font/sofiaprosoftmedium"
                         android:maxLines="2"
-                        android:text="Exp - 3 years" />
+                        tools:text="Exp - 3 years" />
                 </LinearLayout>
 
             </LinearLayout>

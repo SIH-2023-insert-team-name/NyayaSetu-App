@@ -19,6 +19,10 @@
         <action
             android:id="@+id/action_addPersonalDetailsFragment_to_addWorkDetailsFragment"
             app:destination="@id/addWorkDetailsFragment" />
+        <argument
+            android:name="lspType"
+            app:argType="string"
+            />
     </fragment>
     <fragment
         android:id="@+id/addWorkDetailsFragment"
@@ -27,9 +31,16 @@
         <action
             android:id="@+id/action_addWorkDetailsFragment_to_addOtherDetailsFragment"
             app:destination="@id/addOtherDetailsFragment" />
+        <argument
+            android:name="lspType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/addOtherDetailsFragment"
         android:name="bharat.law.nyayasetu.lawyer.AddOtherDetailsFragment"
-        android:label="AddOtherDetailsFragment" />
+        android:label="AddOtherDetailsFragment" >
+        <argument
+            android:name="lspType"
+            app:argType="string" />
+    </fragment>
 </navigation>
