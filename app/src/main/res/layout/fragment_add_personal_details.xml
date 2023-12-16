@@ -10,7 +10,7 @@
         android:id="@+id/textHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Personal Details"
+        android:text="@string/personal_details"
         android:textSize="24sp"
         android:textColor="@color/colorAccent"
         android:fontFamily="@font/sofiaprosoftbold"
@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="@string/name"
             android:textSize="18sp"
             android:fontFamily="@font/sofiaprosoftmedium"
             android:textColor="@color/black"
@@ -46,7 +46,7 @@
             android:id="@+id/etlName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter"
+            android:hint="@string/enter"
             android:layout_marginTop="8dp"
             >
 
@@ -72,7 +72,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aadhar Number"
+            android:text="@string/aadhar_number"
             android:textSize="18sp"
             android:fontFamily="@font/sofiaprosoftmedium"
             android:textColor="@color/black"
@@ -82,7 +82,7 @@
             android:id="@+id/etlAadhar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Aadhar"
+            android:hint="@string/enter_aadhar"
             android:layout_marginTop="8dp"
             >
 
@@ -108,26 +108,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Gender"
+            android:text="@string/gender"
             android:textSize="18sp"
             android:fontFamily="@font/sofiaprosoftmedium"
             android:textColor="@color/black"
             />
-
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvGender"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="4dp"
+            app:strokeColor="@color/grey">
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etlGender"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Choose Gender"
-            android:layout_marginTop="8dp"
+            android:layout_height="match_parent"
+            android:hint="@string/choose_gender"
+          android:layout_marginStart="10dp"
             >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etGender"
+            <Spinner
+                android:id="@+id/genderSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:layout_height="match_parent" />
 
+        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
     <LinearLayout
@@ -144,7 +150,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Age"
+            android:text="@string/age"
             android:textSize="18sp"
             android:fontFamily="@font/sofiaprosoftmedium"
             android:textColor="@color/black"
@@ -154,7 +160,7 @@
             android:id="@+id/etlAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter Your Age"
+            android:hint="@string/enter_your_age"
             android:layout_marginTop="8dp"
             >
 
@@ -174,7 +180,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:background="@color/yellow"
-        android:text="Next"
+        android:text="@string/next"
         app:layout_constraintVertical_chainStyle="packed"
         android:textAllCaps="false"
         android:fontFamily="@font/sofiaprosoftmedium"

@@ -2,4 +2,78 @@
     <string name="app_name">NyayaSetu</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="document_writer">Document Writer</string>
+    <string name="lawyer">Lawyer</string>
+    <string name="notary">Notary</string>
+    <string name="choose_your_profession">Choose Your Profession</string>
+    <string name="next">Next</string>
+    <string name="personal_details">Personal Details</string>
+    <string name="name">Name</string>
+    <string name="enter">Enter</string>
+    <string name="aadhar_number">Aadhar Number</string>
+    <string name="enter_aadhar">Enter Aadhar</string>
+    <string name="gender">Gender</string>
+    <string name="choose_gender">Choose Gender</string>
+    <string name="age">Age</string>
+    <string name="enter_your_age">Enter Your Age</string>
+    <string name="write_a_short_summary_about_you">Write a short summary about you</string>
+    <string name="select_jurisdiction">Select Jurisdiction</string>
+    <string name="jurisdiction_covered">Jurisdiction Covered</string>
+    <string name="select_date">Select Date</string>
+    <string name="commission_expiry_date">Commission Expiry Date</string>
+    <string name="notary_commission_number">Notary Commission Number</string>
+    <string name="commission_number">Commission Number</string>
+    <string name="upload">Upload</string>
+    <string name="document_pdf">document.pdf</string>
+    <string name="upload_document">Upload Document</string>
+    <string name="availability">Availability</string>
+    <string name="enter_experience">Enter Experience</string>
+    <string name="years_of_experience">Years of Experience</string>
+    <string name="enter_bar_reg_no">Enter Bar Reg No</string>
+    <string name="bar_association_reg_number">Bar Association Reg Number</string>
+    <string name="work_details">Work Details</string>
+    <string name="summary">Summary</string>
+    <string name="enter_basic_fee">Enter basic fee</string>
+    <string name="costing">Costing</string>
+    <string name="language_spoken">Language Spoken</string>
+    <string name="enter_location">Enter Location</string>
+    <string name="location_of_service">Location of Service</string>
+    <string name="other_details">Other Details</string>
+
+
+    <string-array name="gender_array">
+        <item>Select Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+        <item>Prefer not to say</item>
+    </string-array>
+
+    <string-array name="availability_array">
+        <item>Select Availability</item>
+        <item>Part Time</item>
+        <item>Full Time</item>
+    </string-array>
+
+    <string-array name="indian_languages_array">
+        <item>Select Language</item>
+        <item>Hindi</item>
+        <item>English</item>
+        <item>Bengali</item>
+        <item>Telugu</item>
+        <item>Marathi</item>
+        <item>Tamil</item>
+        <item>Urdu</item>
+        <item>Kannada</item>
+        <item>Gujarati</item>
+        <item>Odia</item>
+        <item>Punjabi</item>
+        <item>Malayalam</item>
+        <item>Assamese</item>
+        <item>Rajasthani</item>
+        <item>Maithili</item>
+        <item>Bhojpuri</item>
+        <item>Sanskrit</item>
+    </string-array>
+
 </resources>

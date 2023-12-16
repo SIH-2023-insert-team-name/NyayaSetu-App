@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvLegalAssist.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_LSPSelectionFragment)
+            findNavController().navigate(R.id.action_homeFragment_to_addOtherDetailsFragment)
         }
 
         binding.cvConsultancy.setOnClickListener {

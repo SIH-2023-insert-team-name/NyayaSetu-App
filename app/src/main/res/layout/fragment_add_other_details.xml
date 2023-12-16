@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/sofiaprosoftbold"
-        android:text="Other Details"
+        android:text="@string/other_details"
         android:textSize="24sp"
         android:background="@color/white"
         android:textColor="@color/colorAccent"
@@ -49,7 +49,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Location of Service"
+                    android:text="@string/location_of_service"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -58,7 +58,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Enter Location">
+                    android:hint="@string/enter_location">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etLocation"
@@ -84,22 +84,31 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Languages Spoken"
+                    android:text="@string/language_spoken"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlLanguages"
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvLanguages"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="55dp"
                     android:layout_marginTop="8dp"
-                    android:hint="Languages">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etLanguages"
+                    app:cardCornerRadius="4dp"
+                    app:strokeColor="@color/grey">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etlLanguages"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_height="match_parent"
+                        android:hint="@string/choose_gender"
+                        android:layout_marginStart="10dp"
+                        >
+                        <Spinner
+                            android:id="@+id/languageSpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
 
             </LinearLayout>
 
@@ -118,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Costing"
+                    android:text="@string/costing"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -127,12 +136,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Enter basic fee">
+                    android:hint="@string/enter_basic_fee">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCost"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:inputType="number"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -152,7 +162,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Summary"
+                    android:text="@string/summary"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
@@ -161,11 +171,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Write a short summary about you">
+                    android:hint="@string/write_a_short_summary_about_you">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etSummary"
                         android:layout_width="match_parent"
+                        android:gravity="top"
                         android:layout_height="150dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -184,7 +195,7 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/background_gradient_rounded"
         android:fontFamily="@font/sofiaprosoftmedium"
-        android:text="Next"
+        android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/black"
         android:textSize="16sp"
