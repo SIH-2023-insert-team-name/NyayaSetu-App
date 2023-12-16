@@ -13,7 +13,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/sofiaprosoftbold"
-        android:text="Work Details"
+        android:text="Other Details"
         android:textSize="24sp"
         android:background="@color/white"
         android:textColor="@color/colorAccent"
@@ -36,7 +36,7 @@
             android:layout_marginTop="24dp"
             android:layout_height="wrap_content">
             <LinearLayout
-                android:id="@+id/llBarNumber"
+                android:id="@+id/llLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -49,19 +49,19 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Bar Association Reg Number"
+                    android:text="Location of Service"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlBarNumber"
+                    android:id="@+id/etlLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Enter Bar Reg No">
+                    android:hint="Enter Location">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etBarNumber"
+                        android:id="@+id/etLocation"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -69,7 +69,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llExperience"
+                android:id="@+id/llLanguages"
                 android:layout_width="match_parent"
                 app:layout_goneMarginTop="24dp"
                 android:layout_height="wrap_content"
@@ -78,25 +78,25 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llBarNumber">
+                app:layout_constraintTop_toBottomOf="@id/llLocation">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Years of Experience"
+                    android:text="Languages Spoken"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlExperience"
+                    android:id="@+id/etlLanguages"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Enter YOE">
+                    android:hint="Languages">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etExperience"
+                        android:id="@+id/etLanguages"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -104,7 +104,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llAvailability"
+                android:id="@+id/llCost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -112,25 +112,25 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llExperience">
+                app:layout_constraintTop_toBottomOf="@id/llLanguages">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Availability"
+                    android:text="Costing"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlAvailability"
+                    android:id="@+id/etlCost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="Full/Part Time">
+                    android:hint="Enter basic fee">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etAvailability"
+                        android:id="@+id/etCost"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -138,7 +138,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/llUploadFile"
+                android:id="@+id/llSummary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
@@ -146,181 +146,30 @@
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llAvailability">
+                app:layout_constraintTop_toBottomOf="@id/llCost">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="Upload Document"
+                    android:text="Summary"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:strokeColor="@color/grey">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tvFileName"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/nunito_semibold"
-                            android:text="document.pdf"
-                            android:textColor="@color/black"
-                            android:textSize="14dp" />
-
-                        <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btnUploadPaySlip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginVertical="8dp"
-                            android:layout_marginEnd="10dp"
-                            android:background="@drawable/background_gradient_rounded"
-                            android:paddingHorizontal="20dp"
-                            android:text="Upload"
-                            android:textAllCaps="false"
-                            android:textAlignment="center"
-                            android:textColor="@color/black" />
-
-                    </LinearLayout>
-
-
-                </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llCommissionNumber"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llUploadFile"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Commission Number"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/sofiaprosoftmedium"
-                    android:textColor="@color/black"
-                    />
-
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlCommissionNumber"
+                    android:id="@+id/etlSummary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Notary Commission Number"
                     android:layout_marginTop="8dp"
-                    >
+                    android:hint="Write a short summary about you">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etCommissionNumber"
-                        android:inputType="number"
+                        android:id="@+id/etSummary"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="150dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llCommissionExpiry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llCommissionNumber"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Commission Expiry Date"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/sofiaprosoftmedium"
-                    android:textColor="@color/black"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlCommissionExpiry"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Select Date"
-                    android:layout_marginTop="8dp"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etCommissionExpriy"
-                        android:inputType="number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llJurisdictionCovered"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginBottom="24dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llCommissionExpiry"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginHorizontal="16dp"
-                android:layout_marginTop="24dp"
-                >
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jurisdiction Covered"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/sofiaprosoftmedium"
-                    android:textColor="@color/black"
-                    />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etlJurisdictionCovered"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Select Jurisdiction"
-                    android:layout_marginTop="8dp"
-                    >
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/etJurisdictionCovered"
-                        android:inputType="number"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/groupNotary"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone"
-                app:constraint_referenced_ids="llCommissionNumber,llCommissionExpiry,llJurisdictionCovered"
-                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
