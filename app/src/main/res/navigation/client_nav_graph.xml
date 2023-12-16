@@ -27,18 +27,6 @@
         <action
             android:id="@+id/action_homeFragment_to_legalAidClinicFragment"
             app:destination="@id/legalAidClinicFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_LSPSelectionFragment"
-            app:destination="@id/LSPSelectionFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addPersonalDetailsFragment"
-            app:destination="@id/addPersonalDetailsFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addWorkDetailsFragment"
-            app:destination="@id/addWorkDetailsFragment" />
-        <action
-            android:id="@+id/action_homeFragment_to_addOtherDetailsFragment"
-            app:destination="@id/addOtherDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -101,20 +89,4 @@
         android:name="bharat.law.nyayasetu.client.ui.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
-    <fragment
-        android:id="@+id/LSPSelectionFragment"
-        android:name="bharat.law.nyayasetu.lawyer.LSPSelectionFragment"
-        android:label="LSPSelectionFragment" />
-    <fragment
-        android:id="@+id/addPersonalDetailsFragment"
-        android:name="bharat.law.nyayasetu.lawyer.AddPersonalDetailsFragment"
-        android:label="AddPersonalDetailsFragment" />
-    <fragment
-        android:id="@+id/addWorkDetailsFragment"
-        android:name="bharat.law.nyayasetu.lawyer.AddWorkDetailsFragment"
-        android:label="AddWorkDetailsFragment" />
-    <fragment
-        android:id="@+id/addOtherDetailsFragment"
-        android:name="bharat.law.nyayasetu.lawyer.AddOtherDetailsFragment"
-        android:label="AddOtherDetailsFragment" />
 </navigation>

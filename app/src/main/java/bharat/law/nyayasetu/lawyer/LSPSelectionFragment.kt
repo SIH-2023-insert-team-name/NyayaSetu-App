@@ -8,9 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentHomeBinding
 import bharat.law.nyayasetu.databinding.FragmentLSPSelectionBinding
+import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -35,10 +37,19 @@ class LSPSelectionFragment : Fragment() {
 
         binding.apply {
             btnNext.setOnClickListener{
-                Toast.makeText(requireContext(), "Selected: $selectedOption", Toast.LENGTH_SHORT).show()
+                when(selectedOption){
+                    Constants.LAWYER, Constants.NOTARY, Constants.DOCWRITER -> {
+                        val bundle = Bundle()
+                        bundle.putString("lspTpe", selectedOption)
+
+                        val fragment = AddPersonalDetailsFragment()
+                        fragment.arguments = bundle
+                        findNavController().navigate(R.id.action_LSPSelectionFragment2_to_addPersonalDetailsFragment, bundle)
+                    }
+                }
             }
             cvLawyer.setOnClickListener {
-                selectedOption = "Lawyer"
+                selectedOption = Constants.LAWYER
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -51,7 +62,7 @@ class LSPSelectionFragment : Fragment() {
             }
 
             cvNotary.setOnClickListener {
-                selectedOption = "Notary"
+                selectedOption = Constants.NOTARY
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -64,7 +75,7 @@ class LSPSelectionFragment : Fragment() {
             }
 
             cvDocumentWriter.setOnClickListener {
-                selectedOption = "Document Writer"
+                selectedOption = Constants.DOCWRITER
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))

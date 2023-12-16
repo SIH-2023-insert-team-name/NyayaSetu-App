@@ -4,6 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lawyer.LawyerActivity">
+    tools:context=".client.ClientActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutLawyer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/navHostFragmentLawyer"
+            android:name="androidx.navigation.fragment.NavHostFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/lawyer_nav_graph" />
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
