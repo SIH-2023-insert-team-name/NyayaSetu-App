@@ -323,11 +323,13 @@
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnAppointment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/button_green"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:background="@drawable/background_gradient_rounded"
             android:layout_marginHorizontal="15dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="50dp"
