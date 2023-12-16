@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         requireActivity().window.setStatusBarColor(ContextCompat.getColor(requireActivity(), R.color.white))
 
@@ -29,6 +29,9 @@ class HomeFragment : Fragment() {
         findNavController().navigate(R.id.action_homeFragment_to_lawyerAppointmentFragment)
         }
 
+        binding.cvLegalAssist.setOnClickListener{
+            findNavController().navigate(R.id.action_homeFragment_to_LSPSelectionFragment)
+        }
 
         binding.cvConsultancy.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_consultancyFragment)

@@ -94,4 +94,8 @@
         android:name="bharat.law.nyayasetu.lawyer.AddLawyerFragment"
         android:label="fragment_add_lawyer"
         tools:layout="@layout/fragment_add_lawyer" />
+    <fragment
+        android:id="@+id/LSPSelectionFragment"
+        android:name="bharat.law.nyayasetu.lawyer.LSPSelectionFragment"
+        android:label="LSPSelectionFragment" />
 </navigation>
