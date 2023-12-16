@@ -201,7 +201,7 @@
                             android:text="@string/upload"
                             android:textAllCaps="false"
                             android:textAlignment="center"
-                            android:textColor="@color/black" />
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
 
@@ -346,8 +346,9 @@
         android:fontFamily="@font/sofiaprosoftmedium"
         android:text="@string/next"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="16sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
