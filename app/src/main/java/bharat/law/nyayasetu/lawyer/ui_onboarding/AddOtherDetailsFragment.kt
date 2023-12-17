@@ -2,6 +2,7 @@ package bharat.law.nyayasetu.lawyer.ui_onboarding
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,9 +50,9 @@ class AddOtherDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         attachObservers()
         authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
-        val lspType = arguments?.getString("lspType")
-        val personalDetails = arguments?.getParcelable<PersonalDetailsData>("personalDetails")
-        val workDetails = arguments?.getParcelable<WorkDetailsData>("workDetails")
+        val lspType = arguments?.getString(Constants.LSP_TYPE)
+        val personalDetails = arguments?.getParcelable<PersonalDetailsData>(Constants.PERSONAL_DETAILS)
+        val workDetails = arguments?.getParcelable<WorkDetailsData>(Constants.WORK_DETAILS)
 
         var lawyerData = AddLawyerData()
         var notaryData = AddNotaryData()

@@ -2,8 +2,9 @@ package bharat.law.nyayasetu.utils
 
 class Constants {
     companion object {
-                const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
-//        const val BASE_URL = "https://sih-backend-palaksv.onrender.com/"
+        const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
+
+        //        const val BASE_URL = "https://sih-backend-palaksv.onrender.com/"
         const val REGISTER_SUCCESS = "successfully registered"
         const val AUTH_SUCCESS = "Auth successful"
         const val PREFERENCES_NAME = "SHAREDPREFS"
@@ -12,6 +13,9 @@ class Constants {
         const val NAME = "name"
         const val IS_LOGIN = "false"
         const val IS_LSP = "false"
+        const val LSP_TYPE = "lspType"
+        const val PERSONAL_DETAILS = "personalDetails"
+        const val WORK_DETAILS = "workDetails"
         const val IS_LSP_ONBOARDING_DONE = "false"
         const val CRIMINAL_CATEGORY = "criminal"
         const val BANKRUPTCY_CATEGORY = "criminal"

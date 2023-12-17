@@ -53,8 +53,8 @@ class AddWorkDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val lspType = arguments?.getString("lspType")
-        val personalDetails = arguments?.getParcelable<PersonalDetailsData>("personalDetails")
+        val lspType = arguments?.getString(Constants.LSP_TYPE)
+        val personalDetails = arguments?.getParcelable<PersonalDetailsData>(Constants.PERSONAL_DETAILS)
         when (lspType) {
             Constants.LAWYER -> {
                 binding.groupNotary.isVisible = false
@@ -120,9 +120,9 @@ class AddWorkDetailsFragment : Fragment() {
                 )
             }
             val bundle = Bundle()
-            bundle.putString("lspTpe", lspType)
-            bundle.putParcelable("personalDetails", personalDetails)
-            bundle.putParcelable("workDetails", workDetailsData)
+            bundle.putString(Constants.LSP_TYPE, lspType)
+            bundle.putParcelable(Constants.PERSONAL_DETAILS, personalDetails)
+            bundle.putParcelable(Constants.WORK_DETAILS, workDetailsData)
 
             val fragment = AddOtherDetailsFragment()
             fragment.arguments = bundle

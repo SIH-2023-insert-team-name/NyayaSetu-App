@@ -12,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddPersonalDetailsBinding
 import bharat.law.nyayasetu.models.PersonalDetailsData
+import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,7 +33,7 @@ class AddPersonalDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val lspType = arguments?.getString("lspType")
+        val lspType = arguments?.getString(Constants.LSP_TYPE)
 
         binding.btnNext.setOnClickListener{
             val personalDetails = PersonalDetailsData(
@@ -42,8 +43,8 @@ class AddPersonalDetailsFragment : Fragment() {
                 binding.etAge.text.toString().toInt()
             )
             val bundle = Bundle()
-            bundle.putString("lspTpe", lspType)
-            bundle.putParcelable("personalDetails", personalDetails)
+            bundle.putString(Constants.LSP_TYPE, lspType)
+            bundle.putParcelable(Constants.PERSONAL_DETAILS, personalDetails)
             val fragment = AddWorkDetailsFragment()
             fragment.arguments = bundle
             findNavController().navigate(R.id.action_addPersonalDetailsFragment_to_addWorkDetailsFragment, bundle)

@@ -40,13 +40,13 @@ interface ApiInterface {
         @Body addLawyerData: AddLawyerData
     ): Response<AddLawyerResponseData>
 
-    @POST("/add/notary")
+    @POST("/add/docwriter")
     suspend fun addDocWriter(
         @Header("Authorization") authToken: String,
         @Body addDocWriterData: AddDocWriterData
     ): Response<AddDocWriterResponseData>
 
-    @POST("/add/docwriter")
+    @POST("/add/notary")
     suspend fun addNotary(
         @Header("Authorization") authToken: String,
         @Body addNotaryData: AddNotaryData
