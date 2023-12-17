@@ -1,4 +1,4 @@
-package bharat.law.nyayasetu.lawyer
+package bharat.law.nyayasetu.lawyer.ui_onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddPersonalDetailsBinding
+import bharat.law.nyayasetu.models.PersonalDetailsData
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +19,7 @@ class AddPersonalDetailsFragment : Fragment() {
 
     private var _binding: FragmentAddPersonalDetailsBinding? = null
 
-    val args: AddPersonalDetailsFragmentArgs by navArgs()
+    var selectedGender: String? = null
     private val binding
         get() = _binding!!
     override fun onCreateView(
@@ -33,9 +34,16 @@ class AddPersonalDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnNext.setOnClickListener{
+            val personalDetails = PersonalDetailsData(
+                binding.etName.text.toString(),
+                binding.etAadhar.text.toString(),
+                selectedGender,
+                binding.etAge.text.toString().toInt()
+            )
+            val lspType = arguments?.getString("lspType")
             val bundle = Bundle()
-            bundle.putString("lspTpe", args.lspType)
-
+            bundle.putString("lspTpe", lspType)
+            bundle.putParcelable("personalDetails", personalDetails)
             val fragment = AddWorkDetailsFragment()
             fragment.arguments = bundle
             findNavController().navigate(R.id.action_addPersonalDetailsFragment_to_addWorkDetailsFragment, bundle)
@@ -57,7 +65,7 @@ class AddPersonalDetailsFragment : Fragment() {
                 position: Int,
                 id: Long
             ) {
-                val selectedGender = parent.getItemAtPosition(position).toString()
+                selectedGender = parent.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {

@@ -1,4 +1,4 @@
-package bharat.law.nyayasetu.lawyer
+package bharat.law.nyayasetu.lawyer.ui_onboarding
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,11 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import bharat.law.nyayasetu.R
-import bharat.law.nyayasetu.databinding.FragmentHomeBinding
 import bharat.law.nyayasetu.databinding.FragmentLSPSelectionBinding
 import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint

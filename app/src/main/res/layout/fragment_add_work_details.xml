@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lawyer.AddLawyerFragment">
+    tools:context=".lawyer.ui_onboarding.AddWorkDetailsFragment">
 
     <TextView
         android:id="@+id/textHolder"
@@ -179,7 +179,7 @@
 
                         <TextView
                             android:id="@+id/tvFileName"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:layout_marginStart="10dp"
@@ -188,10 +188,10 @@
                             android:fontFamily="@font/nunito_semibold"
                             android:text="@string/document_pdf"
                             android:textColor="@color/black"
-                            android:textSize="14dp" />
+                            android:textSize="14sp" />
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btnUploadPaySlip"
+                            android:id="@+id/btnUploadFile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginVertical="8dp"
@@ -300,7 +300,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/jurisdiction_covered"
+                    android:text="@string/area_of_jurisdiction"
                     android:textSize="18sp"
                     android:fontFamily="@font/sofiaprosoftmedium"
                     android:textColor="@color/black"

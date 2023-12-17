@@ -10,6 +10,8 @@ class Constants {
         const val AUTH_TOKEN = "auth"
         const val NAME = "name"
         const val IS_LOGIN = "false"
+        const val IS_LSP = "false"
+        const val IS_LSP_ONBOARDING_DONE = "false"
         const val CRIMINAL_CATEGORY = "criminal"
         const val BANKRUPTCY_CATEGORY = "criminal"
         const val CORPORATE_CATEGORY = "business"

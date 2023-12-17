@@ -1,11 +1,10 @@
-package bharat.law.nyayasetu.lawyer
+package bharat.law.nyayasetu.lawyer.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import bharat.law.nyayasetu.R
-import bharat.law.nyayasetu.databinding.ActivityClientBinding
 import bharat.law.nyayasetu.databinding.ActivityLawyerBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +20,5 @@ class LawyerActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         setContentView(binding.root)
-
     }
 }

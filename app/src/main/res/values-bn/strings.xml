@@ -17,7 +17,7 @@
     <string name="enter_your_age">Enter Your Age</string>
     <string name="write_a_short_summary_about_you">Write a short summary about you</string>
     <string name="select_jurisdiction">Select Jurisdiction</string>
-    <string name="jurisdiction_covered">Jurisdiction Covered</string>
+    <string name="area_of_jurisdiction">Area of Jurisdiction</string>
     <string name="select_date">Select Date</string>
     <string name="commission_expiry_date">Commission Expiry Date</string>
     <string name="notary_commission_number">Notary Commission Number</string>
@@ -34,9 +34,9 @@
     <string name="summary">Summary</string>
     <string name="enter_basic_fee">Enter basic fee</string>
     <string name="costing">Costing</string>
-    <string name="language_spoken">Language Spoken</string>
+    <string name="choose_your_language">Choose Your Language</string>
     <string name="enter_location">Enter Location</string>
-    <string name="location_of_service">Location of Service</string>
+    <string name="location_of_service">Area of Service</string>
     <string name="other_details">Other Details</string>
     <string name="type_your_email">Type your Email</string>
     <string name="type_your_password">Type Your Password</string>

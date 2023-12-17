@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".lawyer.AddLawyerFragment">
+    tools:context=".lawyer.ui_onboarding.AddOtherDetailsFragment">
 
     <TextView
         android:id="@+id/textHolder"
@@ -84,7 +84,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/sofiaprosoftmedium"
-                    android:text="@string/language_spoken"
+                    android:text="@string/choose_your_language"
                     android:textColor="@color/black"
                     android:textSize="18sp" />
 

@@ -8,7 +8,6 @@ data class AddLawyerData(
     val category: String,
     val cost: Int,
     val document_url: String,
-    val email: String,
     val experience: Int,
     val gender: String,
     val incentive_level: String,
@@ -18,7 +17,5 @@ data class AddLawyerData(
     val points: Int,
     val profile_pic: String,
     val rating: Double,
-    val serial_no: Int,
-    val summary: String,
-    val username: String
+    val summary: String
 )

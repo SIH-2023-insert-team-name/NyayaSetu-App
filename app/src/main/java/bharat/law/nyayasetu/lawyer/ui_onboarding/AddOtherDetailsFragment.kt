@@ -1,5 +1,6 @@
-package bharat.law.nyayasetu.lawyer
+package bharat.law.nyayasetu.lawyer.ui_onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +10,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddOtherDetailsBinding
-import bharat.law.nyayasetu.databinding.FragmentAddPersonalDetailsBinding
+import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
+import bharat.law.nyayasetu.lawyer.activities.LawyerOnboardingActivity
+import bharat.law.nyayasetu.utils.AppSession
+import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -53,6 +57,17 @@ class AddOtherDetailsFragment : Fragment() {
 
             }
         }
+
+        binding.btnNext.setOnClickListener {
+            goToLawyerDashboard()
+        }
+    }
+
+    private fun goToLawyerDashboard() {
+        AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
+        val intent = Intent(requireContext(), LawyerActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
     }
 
 }
