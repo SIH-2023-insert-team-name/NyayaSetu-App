@@ -3,6 +3,7 @@ package bharat.law.nyayasetu.di
 import android.content.Context
 import android.net.ConnectivityManager
 import bharat.law.nyayasetu.networking.ApiInterface
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,25 +23,6 @@ import javax.inject.Inject
 @Module
 @InstallIn(ViewModelComponent::class)
 object AppModule {
-
-    //    private var mClient: OkHttpClient? = null
-//
-//    val client: OkHttpClient
-//        get() {
-//            if (mClient == null) {
-//                val interceptor = HttpLoggingInterceptor()
-//                interceptor.level = HttpLoggingInterceptor.Level.BODY
-//
-//                val httpBuilder = OkHttpClient.Builder()
-//                httpBuilder
-//                    .connectTimeout(15, TimeUnit.SECONDS)
-//                    .readTimeout(20, TimeUnit.SECONDS)
-//                    .addInterceptor(ConnectVerifierInterceptor())  // Add the network availability check interceptor
-//                    .addInterceptor(interceptor)  // Show all JSON in logCat
-//                mClient = httpBuilder.build()
-//            }
-//            return mClient!!
-//        }
     @Provides
     fun provideHttpLoggingInterceptor(): HttpLoggingInterceptor {
         val interceptor = HttpLoggingInterceptor()
@@ -54,15 +36,22 @@ object AppModule {
     }
 
     @Provides
+    fun provideChuckerInterceptor(@ApplicationContext context: Context): ChuckerInterceptor {
+        return ChuckerInterceptor(context)
+    }
+
+    @Provides
     fun provideOkHttpClient(
         loggingInterceptor: HttpLoggingInterceptor,
-        connectVerifierInterceptor: Interceptor
+        connectVerifierInterceptor: Interceptor,
+        chuckerInterceptor: ChuckerInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(15, TimeUnit.SECONDS)
             .readTimeout(20, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
             .addInterceptor(connectVerifierInterceptor)
+            .addInterceptor(chuckerInterceptor)
             .build()
     }
 
