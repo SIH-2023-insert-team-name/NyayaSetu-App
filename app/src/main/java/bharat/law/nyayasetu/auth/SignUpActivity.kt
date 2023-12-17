@@ -106,10 +106,43 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         lawyerViewModel.registerResponse.observe(this, Observer {
-            if (it.body()?.message == Constants.REGISTER_SUCCESS) {
-                binding.progressBar.isVisible = false
-                goToLogin()
-            }
+            binding.progressBar.isVisible = false
+                when(it.code()){
+                    Constants.CODE_200->{
+                        val data = it.body()
+                        if (data?.message == Constants.REGISTER_SUCCESS) {
+
+                            goToLogin()
+                        } else {
+                            Toast.makeText(this, Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    Constants.ERR_201->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_400->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_401->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_402->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_403->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_404->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_500->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                    Constants.ERR_503->{
+                        Toast.makeText(this, it.message(), Toast.LENGTH_SHORT).show()
+                    }
+                }
+
         })
     }
 
