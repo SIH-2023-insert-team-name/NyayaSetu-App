@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_grey"
+    android:background="@color/light_grey"
     android:padding="5dp"
     tools:context=".auth.LoginActivity">
 
@@ -58,6 +58,7 @@
         app:boxCornerRadiusTopEnd="8dp"
         app:boxStrokeColor="@color/border_color"
         android:textColorHint="@color/border_color"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvWelcomeText">
@@ -67,7 +68,6 @@
             style="@style/LoginTextInputInnerFieldStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_with_stroke"
             android:hint="@string/type_your_email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,6 +87,7 @@
         app:boxCornerRadiusTopStart="8dp"
         app:boxCornerRadiusTopEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:boxBackgroundColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailLayout"
         app:passwordToggleEnabled="true">
@@ -96,7 +97,6 @@
             style="@style/LoginTextInputInnerFieldStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_with_stroke"
             android:hint="@string/type_your_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>

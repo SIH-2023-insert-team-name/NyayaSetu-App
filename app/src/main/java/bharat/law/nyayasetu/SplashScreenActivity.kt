@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.VideoView
 import androidx.core.content.ContextCompat
 import androidx.core.view.postDelayed
@@ -29,8 +30,8 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.yellow))
-//        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+//        window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.light_grey))
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         isLogin = AppSession(this).getBoolean(Constants.IS_LOGIN)
         isLSP = AppSession(this).getBoolean(Constants.IS_LSP)
         isLSPOnboardingDone = AppSession(this).getBoolean(Constants.IS_LSP_ONBOARDING_DONE)

@@ -48,7 +48,7 @@ class LSPSelectionFragment : Fragment() {
             }
             cvLawyer.setOnClickListener {
                 selectedOption = Constants.LAWYER
-                clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))
+                clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 tvLawyer.setTextColor(Color.WHITE)
@@ -62,7 +62,7 @@ class LSPSelectionFragment : Fragment() {
             cvNotary.setOnClickListener {
                 selectedOption = Constants.NOTARY
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
-                clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))
+                clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 tvNotary.setTextColor(Color.WHITE)
                 tvLawyer.setTextColor(Color.BLACK)
@@ -76,7 +76,7 @@ class LSPSelectionFragment : Fragment() {
                 selectedOption = Constants.DOCWRITER
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
-                clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.material_blue))
+                clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
                 tvDocumentWriter.setTextColor(Color.WHITE)
                 tvNotary.setTextColor(Color.BLACK)
                 tvLawyer.setTextColor(Color.BLACK)

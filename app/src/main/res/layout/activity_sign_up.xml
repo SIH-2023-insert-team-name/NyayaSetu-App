@@ -64,6 +64,7 @@
             app:boxCornerRadiusBottomStart="8dp"
             app:boxCornerRadiusTopStart="8dp"
             app:boxCornerRadiusTopEnd="8dp"
+            app:boxBackgroundColor="@color/white"
             android:textColorHint="@color/border_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +74,6 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_with_stroke"
                 android:hint="@string/type_your_name"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -93,7 +93,7 @@
             app:boxCornerRadiusTopEnd="8dp"
             android:textColorHint="@color/border_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:boxBackgroundColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameLayout">
 
@@ -101,7 +101,6 @@
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_with_stroke"
                 android:hint="@string/type_your_email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -121,7 +120,7 @@
             app:boxCornerRadiusTopEnd="8dp"
             android:textColorHint="@color/border_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:boxBackgroundColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/emailLayout"
             app:passwordToggleEnabled="true">
@@ -130,7 +129,6 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_with_stroke"
                 android:hint="@string/type_your_password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -150,7 +148,7 @@
             app:boxCornerRadiusTopEnd="8dp"
             android:textColorHint="@color/border_color"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:boxBackgroundColor="@color/white"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordLayout"
             app:passwordToggleEnabled="true">
@@ -159,7 +157,6 @@
                 android:id="@+id/confirmPassEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_with_stroke"
                 android:hint="@string/retype_your_password"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
