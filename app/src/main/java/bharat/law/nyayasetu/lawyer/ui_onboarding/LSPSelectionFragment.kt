@@ -38,7 +38,7 @@ class LSPSelectionFragment : Fragment() {
                 when(selectedOption){
                     Constants.LAWYER, Constants.NOTARY, Constants.DOCWRITER -> {
                         val bundle = Bundle()
-                        bundle.putString("lspTpe", selectedOption)
+                        bundle.putString("lspType", selectedOption)
 
                         val fragment = AddPersonalDetailsFragment()
                         fragment.arguments = bundle
