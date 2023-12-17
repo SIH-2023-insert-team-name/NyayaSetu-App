@@ -4,9 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signin_screen"
+    android:background="@color/material_grey"
+    android:padding="5dp"
     tools:context=".auth.LoginActivity">
 
+    <ImageView
+        android:id="@+id/ivLawJustice"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_law_justice"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/ic_swach_bharat"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_union"
+        app:layout_constraintTop_toBottomOf="@+id/ivLawJustice" />
+
+    <TextView
+        android:id="@+id/tvWelcomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_sign_in_to_continue"
+        android:fontFamily="@font/sofiaprosoftmedium"
+        android:textSize="20sp"
+        android:textColor="@color/black_tile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"
@@ -14,19 +51,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="350dp"
-        app:boxStrokeColor="@color/yellow"
-        app:hintTextColor="@color/yellow"
+        android:layout_marginTop="20dp"
+        app:boxCornerRadiusBottomEnd="8dp"
+       app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
+        app:boxStrokeColor="@color/border_color"
+        android:textColorHint="@color/border_color"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/tvWelcomeText">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etEmail"
             style="@style/LoginTextInputInnerFieldStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/background_with_stroke"
             android:hint="@string/type_your_email"
             android:inputType="textEmailAddress" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -38,10 +79,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="24dp"
-        app:boxStrokeColor="@color/yellow"
-        app:hintTextColor="@color/yellow"
+        app:boxStrokeColor="@color/border_color"
+        app:hintTextColor="@color/border_color"
+        app:boxCornerRadiusBottomEnd="8dp"
+        android:textColorHint="@color/border_color"
+        app:boxCornerRadiusBottomStart="8dp"
+        app:boxCornerRadiusTopStart="8dp"
+        app:boxCornerRadiusTopEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/emailLayout"
         app:passwordToggleEnabled="true">
@@ -51,6 +96,7 @@
             style="@style/LoginTextInputInnerFieldStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/background_with_stroke"
             android:hint="@string/type_your_password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -58,42 +104,29 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnSignIn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/background_gradient_rounded"
         android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordLayout" />
 
     <TextView
-        android:id="@+id/tvSign"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:text="@string/not_registered_yet"
-        android:fontFamily="@font/sofiaprosoftmedium"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/tvSignUp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
-
-    <TextView
         android:id="@+id/tvSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorError"
-        android:text="@string/sign_up"
-        android:fontFamily="@font/sofiaprosoftbold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/sofiaprosoftmedium"
+        android:text="@string/not_registered_yet"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/tvSign"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/btnSignIn"
         app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

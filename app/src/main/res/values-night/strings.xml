@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="not_registered_yet">Not Registered Yet ?</string>
+    <string name="not_registered_yet">Not Registered Yet , <b>Sign Up!</b></string>
     <string name="sign_up">Sign Up !</string>
     <string name="type_your_name">Type your Name</string>
     <string name="retype_your_password">Retype Your Password</string>
     <string name="are_you_a_legal_service_provider">Are you a legal service provider?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
-    <string name="already_registered_sign_in">Already Registered , Sign In !</string>
+    <string name="already_registered_sign_in">Already Registered , <b>Sign In !</b></string>
     <string name="available_lawyers">Available Lawyers</string>
     <string name="book_appointment">Book Appointment</string>
     <string name="bankruptcy_lawyer">Bankruptcy Lawyer</string>
@@ -23,4 +23,6 @@
     <string name="personal_injury_lawyer">Personal Injury Lawyer</string>
     <string name="tax_lawyer">Tax Lawyer</string>
     <string name="book_an_appointment">Book an Appointment</string>
+    <string name="welcome_sign_in_to_continue">Welcome, Sign in to continue!</string>
+    <string name="create_a_new_account">Create a new account</string>
 </resources>

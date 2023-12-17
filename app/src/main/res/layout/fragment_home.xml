@@ -35,7 +35,9 @@
                 android:layout_gravity="end"
                 android:src="@drawable/ic_swach_bharat"
                 app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </LinearLayout>
 
     <ImageView
@@ -71,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:src="@drawable/ic_lawyer_appointment" />
+
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView

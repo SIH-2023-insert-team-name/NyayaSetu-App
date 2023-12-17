@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.yellow))
+        window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.light_grey))
 
 
         binding.tvSignUp.setOnClickListener {
