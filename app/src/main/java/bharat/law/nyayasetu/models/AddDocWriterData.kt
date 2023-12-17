@@ -1,21 +1,24 @@
 package bharat.law.nyayasetu.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class AddDocWriterData(
-    val aadhar: String,
-    val age: Int,
-    val availability: String,
-    val cost: Double,
-    val document_url: String,
-    val email: String,
-    val experience: Int,
-    val gender: String,
-    val incentive_level: String,
-    val languages_spoken: List<String>,
-    val location: String,
-    val name: String,
-    val points: Int,
-    val profile_pic: String,
-    val rating: Double,
-    val summary: String,
-    val username: String
-)
+    val aadhar: String? = null,
+    val age: Int? = null,
+    val availability: String? = null,
+    val cost: Double? = null,
+    val document_url: String? = null,
+    val experience: Int? = null,
+    val gender: String? = null,
+    val incentive_level: String? = null,
+    val languages_spoken: String? = null,
+    val location: String? = null,
+    val name: String? = null,
+    val points: Int? = null,
+    val profile_pic: String? = null,
+    val rating: Double? = null,
+    val summary: String? = null,
+    val username: String? = null
+): Parcelable

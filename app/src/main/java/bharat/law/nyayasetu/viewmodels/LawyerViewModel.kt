@@ -4,9 +4,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import bharat.law.nyayasetu.models.AddDocWriterData
+import bharat.law.nyayasetu.models.AddDocWriterResponseData
 import bharat.law.nyayasetu.models.AddLawyerData
+import bharat.law.nyayasetu.models.AddLawyerResponseData
 import bharat.law.nyayasetu.models.AddLspDataResponse
 import bharat.law.nyayasetu.models.AddNotaryData
+import bharat.law.nyayasetu.models.AddNotaryResponseData
 import bharat.law.nyayasetu.models.AddUserData
 import bharat.law.nyayasetu.models.AddUserDataResponse
 import bharat.law.nyayasetu.models.AuthUserData
@@ -31,8 +34,15 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
     val authResponse: MutableLiveData<Response<AuthUserDataResponse>> get() = _authResponse
 
 
-    private val _addLSPResponse = MutableLiveData<Response<AddLspDataResponse>>()
-    val addLSPResponse: MutableLiveData<Response<AddLspDataResponse>> get() = _addLSPResponse
+    private val _addLawyerResponse = MutableLiveData<Response<AddLawyerResponseData>>()
+    val addLawyerResponse: MutableLiveData<Response<AddLawyerResponseData>> get() = _addLawyerResponse
+
+    private val _addDocWriterResponse = MutableLiveData<Response<AddDocWriterResponseData>>()
+    val addDocWriterResponse: MutableLiveData<Response<AddDocWriterResponseData>> get() = _addDocWriterResponse
+
+    private val _addNotaryResponse = MutableLiveData<Response<AddNotaryResponseData>>()
+    val addNotaryResponse: MutableLiveData<Response<AddNotaryResponseData>> get() = _addNotaryResponse
+
 
 
     private val _addClientResponse = MutableLiveData<Response<AddUserDataResponse>>()
@@ -60,21 +70,21 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
     fun addLawyer(authToken: String, addLspData: AddLawyerData) {
         viewModelScope.launch {
             val addLResponse = repository.addLawyer(authToken, addLspData)
-            _addLSPResponse.value = addLResponse
+            _addLawyerResponse.value = addLResponse
         }
     }
 
     fun addNotary(authToken: String, addNotaryData: AddNotaryData) {
         viewModelScope.launch {
-            val addLResponse = repository.addNotary(authToken, addNotaryData)
-            _addLSPResponse.value = addLResponse
+            val addNotaryResponse = repository.addNotary(authToken, addNotaryData)
+            _addNotaryResponse.value = addNotaryResponse
         }
     }
 
     fun addDocWriter(authToken: String, addDocWriterData: AddDocWriterData) {
         viewModelScope.launch {
-            val addLResponse = repository.addDocWriter(authToken, addDocWriterData)
-            _addLSPResponse.value = addLResponse
+            val addDocWriterResponse = repository.addDocWriter(authToken, addDocWriterData)
+            _addDocWriterResponse.value = addDocWriterResponse
         }
     }
 

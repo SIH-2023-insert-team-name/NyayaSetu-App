@@ -97,6 +97,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etExperience"
+                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -271,15 +272,19 @@
                     android:id="@+id/etlCommissionExpiry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/background_rounded"
                     android:hint="@string/select_date"
                     android:layout_marginTop="8dp"
                     >
 
-                    <com.google.android.material.textfield.TextInputEditText
+                    <TextView
                         android:id="@+id/etCommissionExpriy"
-                        android:inputType="number"
+                        android:text="@string/dd_mm_yyyy"
+                        android:gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:textSize="16sp"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="55dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -327,7 +332,7 @@
                 android:id="@+id/groupNotary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:constraint_referenced_ids="llCommissionNumber,llCommissionExpiry,llJurisdictionCovered"
                 />
 

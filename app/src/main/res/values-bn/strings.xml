@@ -66,4 +66,5 @@
     <string name="book_an_appointment">এপয়েন্টমেন্ট বুক করুন</string>
     <string name="welcome_sign_in_to_continue">স্বাগতম, এগিয়ে যেতে সাইন-ইন করুন</string>
     <string name="create_a_new_account">নতুন অ্যাকাউন্ট তৈরি করুন</string>
+    <string name="dd_mm_yyyy">DD/MM/YYYY</string>
 </resources>

@@ -1,5 +1,6 @@
 package bharat.law.nyayasetu.lawyer.ui_onboarding
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -17,6 +18,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddWorkDetailsBinding
+import bharat.law.nyayasetu.models.PersonalDetailsData
+import bharat.law.nyayasetu.models.WorkDetailsData
 import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -26,14 +29,19 @@ import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 import java.io.FileOutputStream
 import java.lang.Exception
+import java.util.Calendar
 
 @AndroidEntryPoint
 class AddWorkDetailsFragment : Fragment() {
 
     private var _binding: FragmentAddWorkDetailsBinding? = null
+    lateinit var datePickerDialog: DatePickerDialog
+    private var uploadUri: Uri? = null
+    var selectedAvailability: String? = null
 
     private val binding
         get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,14 +54,17 @@ class AddWorkDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lspType = arguments?.getString("lspType")
-        when(lspType){
+        val personalDetails = arguments?.getParcelable<PersonalDetailsData>("personalDetails")
+        when (lspType) {
             Constants.LAWYER -> {
                 binding.groupNotary.isVisible = false
                 binding.llBarNumber.isVisible = true
             }
+
             Constants.NOTARY -> {
                 binding.groupNotary.isVisible = true
             }
+
             Constants.DOCWRITER -> {
                 binding.llBarNumber.isVisible = false
             }
@@ -68,55 +79,100 @@ class AddWorkDetailsFragment : Fragment() {
             binding.availabilitySpinner.adapter = adapter
         }
 
+        binding.etlCommissionExpiry.setOnClickListener {
+            showDatePickerDialog()
+        }
+        binding.etCommissionExpriy.setOnClickListener {
+            showDatePickerDialog()
+        }
+
         binding.btnNext.setOnClickListener {
+            var workDetailsData = WorkDetailsData()
+            if (lspType == Constants.LAWYER) {
+                workDetailsData = WorkDetailsData(
+                    binding.etBarNumber.text.toString(),
+                    binding.etExperience.text.toString().toInt(),
+                    selectedAvailability,
+                    uploadUri.toString(),
+                    " ",
+                    " ",
+                    " "
+                )
+            } else if (lspType == Constants.NOTARY) {
+                workDetailsData = WorkDetailsData(
+                    binding.etBarNumber.text.toString(),
+                    binding.etExperience.text.toString().toInt(),
+                    selectedAvailability,
+                    uploadUri.toString(),
+                    binding.etCommissionNumber.text.toString(),
+                    formatDateString(binding.etCommissionExpriy.text.toString()),
+                    binding.etJurisdictionCovered.text.toString()
+                )
+            } else if (lspType == Constants.DOCWRITER) {
+                workDetailsData = WorkDetailsData(
+                    " ",
+                    binding.etExperience.text.toString().toInt(),
+                    selectedAvailability,
+                    uploadUri.toString(),
+                    " ",
+                    " ",
+                    " "
+                )
+            }
             val bundle = Bundle()
             bundle.putString("lspTpe", lspType)
+            bundle.putParcelable("personalDetails", personalDetails)
+            bundle.putParcelable("workDetails", workDetailsData)
 
             val fragment = AddOtherDetailsFragment()
             fragment.arguments = bundle
-            findNavController().navigate(R.id.action_addWorkDetailsFragment_to_addOtherDetailsFragment, bundle)
+            findNavController().navigate(
+                R.id.action_addWorkDetailsFragment_to_addOtherDetailsFragment,
+                bundle
+            )
         }
 
-        binding.availabilitySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                val selectedAvailability = parent.getItemAtPosition(position).toString()
+        binding.availabilitySpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    selectedAvailability = parent.getItemAtPosition(position).toString()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
-            }
-        }
-
-        binding.btnUploadFile.setOnClickListener{
+        binding.btnUploadFile.setOnClickListener {
             chooseFile()
         }
 
     }
 
-    private fun uploadFile(uri: Uri){
-        viewLifecycleOwner.lifecycleScope.launch {
-
-            val filesDir = requireActivity().filesDir
-            val file = File(filesDir,"document.pdf")
-            val inputStream = requireActivity().contentResolver.openInputStream(uri)
-            val outputStream = FileOutputStream(file)
-            inputStream!!.copyTo(outputStream)
-
-            val requestBody = file.asRequestBody("application/pdf".toMediaTypeOrNull())
-            val paySlipBody = MultipartBody.Part.createFormData("file", file.name, requestBody)
-
-//            checkEligibilityViewModel.uploadPaySlip(
-//                "Bearer ${getToken()}",
-//                getAndroidDeviceID(),
-//                paySlipBody
-//            )
-        }
-    }
+//    private fun uploadFile(uri: Uri){
+//        viewLifecycleOwner.lifecycleScope.launch {
+//
+//            val filesDir = requireActivity().filesDir
+//            val file = File(filesDir,"document.pdf")
+//            val inputStream = requireActivity().contentResolver.openInputStream(uri)
+//            val outputStream = FileOutputStream(file)
+//            inputStream!!.copyTo(outputStream)
+//
+//            val requestBody = file.asRequestBody("application/pdf".toMediaTypeOrNull())
+//            val paySlipBody = MultipartBody.Part.createFormData("file", file.name, requestBody)
+//
+////            checkEligibilityViewModel.uploadPaySlip(
+////                "Bearer ${getToken()}",
+////                getAndroidDeviceID(),
+////                paySlipBody
+////            )
+//        }
+//    }
 
     private fun chooseFile() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
@@ -137,7 +193,8 @@ class AddWorkDetailsFragment : Fragment() {
             binding.tvFileName.text = file.name
 
             if (uri != null) {
-                uploadFile(uri)
+                uploadUri = uri
+//                uploadFile(uri)
             } else {
                 Toast.makeText(requireContext(), "NO FILE", Toast.LENGTH_SHORT).show()
             }
@@ -145,6 +202,51 @@ class AddWorkDetailsFragment : Fragment() {
         }
 
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    private fun showDatePickerDialog() {
+        val c = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
+
+
+        datePickerDialog = DatePickerDialog(
+            requireContext(), R.style.DatePickerDialogTheme,
+            { view, year, monthOfYear, dayOfMonth ->
+
+                // Display Selected date in textbox
+                binding.etCommissionExpriy.text = "${dayOfMonth}/${monthOfYear + 1}/${year}"
+
+                removeError()
+
+            }, year, month, day
+        )
+
+        datePickerDialog.show()
+
+    }
+
+    private fun removeError(){
+        binding.etCommissionExpriy.error = null
+    }
+
+    fun formatDateString(date: String): String {
+        val parts = date.split("/")
+
+        if (parts.size != 3) {
+            // Invalid date format, return the original string
+            return date
+        }
+
+        val day = parts[0]
+        val month = parts[1]
+        val year = parts[2]
+
+        val formattedDay = if (day.length == 1) "0$day" else day
+        val formattedMonth = if (month.length == 1) "0$month" else month
+
+        return "$formattedDay/$formattedMonth/$year"
     }
 
 }

@@ -1,6 +1,6 @@
 package bharat.law.nyayasetu.models
 
-data class DetailsX(
+data class ReviewDetails(
     val __v: Int,
     val _id: String,
     val client_email: String,

@@ -1,9 +1,12 @@
 package bharat.law.nyayasetu.networking
 
 import bharat.law.nyayasetu.models.AddDocWriterData
+import bharat.law.nyayasetu.models.AddDocWriterResponseData
 import bharat.law.nyayasetu.models.AddLawyerData
+import bharat.law.nyayasetu.models.AddLawyerResponseData
 import bharat.law.nyayasetu.models.AddLspDataResponse
 import bharat.law.nyayasetu.models.AddNotaryData
+import bharat.law.nyayasetu.models.AddNotaryResponseData
 import bharat.law.nyayasetu.models.AddReviewData
 import bharat.law.nyayasetu.models.AddReviewResponse
 import bharat.law.nyayasetu.models.AddUserData
@@ -35,19 +38,19 @@ interface ApiInterface {
     suspend fun addLawyer(
         @Header("Authorization") authToken: String,
         @Body addLawyerData: AddLawyerData
-    ): Response<AddLspDataResponse>
+    ): Response<AddLawyerResponseData>
 
     @POST("/add/notary")
     suspend fun addDocWriter(
         @Header("Authorization") authToken: String,
         @Body addDocWriterData: AddDocWriterData
-    ): Response<AddLspDataResponse>
+    ): Response<AddDocWriterResponseData>
 
     @POST("/add/docwriter")
     suspend fun addNotary(
         @Header("Authorization") authToken: String,
         @Body addNotaryData: AddNotaryData
-    ): Response<AddLspDataResponse>
+    ): Response<AddNotaryResponseData>
 
     @POST("/add/client")
     suspend fun addClient(
