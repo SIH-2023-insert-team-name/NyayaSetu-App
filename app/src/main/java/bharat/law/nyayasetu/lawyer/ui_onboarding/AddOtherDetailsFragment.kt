@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddOtherDetailsBinding
 import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
@@ -53,77 +55,6 @@ class AddOtherDetailsFragment : Fragment() {
         var notaryData = AddNotaryData()
         var docWriterData = AddDocWriterData()
 
-        when (lspType) {
-            Constants.LAWYER -> {
-                lawyerData = AddLawyerData(
-                    personalDetails?.aadhar,
-                    personalDetails?.age,
-                    workDetails?.availability,
-                    workDetails?.bar_reg_np,
-                    "",
-                    binding.etCost.text.toString().toInt(),
-                    workDetails?.document_url,
-                    workDetails?.yoe,
-                    personalDetails?.gender,
-                    "",
-                    languagesSpoken,
-                    binding.etLocation.text.toString(),
-                    personalDetails?.name,
-                    0,
-                    " ",
-                    5.0,
-                    binding.etSummary.text.toString()
-                )
-                viewModel.addLawyer(authToken, lawyerData)
-            }
-            Constants.NOTARY -> {
-                notaryData = AddNotaryData(
-                    personalDetails?.aadhar,
-                    personalDetails?.age,
-                    workDetails?.availability,
-                    workDetails?.bar_reg_np,
-                    workDetails?.comm_expiry_date,
-                    workDetails?.notary_comm_no,
-                    binding.etCost.text.toString().toInt(),
-                    workDetails?.document_url,
-                    workDetails?.yoe,
-                    personalDetails?.gender,
-                    "",
-                    workDetails?.jurisdiction_area,
-                    languagesSpoken,
-                    binding.etLocation.text.toString(),
-                    personalDetails?.name,
-                    0,
-                    " ",
-                    5,
-                    binding.etSummary.text.toString()
-                )
-                viewModel.addNotary(authToken, notaryData)
-            }
-            Constants.DOCWRITER -> {
-                docWriterData = AddDocWriterData(
-                    personalDetails?.aadhar,
-                    personalDetails?.age,
-                    workDetails?.availability,
-                    binding.etCost.text.toString().toDouble(),
-                    workDetails?.document_url,
-                    workDetails?.yoe,
-                    personalDetails?.gender,
-                    "",
-                    languagesSpoken,
-                    binding.etLocation.text.toString(),
-                    personalDetails?.name,
-                    0,
-                    " ",
-                    5.0,
-                    binding.etSummary.text.toString()
-                )
-                viewModel.addDocWriter(authToken, docWriterData)
-            }
-        }
-
-
-
 
         ArrayAdapter.createFromResource(
             requireContext(),
@@ -152,16 +83,118 @@ class AddOtherDetailsFragment : Fragment() {
             }
 
         binding.btnNext.setOnClickListener {
-            goToLawyerDashboard()
+            when (lspType) {
+                Constants.LAWYER -> {
+                    lawyerData = AddLawyerData(
+                        personalDetails?.aadhar,
+                        personalDetails?.age,
+                        workDetails?.availability,
+                        workDetails?.bar_reg_np,
+                        "",
+                        binding.etCost.text.toString().toInt(),
+                        workDetails?.document_url,
+                        workDetails?.yoe,
+                        personalDetails?.gender,
+                        "",
+                        languagesSpoken,
+                        binding.etLocation.text.toString(),
+                        personalDetails?.name,
+                        0,
+                        " ",
+                        5.0,
+                        binding.etSummary.text.toString()
+                    )
+                    viewModel.addLawyer(authToken, lawyerData)
+                }
+                Constants.NOTARY -> {
+                    notaryData = AddNotaryData(
+                        personalDetails?.aadhar,
+                        personalDetails?.age,
+                        workDetails?.availability,
+                        workDetails?.bar_reg_np,
+                        workDetails?.comm_expiry_date,
+                        workDetails?.notary_comm_no,
+                        binding.etCost.text.toString().toInt(),
+                        workDetails?.document_url,
+                        workDetails?.yoe,
+                        personalDetails?.gender,
+                        "",
+                        workDetails?.jurisdiction_area,
+                        languagesSpoken,
+                        binding.etLocation.text.toString(),
+                        personalDetails?.name,
+                        0,
+                        " ",
+                        5,
+                        binding.etSummary.text.toString()
+                    )
+                    viewModel.addNotary(authToken, notaryData)
+                }
+                Constants.DOCWRITER -> {
+                    docWriterData = AddDocWriterData(
+                        personalDetails?.aadhar,
+                        personalDetails?.age,
+                        workDetails?.availability,
+                        binding.etCost.text.toString().toDouble(),
+                        workDetails?.document_url,
+                        workDetails?.yoe,
+                        personalDetails?.gender,
+                        "",
+                        languagesSpoken,
+                        binding.etLocation.text.toString(),
+                        personalDetails?.name,
+                        0,
+                        " ",
+                        5.0,
+                        binding.etSummary.text.toString()
+                    )
+                    viewModel.addDocWriter(authToken, docWriterData)
+                }
+            }
+
+
+
         }
+
+        attachObservers()
     }
 
     private fun attachObservers() {
+        viewModel.addLawyerResponse.observe(viewLifecycleOwner, Observer {
+            val data = it.body()
+            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
+                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
+                goToLawyerDashboard()
+            } else {
+                Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+            }
+        })
 
+        viewModel.addDocWriterResponse.observe(viewLifecycleOwner, Observer {
+            val data = it.body()
+            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
+                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
+                goToLawyerDashboard()
+            } else {
+                Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+            }
+        })
+
+        viewModel.addNotaryResponse.observe(viewLifecycleOwner, Observer {
+            val data = it.body()
+            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
+                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
+                goToLawyerDashboard()
+            } else {
+                Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     private fun goToLawyerDashboard() {
-        AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
         val intent = Intent(requireContext(), LawyerActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
