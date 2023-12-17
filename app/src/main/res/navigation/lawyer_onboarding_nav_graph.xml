@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lawyer_nav_graph"
+    app:startDestination="@id/LSPSelectionFragment2">
+
+    <fragment
+        android:id="@+id/LSPSelectionFragment2"
+        android:name="bharat.law.nyayasetu.lawyer.ui_onboarding.LSPSelectionFragment"
+        android:label="LSPSelectionFragment" >
+        <action
+            android:id="@+id/action_LSPSelectionFragment2_to_addPersonalDetailsFragment"
+            app:destination="@id/addPersonalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPersonalDetailsFragment"
+        android:name="bharat.law.nyayasetu.lawyer.ui_onboarding.AddPersonalDetailsFragment"
+        android:label="AddPersonalDetailsFragment" >
+        <action
+            android:id="@+id/action_addPersonalDetailsFragment_to_addWorkDetailsFragment"
+            app:destination="@id/addWorkDetailsFragment" />
+        <argument
+            android:name="lspType"
+            app:argType="string"
+            />
+        <argument
+            android:name="personalDetails"
+            app:argType="bharat.law.nyayasetu.models.PersonalDetailsData" />
+    </fragment>
+    <fragment
+        android:id="@+id/addWorkDetailsFragment"
+        android:name="bharat.law.nyayasetu.lawyer.ui_onboarding.AddWorkDetailsFragment"
+        android:label="AddWorkDetailsFragment" >
+        <action
+            android:id="@+id/action_addWorkDetailsFragment_to_addOtherDetailsFragment"
+            app:destination="@id/addOtherDetailsFragment" />
+        <argument
+            android:name="lspType"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/addOtherDetailsFragment"
+        android:name="bharat.law.nyayasetu.lawyer.ui_onboarding.AddOtherDetailsFragment"
+        android:label="AddOtherDetailsFragment" >
+        <argument
+            android:name="lspType"
+            app:argType="string" />
+    </fragment>
+</navigation>
