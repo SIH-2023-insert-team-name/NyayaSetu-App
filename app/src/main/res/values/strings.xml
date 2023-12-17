@@ -69,16 +69,15 @@
 
     <string-array name="gender_array">
         <item>Select Gender</item>
-        <item>Male</item>
-        <item>Female</item>
-        <item>Other</item>
-        <item>Prefer not to say</item>
+        <item>male</item>
+        <item>female</item>
+        <item>other</item>=
     </string-array>
 
     <string-array name="availability_array">
         <item>Select Availability</item>
-        <item>Part-Time</item>
-        <item>Full-Time</item>
+        <item>Part-time</item>
+        <item>Full-time</item>
     </string-array>
 
     <string-array name="indian_languages_array">

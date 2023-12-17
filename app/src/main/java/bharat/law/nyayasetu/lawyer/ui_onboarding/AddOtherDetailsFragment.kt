@@ -173,15 +173,49 @@ class AddOtherDetailsFragment : Fragment() {
         })
 
         viewModel.addDocWriterResponse.observe(viewLifecycleOwner, Observer {
-            val data = it.body()
-            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
-                binding.progressBar4.isVisible = false
-                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
-                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
-                goToLawyerDashboard()
-            } else {
-                Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+
+            when(it.code()){
+                Constants.CODE_200->{
+                    val data = it.body()
+                    if (data?.message == Constants.SUCCESSFULLY_REGISTERED) {
+                        binding.progressBar4.isVisible = false
+                        AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
+                        Toast.makeText(
+                            requireContext(),
+                            Constants.SUCCESSFULLY_REGISTERED,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        goToLawyerDashboard()
+                    } else {
+                        Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+                    }
+                }
+                Constants.ERR_201->{
+                    showErrorCodeLog(Constants.ERR_201, it.message())
+                }
+                Constants.ERR_400->{
+                    showErrorCodeLog(Constants.ERR_400, it.message())
+                }
+                Constants.ERR_401->{
+                    showErrorCodeLog(Constants.ERR_401, it.message())
+                }
+                Constants.ERR_402->{
+                    showErrorCodeLog(Constants.ERR_402, it.message())
+                }
+                Constants.ERR_403->{
+                    showErrorCodeLog(Constants.ERR_403, it.message())
+                }
+                Constants.ERR_404->{
+                    showErrorCodeLog(Constants.ERR_404, it.message())
+                }
+                Constants.ERR_500->{
+                    showErrorCodeLog(Constants.ERR_500, it.message())
+                }
+                Constants.ERR_503->{
+                    showErrorCodeLog(Constants.ERR_503, it.message())
+                }
             }
+
         })
 
         viewModel.addNotaryResponse.observe(viewLifecycleOwner, Observer {
@@ -201,6 +235,10 @@ class AddOtherDetailsFragment : Fragment() {
         val intent = Intent(requireContext(), LawyerActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
+    }
+
+    private fun showErrorCodeLog(errCode: Int?, errMsg: String?){
+        Log.d("CODE_ERROR_NYAYA", "Error Code: $errCode, Error Msg: $errMsg")
     }
 
 }

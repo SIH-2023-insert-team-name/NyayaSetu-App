@@ -36,5 +36,17 @@ class Constants {
         const val OOPS_SW = "Oops! Something went wrong."
         const val TEST_AUTH_TOKEN =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RyZUB0ZXN0LmNvbSIsInBhc3N3b3JkIjoidGVzdHJlIiwiaWF0IjoxNzAyNDgyOTc0LCJleHAiOjE3MDI2NTU3NzR9.xVDQSl7C4nUfQJ5nzrUg4o_Fh3B6XEt1cW4fuf1jf9Y"
+
+        // Error Codes
+        const val ERR_404=404
+        const val ERR_401=401
+        const val ERR_402=402
+        const val ERR_403=403
+        const val ERR_400=400
+        const val ERR_500=500
+        const val ERR_503=503
+        const val CODE_200=200
+        const val ERR_201=201
+
     }
 }
