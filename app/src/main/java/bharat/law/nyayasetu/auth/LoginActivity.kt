@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.client.ClientActivity
@@ -39,6 +40,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btnSignIn.setOnClickListener {
+            binding.progressBar.isVisible = true
             val email = binding.etEmail.text.toString()
             val pass = binding.etPassword.text.toString()
 
@@ -56,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
 
         lawyerViewModel.authResponse.observe(this, Observer {
             if (it.body()?.message == Constants.AUTH_SUCCESS) {
+                binding.progressBar.isVisible = false
                 val isLSP = it.body()?.isLSP
                 AppSession(this).putString(Constants.LSP_STRING, it.body()?.isLSP.toString())
                 AppSession(this).putString(Constants.AUTH_TOKEN, it.body()?.token)

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.R
@@ -46,6 +47,7 @@ class AddOtherDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        attachObservers()
         authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
         val lspType = arguments?.getString("lspType")
         val personalDetails = arguments?.getParcelable<PersonalDetailsData>("personalDetails")
@@ -83,6 +85,7 @@ class AddOtherDetailsFragment : Fragment() {
             }
 
         binding.btnNext.setOnClickListener {
+            binding.progressBar4.isVisible = true
             when (lspType) {
                 Constants.LAWYER -> {
                     lawyerData = AddLawyerData(
@@ -151,18 +154,15 @@ class AddOtherDetailsFragment : Fragment() {
                     viewModel.addDocWriter(authToken, docWriterData)
                 }
             }
-
-
-
         }
 
-        attachObservers()
     }
 
     private fun attachObservers() {
         viewModel.addLawyerResponse.observe(viewLifecycleOwner, Observer {
             val data = it.body()
             if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                binding.progressBar4.isVisible = false
                 AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
                 Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
                 goToLawyerDashboard()
@@ -174,6 +174,7 @@ class AddOtherDetailsFragment : Fragment() {
         viewModel.addDocWriterResponse.observe(viewLifecycleOwner, Observer {
             val data = it.body()
             if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                binding.progressBar4.isVisible = false
                 AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
                 Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
                 goToLawyerDashboard()
@@ -185,6 +186,7 @@ class AddOtherDetailsFragment : Fragment() {
         viewModel.addNotaryResponse.observe(viewLifecycleOwner, Observer {
             val data = it.body()
             if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+                binding.progressBar4.isVisible = false
                 AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
                 Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
                 goToLawyerDashboard()

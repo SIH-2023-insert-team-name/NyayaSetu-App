@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.MainActivity
 import bharat.law.nyayasetu.R
@@ -44,6 +45,7 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         binding.btnSignUp.setOnClickListener {
+            binding.progressBar.isVisible = true
             email = binding.etEmail.text.toString()
             val name = binding.etName.text.toString()
             val pass = binding.etPassword.text.toString()
@@ -105,6 +107,7 @@ class SignUpActivity : AppCompatActivity() {
 
         lawyerViewModel.registerResponse.observe(this, Observer {
             if (it.body()?.message == Constants.REGISTER_SUCCESS) {
+                binding.progressBar.isVisible = false
                 goToLogin()
             }
         })
