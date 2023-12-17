@@ -32,6 +32,7 @@ class AddPersonalDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val lspType = arguments?.getString("lspType")
 
         binding.btnNext.setOnClickListener{
             val personalDetails = PersonalDetailsData(
@@ -40,7 +41,6 @@ class AddPersonalDetailsFragment : Fragment() {
                 selectedGender,
                 binding.etAge.text.toString().toInt()
             )
-            val lspType = arguments?.getString("lspType")
             val bundle = Bundle()
             bundle.putString("lspTpe", lspType)
             bundle.putParcelable("personalDetails", personalDetails)
