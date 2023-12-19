@@ -57,7 +57,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvLawyer"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
@@ -77,19 +77,22 @@
                     android:layout_marginStart="10dp"
                     android:text="@string/lawyer"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivLawyer"
+                    app:layout_constraintStart_toStartOf="@+id/ivLawyer" />
 
                 <ImageView
                     android:id="@+id/ivLawyer"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_person"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:src="@drawable/ic_lawyer_dark"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+
+                    app:layout_constraintBottom_toTopOf="@+id/tvLawyer"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -98,7 +101,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvNotary"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="10dp"
@@ -115,22 +118,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginStart="10dp"
                     android:text="@string/notary"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/ivNotary"
+                    app:layout_constraintStart_toStartOf="@+id/ivNotary" />
 
                 <ImageView
                     android:id="@+id/ivNotary"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_person"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:src="@drawable/ic_notary_appointment"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toTopOf="@+id/tvNotary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -147,7 +151,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/cvDocumentWriter"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
             app:cardCornerRadius="10dp">
@@ -163,66 +167,66 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:layout_marginStart="10dp"
                     android:text="@string/document_writer"
+                    android:gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
                 <ImageView
                     android:id="@+id/ivDocumentWriter"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_person"
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:src="@drawable/ic_document_writer"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toTopOf="@+id/tvDocumentWriter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvOthers"
             android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_height="120dp"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:backgroundTint="@color/material_blue"
-            android:visibility="invisible"
             app:cardCornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clOthers"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="10dp">
 
                 <TextView
+                    android:id="@+id/tvOthers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="20dp"
-                    android:textColor="@color/white"
-                    android:textSize="22sp"
+                    android:layout_margin="10dp"
+                    android:text="Others"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.google.android.material.radiobutton.MaterialRadioButton
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent" />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
-                    android:src="@drawable/ic_lawyer_appointment"
+                    android:id="@+id/ivOthers"
+                    android:layout_width="56dp"
+                    android:layout_height="52dp"
+                    android:src="@drawable/ic_others_dark"
                     android:visibility="visible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintBottom_toTopOf="@+id/tvOthers"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>

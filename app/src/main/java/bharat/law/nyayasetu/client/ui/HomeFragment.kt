@@ -31,10 +31,6 @@ class HomeFragment : Fragment() {
         }
     }
 
-    val slowPageTransformer = ViewPager2.PageTransformer { page, position ->
-        page.translationX = position * -page.width
-        page.alpha = 1.0f - Math.abs(position)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

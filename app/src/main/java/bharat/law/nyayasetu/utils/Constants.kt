@@ -36,6 +36,7 @@ class Constants {
         const val DOCWRITER = "Document Writer"
         const val SUCCESSFULLY_REGISTERED = "successfully registered"
         const val OOPS_SW = "Oops! Something went wrong."
+        const val OTHER = "Others"
         const val TEST_AUTH_TOKEN =
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRlc3RyZUB0ZXN0LmNvbSIsInBhc3N3b3JkIjoidGVzdHJlIiwiaWF0IjoxNzAyNDgyOTc0LCJleHAiOjE3MDI2NTU3NzR9.xVDQSl7C4nUfQJ5nzrUg4o_Fh3B6XEt1cW4fuf1jf9Y"
 

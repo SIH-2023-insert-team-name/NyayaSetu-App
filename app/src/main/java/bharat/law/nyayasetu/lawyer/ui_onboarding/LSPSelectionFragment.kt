@@ -36,7 +36,7 @@ class LSPSelectionFragment : Fragment() {
         binding.apply {
             btnNext.setOnClickListener{
                 when(selectedOption){
-                    Constants.LAWYER, Constants.NOTARY, Constants.DOCWRITER -> {
+                    Constants.LAWYER, Constants.NOTARY, Constants.DOCWRITER,Constants.OTHER -> {
                         val bundle = Bundle()
                         bundle.putString(Constants.LSP_TYPE, selectedOption)
 
@@ -51,12 +51,15 @@ class LSPSelectionFragment : Fragment() {
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                clOthers.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 tvLawyer.setTextColor(Color.WHITE)
                 tvNotary.setTextColor(Color.BLACK)
                 tvDocumentWriter.setTextColor(Color.BLACK)
-                ivLawyer.setImageResource(R.drawable.ic_person_white)
-                ivNotary.setImageResource(R.drawable.ic_person)
-                ivDocumentWriter.setImageResource(R.drawable.ic_person)
+                tvOthers.setTextColor(Color.BLACK)
+                ivLawyer.setImageResource(R.drawable.ic_lawyer_light)
+                ivNotary.setImageResource(R.drawable.ic_notary_appointment)
+                ivDocumentWriter.setImageResource(R.drawable.ic_document_writer)
+                ivOthers.setImageResource(R.drawable.ic_others_dark)
             }
 
             cvNotary.setOnClickListener {
@@ -64,12 +67,15 @@ class LSPSelectionFragment : Fragment() {
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                clOthers.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 tvNotary.setTextColor(Color.WHITE)
                 tvLawyer.setTextColor(Color.BLACK)
                 tvDocumentWriter.setTextColor(Color.BLACK)
-                ivLawyer.setImageResource(R.drawable.ic_person)
-                ivNotary.setImageResource(R.drawable.ic_person_white)
-                ivDocumentWriter.setImageResource(R.drawable.ic_person)
+                tvOthers.setTextColor(Color.BLACK)
+                ivLawyer.setImageResource(R.drawable.ic_lawyer_dark)
+                ivNotary.setImageResource(R.drawable.ic_notary_light)
+                ivDocumentWriter.setImageResource(R.drawable.ic_document_writer)
+                ivOthers.setImageResource(R.drawable.ic_others_dark)
             }
 
             cvDocumentWriter.setOnClickListener {
@@ -77,13 +83,33 @@ class LSPSelectionFragment : Fragment() {
                 clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
+                clOthers.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
                 tvDocumentWriter.setTextColor(Color.WHITE)
                 tvNotary.setTextColor(Color.BLACK)
                 tvLawyer.setTextColor(Color.BLACK)
-                ivLawyer.setImageResource(R.drawable.ic_person)
-                ivNotary.setImageResource(R.drawable.ic_person)
-                ivDocumentWriter.setImageResource(R.drawable.ic_person_white)
+                tvOthers.setTextColor(Color.BLACK)
+                ivLawyer.setImageResource(R.drawable.ic_lawyer_dark)
+                ivNotary.setImageResource(R.drawable.ic_notary_appointment)
+                ivDocumentWriter.setImageResource(R.drawable.ic_document_writer_light)
+                ivOthers.setImageResource(R.drawable.ic_others_dark)
             }
+
+            cvOthers.setOnClickListener {
+                selectedOption = Constants.OTHER
+                clLawyer.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                clNotary.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                clDocumentWriter.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                clOthers.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorAccent))
+                tvDocumentWriter.setTextColor(Color.BLACK)
+                tvNotary.setTextColor(Color.BLACK)
+                tvLawyer.setTextColor(Color.BLACK)
+                tvOthers.setTextColor(Color.WHITE)
+                ivLawyer.setImageResource(R.drawable.ic_lawyer_dark)
+                ivNotary.setImageResource(R.drawable.ic_notary_appointment)
+                ivDocumentWriter.setImageResource(R.drawable.ic_document_writer)
+                ivOthers.setImageResource(R.drawable.ic_others_light)
+            }
+
         }
     }
 
