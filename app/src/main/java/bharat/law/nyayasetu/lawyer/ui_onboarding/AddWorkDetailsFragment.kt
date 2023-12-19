@@ -38,6 +38,7 @@ class AddWorkDetailsFragment : Fragment() {
     lateinit var datePickerDialog: DatePickerDialog
     private var uploadUri: Uri? = null
     var selectedAvailability: String? = null
+    var selectedCategory: String? = null
 
     private val binding
         get() = _binding!!
@@ -59,6 +60,7 @@ class AddWorkDetailsFragment : Fragment() {
             Constants.LAWYER -> {
                 binding.groupNotary.isVisible = false
                 binding.llBarNumber.isVisible = true
+                binding.llCategory.isVisible = true
             }
 
             Constants.NOTARY -> {
@@ -79,6 +81,15 @@ class AddWorkDetailsFragment : Fragment() {
             binding.availabilitySpinner.adapter = adapter
         }
 
+        ArrayAdapter.createFromResource(
+            requireContext(),
+            R.array.lawyer_category,
+            android.R.layout.simple_spinner_item
+        ).also { adapter ->
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            binding.categorySpinner.adapter = adapter
+        }
+
         binding.etlCommissionExpiry.setOnClickListener {
             showDatePickerDialog()
         }
@@ -93,6 +104,7 @@ class AddWorkDetailsFragment : Fragment() {
                     binding.etBarNumber.text.toString(),
                     binding.etExperience.text.toString().toInt(),
                     selectedAvailability,
+                    selectedCategory,
                     uploadUri.toString(),
                     " ",
                     " ",
@@ -103,6 +115,7 @@ class AddWorkDetailsFragment : Fragment() {
                     binding.etBarNumber.text.toString(),
                     binding.etExperience.text.toString().toInt(),
                     selectedAvailability,
+                    "",
                     uploadUri.toString(),
                     binding.etCommissionNumber.text.toString(),
                     formatDateString(binding.etCommissionExpriy.text.toString()),
@@ -113,6 +126,7 @@ class AddWorkDetailsFragment : Fragment() {
                     " ",
                     binding.etExperience.text.toString().toInt(),
                     selectedAvailability,
+                    "",
                     uploadUri.toString(),
                     " ",
                     " ",
@@ -148,31 +162,27 @@ class AddWorkDetailsFragment : Fragment() {
                 }
             }
 
+        binding.categorySpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    selectedCategory = parent.getItemAtPosition(position).toString()
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+            }
+
         binding.btnUploadFile.setOnClickListener {
             chooseFile()
         }
 
     }
-
-//    private fun uploadFile(uri: Uri){
-//        viewLifecycleOwner.lifecycleScope.launch {
-//
-//            val filesDir = requireActivity().filesDir
-//            val file = File(filesDir,"document.pdf")
-//            val inputStream = requireActivity().contentResolver.openInputStream(uri)
-//            val outputStream = FileOutputStream(file)
-//            inputStream!!.copyTo(outputStream)
-//
-//            val requestBody = file.asRequestBody("application/pdf".toMediaTypeOrNull())
-//            val paySlipBody = MultipartBody.Part.createFormData("file", file.name, requestBody)
-//
-////            checkEligibilityViewModel.uploadPaySlip(
-////                "Bearer ${getToken()}",
-////                getAndroidDeviceID(),
-////                paySlipBody
-////            )
-//        }
-//    }
 
     private fun chooseFile() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)

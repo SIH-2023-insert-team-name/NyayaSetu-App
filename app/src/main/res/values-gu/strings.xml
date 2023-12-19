@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="category">Category</string>
+    <string name="choose_category">Choose Category</string>
 </resources>

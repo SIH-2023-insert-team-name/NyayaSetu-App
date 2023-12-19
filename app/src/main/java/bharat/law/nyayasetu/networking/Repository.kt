@@ -14,6 +14,8 @@ import bharat.law.nyayasetu.models.AuthUserDataResponse
 import bharat.law.nyayasetu.models.GetLawyersResponse
 import bharat.law.nyayasetu.models.RegisterData
 import bharat.law.nyayasetu.models.RegisterDataResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -27,12 +29,92 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
         return apiInterface.authUser(authUserData)
     }
 
-    suspend fun addLawyer(authToken: String,addLspData: AddLawyerData): Response<AddLawyerResponseData> {
-        return apiInterface.addLawyer(authToken,addLspData)
+    suspend fun addLawyer(
+        authToken: String,
+        aadhar: RequestBody,
+        age: RequestBody,
+        availability: RequestBody,
+        barAssociationRegNo: RequestBody,
+        category: RequestBody,
+        cost: RequestBody,
+        documentUrl: MultipartBody.Part,
+        experience: RequestBody,
+        gender: RequestBody,
+        incentiveLevel: RequestBody,
+        languagesSpoken: RequestBody,
+        location: RequestBody,
+        name: RequestBody,
+        points: RequestBody,
+        profilePic: RequestBody,
+        rating: RequestBody,
+        summary: RequestBody
+    ): Response<AddLawyerResponseData> {
+        return apiInterface.addLawyer(
+            authToken,
+            aadhar,
+            age,
+            availability,
+            barAssociationRegNo,
+            category,
+            cost,
+            documentUrl,
+            experience,
+            gender,
+            incentiveLevel,
+            languagesSpoken,
+            location,
+            name,
+            points,
+            profilePic,
+            rating,
+            summary
+        )
     }
 
-    suspend fun addNotary(authToken: String,addNotaryData: AddNotaryData): Response<AddNotaryResponseData> {
-        return apiInterface.addNotary(authToken,addNotaryData)
+    suspend fun addNotary(
+        authToken: String,
+        aadhar: RequestBody,
+        age: RequestBody,
+        availability: RequestBody,
+        barAssociationRegNo: RequestBody,
+        commissionExpiry: RequestBody,
+        commissionNo: RequestBody,
+        cost: RequestBody,
+        documentUrl: MultipartBody.Part,
+        experience: RequestBody,
+        gender: RequestBody,
+        incentiveLevel: RequestBody,
+        jurisdictionCovered: RequestBody,
+        languagesSpoken: RequestBody,
+        location: RequestBody,
+        name: RequestBody,
+        points: RequestBody,
+        profilePic: RequestBody,
+        rating: RequestBody,
+        summary: RequestBody
+    ): Response<AddNotaryResponseData> {
+        return apiInterface.addNotary(
+            authToken,
+            aadhar,
+            age,
+            availability,
+            barAssociationRegNo,
+            commissionExpiry,
+            commissionNo,
+            cost,
+            documentUrl,
+            experience,
+            gender,
+            incentiveLevel,
+            jurisdictionCovered,
+            languagesSpoken,
+            location,
+            name,
+            points,
+            profilePic,
+            rating,
+            summary
+        )
     }
 
     suspend fun addDocWriter(authToken: String,addDocWriterData: AddDocWriterData): Response<AddDocWriterResponseData> {

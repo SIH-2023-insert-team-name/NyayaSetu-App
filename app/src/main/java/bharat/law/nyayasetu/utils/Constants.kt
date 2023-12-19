@@ -48,5 +48,7 @@ class Constants {
         const val CODE_200=200
         const val ERR_201=201
 
+        const val INCENTIVE_NA="not applicable"
+
     }
 }

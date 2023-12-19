@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.client.ClientActivity
 import bharat.law.nyayasetu.databinding.ActivityLoginBinding
+import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
 import bharat.law.nyayasetu.lawyer.activities.LawyerOnboardingActivity
 import bharat.law.nyayasetu.models.AuthUserData
 import bharat.law.nyayasetu.utils.AppSession
@@ -60,10 +61,13 @@ class LoginActivity : AppCompatActivity() {
             if (it.body()?.message == Constants.AUTH_SUCCESS) {
                 binding.progressBar.isVisible = false
                 val isLSP = it.body()?.isLSP
+                val isOnboard = it.body()?.isOnboard
                 AppSession(this).putString(Constants.LSP_STRING, it.body()?.isLSP.toString())
                 AppSession(this).putString(Constants.AUTH_TOKEN, it.body()?.token)
 
-                if(isLSP == 1){
+                if (isLSP == 1 && isOnboard == true) {
+                    goToLawyerDashboard()
+                } else if (isLSP ==1 && isOnboard == false) {
                     goToLawyer()
                 } else {
                     goToClient()
@@ -73,17 +77,26 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun goToLawyer() {
-        AppSession(this).put(Constants.IS_LOGIN,true)
-        AppSession(this).put(Constants.IS_LSP,true)
+        AppSession(this).put(Constants.IS_LOGIN, true)
+        AppSession(this).put(Constants.IS_LSP, true)
         val intent = Intent(this, LawyerOnboardingActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
     }
 
+    private fun goToLawyerDashboard() {
+        AppSession(this).put(Constants.IS_LOGIN, true)
+        AppSession(this).put(Constants.IS_LSP, true)
+        val intent = Intent(this, LawyerActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
+    }
+
     private fun goToClient() {
-        AppSession(this).put(Constants.IS_LOGIN,true)
-        AppSession(this).put(Constants.IS_LSP,false)
+        AppSession(this).put(Constants.IS_LOGIN, true)
+        AppSession(this).put(Constants.IS_LSP, false)
         val intent = Intent(this, ClientActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)

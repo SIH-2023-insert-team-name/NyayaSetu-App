@@ -26,4 +26,6 @@
     <string name="welcome_sign_in_to_continue">Welcome, Sign in to continue!</string>
     <string name="create_a_new_account">Create a new account</string>
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
+    <string name="category">Category</string>
+    <string name="choose_category">Choose Category</string>
 </resources>

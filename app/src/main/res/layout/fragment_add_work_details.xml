@@ -212,6 +212,50 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/llCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:visibility="gone"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/llUploadFile">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sofiaprosoftmedium"
+                    android:text="@string/category"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/cvCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="8dp"
+                    app:cardCornerRadius="4dp"
+                    app:strokeColor="@color/grey">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etlCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="@string/choose_category"
+                        android:layout_marginStart="10dp"
+                        >
+                        <Spinner
+                            android:id="@+id/categorySpinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/llCommissionNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -321,7 +365,6 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etJurisdictionCovered"
-                        android:inputType="number"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -332,7 +375,7 @@
                 android:id="@+id/groupNotary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:constraint_referenced_ids="llCommissionNumber,llCommissionExpiry,llJurisdictionCovered"
                 />
 

@@ -20,6 +20,8 @@ import bharat.law.nyayasetu.models.RegisterDataResponse
 import bharat.law.nyayasetu.networking.Repository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -67,16 +69,110 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
         }
     }
 
-    fun addLawyer(authToken: String, addLspData: AddLawyerData) {
+//    fun addLawyer(authToken: String, addLspData: AddLawyerData) {
+//        viewModelScope.launch {
+//            val addLResponse = repository.addLawyer(authToken, addLspData)
+//            _addLawyerResponse.value = addLResponse
+//        }
+//    }
+
+//    fun addNotary(authToken: String, addNotaryData: AddNotaryData) {
+//        viewModelScope.launch {
+//            val addNotaryResponse = repository.addNotary(authToken, addNotaryData)
+//            _addNotaryResponse.value = addNotaryResponse
+//        }
+//    }
+
+    fun addLawyer(
+        authToken: String,
+        aadhar: RequestBody,
+        age: RequestBody,
+        availability: RequestBody,
+        barAssociationRegNo: RequestBody,
+        category: RequestBody,
+        cost: RequestBody,
+        documentUrl: MultipartBody.Part,
+        experience: RequestBody,
+        gender: RequestBody,
+        incentiveLevel: RequestBody,
+        languagesSpoken: RequestBody,
+        location: RequestBody,
+        name: RequestBody,
+        points: RequestBody,
+        profilePic: RequestBody,
+        rating: RequestBody,
+        summary: RequestBody
+    ) {
         viewModelScope.launch {
-            val addLResponse = repository.addLawyer(authToken, addLspData)
-            _addLawyerResponse.value = addLResponse
+            val addLawyerResponse = repository.addLawyer(
+                authToken,
+                aadhar,
+                age,
+                availability,
+                barAssociationRegNo,
+                category,
+                cost,
+                documentUrl,
+                experience,
+                gender,
+                incentiveLevel,
+                languagesSpoken,
+                location,
+                name,
+                points,
+                profilePic,
+                rating,
+                summary
+            )
+            _addLawyerResponse.value = addLawyerResponse
         }
     }
 
-    fun addNotary(authToken: String, addNotaryData: AddNotaryData) {
+    fun addNotary(
+        authToken: String,
+        aadhar: RequestBody,
+        age: RequestBody,
+        availability: RequestBody,
+        barAssociationRegNo: RequestBody,
+        commissionExpiry: RequestBody,
+        commissionNo: RequestBody,
+        cost: RequestBody,
+        documentUrl: MultipartBody.Part,
+        experience: RequestBody,
+        gender: RequestBody,
+        incentiveLevel: RequestBody,
+        jurisdictionCovered: RequestBody,
+        languagesSpoken: RequestBody,
+        location: RequestBody,
+        name: RequestBody,
+        points: RequestBody,
+        profilePic: RequestBody,
+        rating: RequestBody,
+        summary: RequestBody
+    ) {
         viewModelScope.launch {
-            val addNotaryResponse = repository.addNotary(authToken, addNotaryData)
+            val addNotaryResponse = repository.addNotary(
+                authToken,
+                aadhar,
+                age,
+                availability,
+                barAssociationRegNo,
+                commissionExpiry,
+                commissionNo,
+                cost,
+                documentUrl,
+                experience,
+                gender,
+                incentiveLevel,
+                jurisdictionCovered,
+                languagesSpoken,
+                location,
+                name,
+                points,
+                profilePic,
+                rating,
+                summary
+            )
             _addNotaryResponse.value = addNotaryResponse
         }
     }

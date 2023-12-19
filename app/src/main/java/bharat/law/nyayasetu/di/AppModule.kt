@@ -47,8 +47,8 @@ object AppModule {
         chuckerInterceptor: ChuckerInterceptor
     ): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(15, TimeUnit.SECONDS)
-            .readTimeout(20, TimeUnit.SECONDS)
+            .connectTimeout(45, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
             .addInterceptor(loggingInterceptor)
             .addInterceptor(connectVerifierInterceptor)
             .addInterceptor(chuckerInterceptor)

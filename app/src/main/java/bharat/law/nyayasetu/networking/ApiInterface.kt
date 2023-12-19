@@ -17,11 +17,15 @@ import bharat.law.nyayasetu.models.GetLawyersResponse
 import bharat.law.nyayasetu.models.RegisterData
 import bharat.law.nyayasetu.models.RegisterDataResponse
 import bharat.law.nyayasetu.models.UserReviewsDataResponse
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 
 interface ApiInterface {
     @POST("register")
@@ -34,10 +38,33 @@ interface ApiInterface {
         @Body authUserData: AuthUserData
     ): Response<AuthUserDataResponse>
 
+//    @POST("/add/lawyer")
+//    suspend fun addLawyer(
+//        @Header("Authorization") authToken: String,
+//        @Body addLawyerData: AddLawyerData
+//    ): Response<AddLawyerResponseData>
+
+    @Multipart
     @POST("/add/lawyer")
     suspend fun addLawyer(
         @Header("Authorization") authToken: String,
-        @Body addLawyerData: AddLawyerData
+        @Part("aadhar") aadhar: RequestBody,
+        @Part("age") age: RequestBody,
+        @Part("availability") availability: RequestBody,
+        @Part("bar_association_reg_no") barAssociationRegNo: RequestBody,
+        @Part("category") category: RequestBody,
+        @Part("cost") cost: RequestBody,
+        @Part documentUrl: MultipartBody.Part,
+        @Part("experience") experience: RequestBody,
+        @Part("gender") gender: RequestBody,
+        @Part("incentive_level") incentiveLevel: RequestBody,
+        @Part("languages_spoken") languagesSpoken: RequestBody,
+        @Part("location") location: RequestBody,
+        @Part("name") name: RequestBody,
+        @Part("points") points: RequestBody,
+        @Part("profile_pic") profilePic: RequestBody,
+        @Part("rating") rating: RequestBody,
+        @Part("summary") summary: RequestBody
     ): Response<AddLawyerResponseData>
 
     @POST("/add/docwriter")
@@ -46,10 +73,36 @@ interface ApiInterface {
         @Body addDocWriterData: AddDocWriterData
     ): Response<AddDocWriterResponseData>
 
+//    @Multipart
+//    @POST("/add/notary")
+//    suspend fun addNotary(
+//        @Header("Authorization") authToken: String,
+//        @Body addNotaryData: AddNotaryData
+//    ): Response<AddNotaryResponseData>
+
+    @Multipart
     @POST("/add/notary")
     suspend fun addNotary(
         @Header("Authorization") authToken: String,
-        @Body addNotaryData: AddNotaryData
+        @Part("aadhar") aadhar: RequestBody,
+        @Part("age") age: RequestBody,
+        @Part("availability") availability: RequestBody,
+        @Part("bar_association_reg_no") barAssociationRegNo: RequestBody,
+        @Part("commission_expiry") commissionExpiry: RequestBody,
+        @Part("commission_no") commissionNo: RequestBody,
+        @Part("cost") cost: RequestBody,
+        @Part documentUrl: MultipartBody.Part,
+        @Part("experience") experience: RequestBody,
+        @Part("gender") gender: RequestBody,
+        @Part("incentive_level") incentiveLevel: RequestBody,
+        @Part("jurisdiction_covered") jurisdictionCovered: RequestBody,
+        @Part("languages_spoken") languagesSpoken: RequestBody,
+        @Part("location") location: RequestBody,
+        @Part("name") name: RequestBody,
+        @Part("points") points: RequestBody,
+        @Part("profile_pic") profilePic: RequestBody,
+        @Part("rating") rating: RequestBody,
+        @Part("summary") summary: RequestBody
     ): Response<AddNotaryResponseData>
 
     @POST("/add/client")

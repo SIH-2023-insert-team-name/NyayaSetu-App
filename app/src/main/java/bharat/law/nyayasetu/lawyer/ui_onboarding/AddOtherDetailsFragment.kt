@@ -1,6 +1,7 @@
 package bharat.law.nyayasetu.lawyer.ui_onboarding
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,10 +14,10 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.lifecycle.lifecycleScope
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentAddOtherDetailsBinding
 import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
-import bharat.law.nyayasetu.lawyer.activities.LawyerOnboardingActivity
 import bharat.law.nyayasetu.models.AddDocWriterData
 import bharat.law.nyayasetu.models.AddLawyerData
 import bharat.law.nyayasetu.models.AddNotaryData
@@ -26,6 +27,13 @@ import bharat.law.nyayasetu.utils.AppSession
 import bharat.law.nyayasetu.utils.Constants
 import bharat.law.nyayasetu.viewmodels.LawyerViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
 
 @AndroidEntryPoint
 class AddOtherDetailsFragment : Fragment() {
@@ -51,11 +59,11 @@ class AddOtherDetailsFragment : Fragment() {
         attachObservers()
         authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
         val lspType = arguments?.getString(Constants.LSP_TYPE)
-        val personalDetails = arguments?.getParcelable<PersonalDetailsData>(Constants.PERSONAL_DETAILS)
+        val personalDetails =
+            arguments?.getParcelable<PersonalDetailsData>(Constants.PERSONAL_DETAILS)
         val workDetails = arguments?.getParcelable<WorkDetailsData>(Constants.WORK_DETAILS)
 
         var lawyerData = AddLawyerData()
-        var notaryData = AddNotaryData()
         var docWriterData = AddDocWriterData()
 
 
@@ -76,8 +84,8 @@ class AddOtherDetailsFragment : Fragment() {
                     position: Int,
                     id: Long
                 ) {
-                    val selectedLanguage = parent.getItemAtPosition(position).toString()
-                    languagesSpoken = selectedLanguage
+                    languagesSpoken = parent.getItemAtPosition(position).toString()
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -89,51 +97,73 @@ class AddOtherDetailsFragment : Fragment() {
             binding.progressBar4.isVisible = true
             when (lspType) {
                 Constants.LAWYER -> {
-                    lawyerData = AddLawyerData(
-                        personalDetails?.aadhar,
-                        personalDetails?.age,
-                        workDetails?.availability,
-                        workDetails?.bar_reg_np,
-                        "",
-                        binding.etCost.text.toString().toInt(),
-                        workDetails?.document_url,
-                        workDetails?.yoe,
-                        personalDetails?.gender,
-                        "",
-                        languagesSpoken,
-                        binding.etLocation.text.toString(),
-                        personalDetails?.name,
-                        0,
-                        " ",
-                        5.0,
-                        binding.etSummary.text.toString()
-                    )
-                    viewModel.addLawyer(authToken, lawyerData)
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        viewModel.addLawyer(
+                            "Bearer $authToken",
+                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
+                            createRequestBody("text/plain", personalDetails?.age.toString()),
+                            createRequestBody("text/plain", workDetails?.availability.toString()),
+                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
+                            createRequestBody("text/plain", workDetails?.category.toString()), // Assuming category is available in workDetails
+                            createRequestBody("text/plain", binding.etCost.text.toString()),
+                            createMultipartBody(
+                                Uri.parse(workDetails?.document_url),
+                                "application/pdf",
+                                "document_url"
+                            ),
+                            createRequestBody("text/plain", workDetails?.yoe.toString()),
+                            createRequestBody("text/plain", personalDetails?.gender.toString()),
+                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
+                            createRequestBody("text/plain", languagesSpoken.toString()),
+                            createRequestBody("text/plain", binding.etLocation.text.toString()),
+                            createRequestBody("text/plain", personalDetails?.name.toString()),
+                            createRequestBody("text/plain", "0"),
+                            createRequestBody("text/plain", " "), // Assuming this is a placeholder, adjust as needed
+                            createRequestBody("text/plain", "5"),
+                            createRequestBody("text/plain", binding.etSummary.text.toString())
+                        )
+                    }
                 }
+
                 Constants.NOTARY -> {
-                    notaryData = AddNotaryData(
-                        personalDetails?.aadhar,
-                        personalDetails?.age,
-                        workDetails?.availability,
-                        workDetails?.bar_reg_np,
-                        workDetails?.comm_expiry_date,
-                        workDetails?.notary_comm_no,
-                        binding.etCost.text.toString().toInt(),
-                        workDetails?.document_url,
-                        workDetails?.yoe,
-                        personalDetails?.gender,
-                        "",
-                        workDetails?.jurisdiction_area,
-                        languagesSpoken,
-                        binding.etLocation.text.toString(),
-                        personalDetails?.name,
-                        0,
-                        " ",
-                        5,
-                        binding.etSummary.text.toString()
-                    )
-                    viewModel.addNotary(authToken, notaryData)
+
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        viewModel.addNotary(
+                            "Bearer $authToken",
+                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
+                            createRequestBody("text/plain", personalDetails?.age.toString()),
+                            createRequestBody("text/plain", workDetails?.availability.toString()),
+                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
+                            createRequestBody(
+                                "text/plain",
+                                workDetails?.comm_expiry_date.toString()
+                            ),
+                            createRequestBody("text/plain", workDetails?.notary_comm_no.toString()),
+                            createRequestBody("text/plain", binding.etCost.text.toString()),
+                            createMultipartBody(
+                                Uri.parse(workDetails?.document_url),
+                                "application/pdf",
+                                "document_urk"
+                            ),
+                            createRequestBody("text/plain", workDetails?.yoe.toString()),
+                            createRequestBody("text/plain", personalDetails?.gender.toString()),
+                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
+                            createRequestBody(
+                                "text/plain",
+                                workDetails?.jurisdiction_area.toString()
+                            ),
+                            createRequestBody("text/plain", languagesSpoken.toString()),
+                            createRequestBody("text/plain", binding.etLocation.text.toString()),
+                            createRequestBody("text/plain", personalDetails?.name.toString()),
+                            createRequestBody("text/plain", "0"),
+                            createRequestBody("text/plain", " "),
+                            createRequestBody("text/plain", "5"),
+                            createRequestBody("text/plain", binding.etSummary.text.toString())
+                        )
+                    }
+
                 }
+
                 Constants.DOCWRITER -> {
                     docWriterData = AddDocWriterData(
                         personalDetails?.aadhar,
@@ -143,7 +173,7 @@ class AddOtherDetailsFragment : Fragment() {
                         workDetails?.document_url,
                         workDetails?.yoe,
                         personalDetails?.gender,
-                        "",
+                        Constants.INCENTIVE_NA,
                         languagesSpoken,
                         binding.etLocation.text.toString(),
                         personalDetails?.name,
@@ -152,7 +182,7 @@ class AddOtherDetailsFragment : Fragment() {
                         5.0,
                         binding.etSummary.text.toString()
                     )
-                    viewModel.addDocWriter(authToken, docWriterData)
+                    viewModel.addDocWriter("Bearer $authToken", docWriterData)
                 }
             }
         }
@@ -162,10 +192,13 @@ class AddOtherDetailsFragment : Fragment() {
     private fun attachObservers() {
         viewModel.addLawyerResponse.observe(viewLifecycleOwner, Observer {
             val data = it.body()
-            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
+            if (data?.message == Constants.SUCCESSFULLY_REGISTERED) {
                 binding.progressBar4.isVisible = false
-                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
-                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    Constants.SUCCESSFULLY_REGISTERED,
+                    Toast.LENGTH_SHORT
+                ).show()
                 goToLawyerDashboard()
             } else {
                 Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
@@ -174,12 +207,11 @@ class AddOtherDetailsFragment : Fragment() {
 
         viewModel.addDocWriterResponse.observe(viewLifecycleOwner, Observer {
 
-            when(it.code()){
-                Constants.CODE_200->{
+            when (it.code()) {
+                Constants.CODE_200 -> {
                     val data = it.body()
                     if (data?.message == Constants.SUCCESSFULLY_REGISTERED) {
                         binding.progressBar4.isVisible = false
-                        AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
                         Toast.makeText(
                             requireContext(),
                             Constants.SUCCESSFULLY_REGISTERED,
@@ -187,31 +219,40 @@ class AddOtherDetailsFragment : Fragment() {
                         ).show()
                         goToLawyerDashboard()
                     } else {
-                        Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
-                Constants.ERR_201->{
+
+                Constants.ERR_201 -> {
                     showErrorCodeLog(Constants.ERR_201, it.message())
                 }
-                Constants.ERR_400->{
+
+                Constants.ERR_400 -> {
                     showErrorCodeLog(Constants.ERR_400, it.message())
                 }
-                Constants.ERR_401->{
+
+                Constants.ERR_401 -> {
                     showErrorCodeLog(Constants.ERR_401, it.message())
                 }
-                Constants.ERR_402->{
+
+                Constants.ERR_402 -> {
                     showErrorCodeLog(Constants.ERR_402, it.message())
                 }
-                Constants.ERR_403->{
+
+                Constants.ERR_403 -> {
                     showErrorCodeLog(Constants.ERR_403, it.message())
                 }
-                Constants.ERR_404->{
+
+                Constants.ERR_404 -> {
                     showErrorCodeLog(Constants.ERR_404, it.message())
                 }
-                Constants.ERR_500->{
+
+                Constants.ERR_500 -> {
                     showErrorCodeLog(Constants.ERR_500, it.message())
                 }
-                Constants.ERR_503->{
+
+                Constants.ERR_503 -> {
                     showErrorCodeLog(Constants.ERR_503, it.message())
                 }
             }
@@ -219,16 +260,39 @@ class AddOtherDetailsFragment : Fragment() {
         })
 
         viewModel.addNotaryResponse.observe(viewLifecycleOwner, Observer {
-            val data = it.body()
-            if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
-                binding.progressBar4.isVisible = false
-                AppSession(requireContext()).put(Constants.IS_LSP_ONBOARDING_DONE, true)
-                Toast.makeText(requireContext(), Constants.SUCCESSFULLY_REGISTERED, Toast.LENGTH_SHORT).show()
-                goToLawyerDashboard()
-            } else {
-                Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+            if (it.code() == Constants.CODE_200) {
+                val data = it.body()
+                if (data?.message == Constants.SUCCESSFULLY_REGISTERED) {
+                    binding.progressBar4.isVisible = false
+                    Toast.makeText(
+                        requireContext(),
+                        Constants.SUCCESSFULLY_REGISTERED,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    goToLawyerDashboard()
+                } else {
+                    Toast.makeText(requireContext(), Constants.OOPS_SW, Toast.LENGTH_SHORT).show()
+                }
             }
+
         })
+    }
+
+    fun createRequestBody(mimeType: String?, data: String): RequestBody {
+        return RequestBody.create(mimeType?.toMediaTypeOrNull(), data)
+    }
+
+    fun createMultipartBody(uri: Uri, mimeType: String?, fileName: String): MultipartBody.Part {
+        val filesDir = requireActivity().filesDir
+        val file = File(filesDir, "document.pdf")
+        val inputStream = requireActivity().contentResolver.openInputStream(uri)
+        val outputStream = FileOutputStream(file)
+        inputStream!!.copyTo(outputStream)
+
+        val requestBody = file.asRequestBody(mimeType?.toMediaTypeOrNull())
+        val body =
+            MultipartBody.Part.createFormData(fileName, file.name, requestBody)
+        return body
     }
 
     private fun goToLawyerDashboard() {
@@ -237,7 +301,7 @@ class AddOtherDetailsFragment : Fragment() {
         startActivity(intent)
     }
 
-    private fun showErrorCodeLog(errCode: Int?, errMsg: String?){
+    private fun showErrorCodeLog(errCode: Int?, errMsg: String?) {
         Log.d("CODE_ERROR_NYAYA", "Error Code: $errCode, Error Msg: $errMsg")
     }
 
