@@ -4,7 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/light_grey"
     tools:context=".lawyer.ui_onboarding.AddOtherDetailsFragment">
+
+    <LinearLayout
+        android:id="@+id/llAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:layout_gravity="start"
+                android:src="@drawable/ic_law_justice" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:layout_gravity="end"
+                android:src="@drawable/ic_swach_bharat"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textHolder"
@@ -14,27 +45,27 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/sofiaprosoftbold"
         android:text="@string/other_details"
+        android:textColor="@color/black_tile"
         android:textSize="24sp"
-        android:background="@color/white"
-        android:textColor="@color/colorAccent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/llAppBar"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <ScrollView
         android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="0dp"
         android:layout_marginBottom="12dp"
-        app:layout_constraintTop_toBottomOf="@id/textHolder"
         app:layout_constraintBottom_toTopOf="@id/btnNext"
-        android:layout_height="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textHolder">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="24dp"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
             <LinearLayout
                 android:id="@+id/llLocation"
                 android:layout_width="match_parent"
@@ -58,10 +89,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="@string/enter_location">
+                    android:hint="@string/enter_location"
+                    android:textColorHint="@color/border_color"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/border_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etLocation"
+                        style="@style/LoginTextInputInnerFieldStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -71,14 +110,14 @@
             <LinearLayout
                 android:id="@+id/llLanguages"
                 android:layout_width="match_parent"
-                app:layout_goneMarginTop="24dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="24dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/llLocation">
+                app:layout_constraintTop_toBottomOf="@id/llLocation"
+                app:layout_goneMarginTop="24dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -95,13 +134,21 @@
                     android:layout_marginTop="8dp"
                     app:cardCornerRadius="4dp"
                     app:strokeColor="@color/grey">
+
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/etlLanguages"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/choose_gender"
                         android:layout_marginStart="10dp"
-                        >
+                        android:hint="@string/choose_gender"
+                        android:textColorHint="@color/border_color"
+                        app:boxBackgroundColor="@color/white"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:boxStrokeColor="@color/border_color">
+
                         <Spinner
                             android:id="@+id/languageSpinner"
                             android:layout_width="match_parent"
@@ -143,13 +190,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="@string/enter_basic_fee">
+                    android:hint="@string/enter_basic_fee"
+                    android:textColorHint="@color/border_color"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/border_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etCost"
+                        style="@style/LoginTextInputInnerFieldStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="number"/>
+                        android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
@@ -178,13 +233,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:hint="@string/write_a_short_summary_about_you">
+                    android:hint="@string/write_a_short_summary_about_you"
+                    android:textColorHint="@color/border_color"
+                    app:boxBackgroundColor="@color/white"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:boxStrokeColor="@color/border_color">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etSummary"
+                        style="@style/LoginTextInputInnerFieldStyle"
                         android:layout_width="match_parent"
-                        android:gravity="top"
-                        android:layout_height="150dp" />
+                        android:layout_height="150dp"
+                        android:gravity="top" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>

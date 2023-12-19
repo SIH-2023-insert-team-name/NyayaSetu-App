@@ -1,5 +1,7 @@
 package bharat.law.nyayasetu.networking
 
+import bharat.law.nyayasetu.models.AddCaseData
+import bharat.law.nyayasetu.models.AddCaseResponse
 import bharat.law.nyayasetu.models.AddDocWriterData
 import bharat.law.nyayasetu.models.AddDocWriterResponseData
 import bharat.law.nyayasetu.models.AddLawyerData
@@ -27,6 +29,10 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
 
     suspend fun authUser(authUserData: AuthUserData): Response<AuthUserDataResponse> {
         return apiInterface.authUser(authUserData)
+    }
+
+    suspend fun addCase(authToken: String, addCaseData: AddCaseData): Response<AddCaseResponse>{
+        return apiInterface.addCase(authToken, addCaseData)
     }
 
     suspend fun addLawyer(

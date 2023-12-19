@@ -29,7 +29,7 @@ class LawyerDialogFragment(val lawyerData: GetLawyersResponse) : DialogFragment(
         binding.gender.text = "Gender: "+lawyerData.gender
 
         binding.btnChat.setOnClickListener {
-            val fragmentToNavigateTo = ChatFragment() // Replace with your actual Fragment class
+            val fragmentToNavigateTo = RegisterCaseFragment(lawyerData) // Replace with your actual Fragment class
 
             val fragmentManager =
                 requireActivity().supportFragmentManager // Use requireActivity() if you are inside a Fragment, or getActivity() if inside an Activity

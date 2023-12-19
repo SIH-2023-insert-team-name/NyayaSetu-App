@@ -3,6 +3,8 @@ package bharat.law.nyayasetu.viewmodels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import bharat.law.nyayasetu.models.AddCaseData
+import bharat.law.nyayasetu.models.AddCaseResponse
 import bharat.law.nyayasetu.models.AddDocWriterData
 import bharat.law.nyayasetu.models.AddDocWriterResponseData
 import bharat.law.nyayasetu.models.AddLawyerData
@@ -54,6 +56,9 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
     private val _getLSPResponse = MutableLiveData<Response<List<GetLawyersResponse>>>()
     val getLSPResponse: MutableLiveData<Response<List<GetLawyersResponse>>> get() = _getLSPResponse
 
+    private val _addCaseResponse = MutableLiveData<Response<AddCaseResponse>>()
+    val addCaseResponse: MutableLiveData<Response<AddCaseResponse>> get() = _addCaseResponse
+
 
     fun registerUser(registerData: RegisterData) {
         viewModelScope.launch {
@@ -66,6 +71,13 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
         viewModelScope.launch {
             val rResponse = repository.authUser(authUserData)
             _authResponse.value = rResponse
+        }
+    }
+
+    fun addCase(authToken: String, addCaseData: AddCaseData){
+        viewModelScope.launch {
+            val response = repository.addCase(authToken, addCaseData)
+            _addCaseResponse.value = response
         }
     }
 

@@ -1,5 +1,7 @@
 package bharat.law.nyayasetu.networking
 
+import bharat.law.nyayasetu.models.AddCaseData
+import bharat.law.nyayasetu.models.AddCaseResponse
 import bharat.law.nyayasetu.models.AddDocWriterData
 import bharat.law.nyayasetu.models.AddDocWriterResponseData
 import bharat.law.nyayasetu.models.AddLawyerData
@@ -130,4 +132,10 @@ interface ApiInterface {
 
     @GET("/leaderboard")
     suspend fun getLeaderboard()
+
+    @POST("/addcase")
+    suspend fun addCase(
+        @Header("Authorization") authToken: String,
+        @Body addCaseData: AddCaseData
+    ): Response<AddCaseResponse>
 }

@@ -1,5 +1,9 @@
 package bharat.law.nyayasetu.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class GetLawyersResponse(
     val name:String,
     val __v: Int,
@@ -19,4 +23,4 @@ data class GetLawyersResponse(
     val serial_no: Int,
     val summary: String,
     val updatedAt: String
-)
+): Parcelable

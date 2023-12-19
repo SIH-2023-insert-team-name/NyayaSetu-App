@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/client_nav_graph"
-    app:startDestination="@id/clientPersonalDetailsFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -83,6 +83,9 @@
         <action
             android:id="@+id/action_bottomSheetDialogFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
+        <action
+            android:id="@+id/action_bottomSheetDialogFragment_to_registerCaseFragment"
+            app:destination="@id/registerCaseFragment" />
     </dialog>
     <fragment
         android:id="@+id/chatFragment"
@@ -105,4 +108,8 @@
             android:id="@+id/action_clientBasicFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/registerCaseFragment"
+        android:name="bharat.law.nyayasetu.client.ui.RegisterCaseFragment"
+        android:label="RegisterCaseFragment" />
 </navigation>

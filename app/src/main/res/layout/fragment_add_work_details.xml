@@ -375,7 +375,7 @@
                 android:id="@+id/groupNotary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:constraint_referenced_ids="llCommissionNumber,llCommissionExpiry,llJurisdictionCovered"
                 />
 
