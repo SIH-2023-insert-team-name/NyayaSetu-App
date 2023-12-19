@@ -28,4 +28,11 @@
     <string name="dd_mm_yyyy">DD/MM/YYYY</string>
     <string name="category">Category</string>
     <string name="choose_category">Choose Category</string>
+    <string name="city">City</string>
+    <string name="enter_your_city">Enter your city</string>
+    <string name="basic_details">Basic Details</string>
+    <string name="budget">Budget</string>
+    <string name="enter_budget">Enter Budget</string>
+    <string name="legal_needs">Legal Needs</string>
+    <string name="enter_legal_needs">Enter Legal Needs</string>
 </resources>

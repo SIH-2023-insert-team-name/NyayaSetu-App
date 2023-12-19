@@ -70,7 +70,7 @@ class LoginActivity : AppCompatActivity() {
                 } else if (isLSP ==1 && isOnboard == false) {
                     goToLawyer()
                 } else {
-                    goToClient()
+                    goToClient(isOnboard)
                 }
             }
         })
@@ -94,10 +94,11 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun goToClient() {
+    private fun goToClient(isOnboard: Boolean?) {
         AppSession(this).put(Constants.IS_LOGIN, true)
         AppSession(this).put(Constants.IS_LSP, false)
         val intent = Intent(this, ClientActivity::class.java)
+        intent.putExtra("isOnboard", isOnboard)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()

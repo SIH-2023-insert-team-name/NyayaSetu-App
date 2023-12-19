@@ -15,6 +15,8 @@ class Constants {
         const val IS_LSP = "false"
         const val LSP_TYPE = "lspType"
         const val PERSONAL_DETAILS = "personalDetails"
+        const val CLIENT_PERSONAL_DETAILS = "clientPersonalDetails"
+        const val CLIENT_BASIC_DETAILS = "clientBasicDetails"
         const val WORK_DETAILS = "workDetails"
         const val IS_LSP_ONBOARDING_DONE = "false"
         const val CRIMINAL_CATEGORY = "criminal"

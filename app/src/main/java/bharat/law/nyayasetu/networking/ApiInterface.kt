@@ -38,12 +38,6 @@ interface ApiInterface {
         @Body authUserData: AuthUserData
     ): Response<AuthUserDataResponse>
 
-//    @POST("/add/lawyer")
-//    suspend fun addLawyer(
-//        @Header("Authorization") authToken: String,
-//        @Body addLawyerData: AddLawyerData
-//    ): Response<AddLawyerResponseData>
-
     @Multipart
     @POST("/add/lawyer")
     suspend fun addLawyer(
@@ -73,12 +67,6 @@ interface ApiInterface {
         @Body addDocWriterData: AddDocWriterData
     ): Response<AddDocWriterResponseData>
 
-//    @Multipart
-//    @POST("/add/notary")
-//    suspend fun addNotary(
-//        @Header("Authorization") authToken: String,
-//        @Body addNotaryData: AddNotaryData
-//    ): Response<AddNotaryResponseData>
 
     @Multipart
     @POST("/add/notary")
