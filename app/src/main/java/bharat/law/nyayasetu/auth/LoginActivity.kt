@@ -97,6 +97,7 @@ class LoginActivity : AppCompatActivity() {
     private fun goToClient(isOnboard: Boolean?) {
         AppSession(this).put(Constants.IS_LOGIN, true)
         AppSession(this).put(Constants.IS_LSP, false)
+        AppSession(this).putString(Constants.CLIENT_EMAIL, binding.etEmail.text.toString())
         val intent = Intent(this, ClientActivity::class.java)
         intent.putExtra("isOnboard", isOnboard)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)

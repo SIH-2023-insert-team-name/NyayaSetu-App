@@ -20,6 +20,8 @@ class Constants {
         const val WORK_DETAILS = "workDetails"
         const val IS_LSP_ONBOARDING_DONE = "false"
         const val CRIMINAL_CATEGORY = "criminal"
+        const val CLIENT_EMAIL = "client_email"
+        const val SUCCESSFULLY_SAVED = "successfully saved"
         const val BANKRUPTCY_CATEGORY = "criminal"
         const val CORPORATE_CATEGORY = "business"
         const val CONSTITUTIONAL_CATEGORY = "constitutional"
