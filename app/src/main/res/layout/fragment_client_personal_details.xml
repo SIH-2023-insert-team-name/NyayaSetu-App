@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/light_grey"
+    tools:context=".client.ui.HomeFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     tools:context=".lawyer.ui_onboarding.AddPersonalDetailsFragment">
 
     <TextView
@@ -48,6 +56,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter"
             android:layout_marginTop="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/border_color"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -83,6 +97,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_aadhar"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/border_color"
             android:layout_marginTop="8dp"
             >
 
@@ -119,7 +139,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="8dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
             app:strokeColor="@color/grey">
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etlGender"
@@ -127,6 +147,12 @@
                 android:layout_height="match_parent"
                 android:hint="@string/choose_gender"
                 android:layout_marginStart="10dp"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxBackgroundColor="@color/white"
+                android:textColorHint="@color/border_color"
                 >
                 <Spinner
                     android:id="@+id/genderSpinner"
@@ -163,6 +189,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_your_age"
             android:layout_marginTop="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/border_color"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -200,6 +232,12 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_your_city"
             android:layout_marginTop="8dp"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxBackgroundColor="@color/white"
+            android:textColorHint="@color/border_color"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -234,7 +272,7 @@
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="8dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
             app:strokeColor="@color/grey">
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/etlPreferredLanguage"
@@ -255,8 +293,9 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
         android:layout_marginHorizontal="16dp"
         android:background="@drawable/background_gradient_rounded"
         android:text="@string/next"
@@ -270,4 +309,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+
+</ScrollView>

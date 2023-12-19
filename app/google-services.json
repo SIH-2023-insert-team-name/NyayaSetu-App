@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "917421227152",
+    "project_id": "nyayasetu-chat",
+    "storage_bucket": "nyayasetu-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917421227152:android:8836efaa169dc6aeefec15",
+        "android_client_info": {
+          "package_name": "bharat.law.nyayasetu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9bm6dKDJIz_DjmVdzzjIUIPPZaANdVAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

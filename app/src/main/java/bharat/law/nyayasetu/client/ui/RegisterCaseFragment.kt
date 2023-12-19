@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentLawyerAppointmentBinding
 import bharat.law.nyayasetu.databinding.FragmentRegisterCaseBinding
+import bharat.law.nyayasetu.lawyer.ui_onboarding.AddWorkDetailsFragment
 import bharat.law.nyayasetu.models.AddCaseData
+import bharat.law.nyayasetu.models.ChatResponseItemData
 import bharat.law.nyayasetu.models.GetLawyersResponse
 import bharat.law.nyayasetu.utils.AppSession
 import bharat.law.nyayasetu.utils.Constants
@@ -53,15 +56,31 @@ class RegisterCaseFragment(data: GetLawyersResponse) : Fragment() {
             )
 
             lawyerViewModel.addCase("Bearer $authToken", addCaseData)
+
         }
 
         lawyerViewModel.addCaseResponse.observe(viewLifecycleOwner, Observer {
             if (it.code() ==Constants.CODE_200){
                 if (it?.body()?.message == Constants.SUCCESSFULLY_SAVED){
                     Toast.makeText(requireContext(), "Booked an Appointment", Toast.LENGTH_SHORT).show()
+                    navigateToChats(lawyerData)
                 }
             }
         })
+    }
+
+    private fun navigateToChats(data: GetLawyersResponse){
+        val fragmentToNavigateTo = ChatScreenFragment(data) // Replace with your actual Fragment class
+
+        val fragmentManager =
+            requireActivity().supportFragmentManager // Use requireActivity() if you are inside a Fragment, or getActivity() if inside an Activity
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(
+            R.id.navHostFragment,
+            fragmentToNavigateTo
+        ) // R.id.fragment_container is the ID of the container where you want to replace the Fragment
+        transaction.addToBackStack(null) // This allows the user to navigate back to the previous Fragment
+        transaction.commit()
     }
 
 }

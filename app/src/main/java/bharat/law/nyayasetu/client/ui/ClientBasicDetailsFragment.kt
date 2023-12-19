@@ -89,7 +89,7 @@ class ClientBasicDetailsFragment : Fragment() {
             if (it.code() == Constants.CODE_200){
                 val data = it.body()
                 if (data?.message == Constants.SUCCESSFULLY_REGISTERED){
-                    findNavController().navigate(R.id.action_clientBasicFragment_to_homeFragment)
+//                    findNavController().navigate(R.id.action_clientBasicFragment_to_homeFragment)
                 }
             }
         })

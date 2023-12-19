@@ -2,7 +2,8 @@ package bharat.law.nyayasetu.utils
 
 class Constants {
     companion object {
-        const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
+//        const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
+        const val BASE_URL = "http://34.16.167.243:5000/"
 
         //        const val BASE_URL = "https://sih-backend-palaksv.onrender.com/"
         const val REGISTER_SUCCESS = "successfully registered"
@@ -34,6 +35,7 @@ class Constants {
         const val PERSONAL_CATEGORY = "personal injury"
         const val TAX_CATEGORY = "tax"
         const val LAWYER = "Lawyer"
+        const val LAWYER_DETAILS = "lawyer_details"
         const val NOTARY = "Notary"
         const val DOCWRITER = "Document Writer"
         const val SUCCESSFULLY_REGISTERED = "successfully registered"

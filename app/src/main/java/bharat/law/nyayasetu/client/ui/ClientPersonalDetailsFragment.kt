@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.databinding.FragmentClientPersonalDetailsBinding
 import bharat.law.nyayasetu.models.ClientPersonalDetailsData
+import bharat.law.nyayasetu.utils.AppSession
 import bharat.law.nyayasetu.utils.Constants
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -65,11 +66,12 @@ class ClientPersonalDetailsFragment : Fragment() {
                 preferredLanguages = preferredlanguage
             )
 
-            val bundle = Bundle()
-            bundle.putParcelable(Constants.CLIENT_PERSONAL_DETAILS, clientPersonalData)
-            val fragment = ClientBasicDetailsFragment()
-            fragment.arguments = bundle
-            findNavController().navigate(R.id.action_clientPersonalDetailsFragment_to_clientBasicFragment, bundle)
+            AppSession(requireContext()).putObject(
+                Constants.CLIENT_PERSONAL_DETAILS,
+                clientPersonalData
+            )
+
+            findNavController().navigate(R.id.action_clientPersonalDetailsFragment_to_homeFragment)
         }
 
 

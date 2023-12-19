@@ -15,12 +15,16 @@ import bharat.law.nyayasetu.models.AddUserData
 import bharat.law.nyayasetu.models.AddUserDataResponse
 import bharat.law.nyayasetu.models.AuthUserData
 import bharat.law.nyayasetu.models.AuthUserDataResponse
+import bharat.law.nyayasetu.models.ChatResponseItemData
+import bharat.law.nyayasetu.models.GetChatParameter
 import bharat.law.nyayasetu.models.GetLawyersResponse
+import bharat.law.nyayasetu.models.MessageParameter
 import bharat.law.nyayasetu.models.RegisterData
 import bharat.law.nyayasetu.models.RegisterDataResponse
 import bharat.law.nyayasetu.models.UserReviewsDataResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -132,6 +136,16 @@ interface ApiInterface {
 
     @GET("/leaderboard")
     suspend fun getLeaderboard()
+
+    @GET("/getChat")
+    suspend fun getMessages(
+        @Body getChatParameter: GetChatParameter
+    ): Response<List<ChatResponseItemData>>
+
+    @POST("/addChat")
+    suspend fun postMessages(
+        @Body messageParameter: MessageParameter
+    ): Response<ChatResponseItemData>
 
     @POST("/addcase")
     suspend fun addCase(
