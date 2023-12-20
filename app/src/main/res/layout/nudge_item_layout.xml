@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textNudge"
+        android:fontFamily="@font/sofiaprosoftmedium"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black_tile"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        tools:text="Text To Be Displayed" />
+
+    <TextView
+        android:id="@+id/okBtn"
+        android:fontFamily="@font/sofiaprosoftmedium"
+        android:textColor="@color/darkBlue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_gravity="end"
+        android:text="Ok" />
+
+</LinearLayout>
