@@ -37,12 +37,6 @@ class ClientActivity : AppCompatActivity() {
 //            navGraph.setStartDestination(R.id.clientPersonalDetailsFragment)
 //        }
 
-        lang = AppSession(this).getString(Constants.SAVED_LANG)
-        if (lang != null){
-            setLangauge(this, lang!!)
-        } else {
-            setLangauge(this, "en")
-        }
 
         setContentView(binding.root)
 

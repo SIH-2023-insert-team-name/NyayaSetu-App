@@ -11,7 +11,6 @@
         android:name=".NyayaSetu"
         android:allowBackup="false"
         android:configChanges="locale|orientation"
-        android:localeConfig="@xml/locales_config"
         android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"

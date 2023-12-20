@@ -78,4 +78,13 @@
     <string name="enter_legal_needs">Enter Legal Needs</string>
     <string name="case_number_1431_divorce">Case Number: 1431: Divorce</string>
     <string name="lawyer_nappointment">আইনজীবী \nনিয়োগ</string>
+    <string name="notary_nappointment">নোটারি \nনিয়োগ</string>
+    <string name="document_nwriter">ডকুমেন্ট \nলেখক</string>
+    <string name="recommendation">সুপারিশ</string>
+    <string name="ngo">এনজিও</string>
+    <string name="legal_assist">আইনগত সাহায্য</string>
+    <string name="legal_aid_clinic">আইনগত সাহায্য কর্মস্থল</string>
+    <string name="rewards">পুরস্কার</string>
+    <string name="consultancy">পরামর্শ</string>
+    <string name="our_services">আমাদের সেবাসমূহ</string>
 </resources>

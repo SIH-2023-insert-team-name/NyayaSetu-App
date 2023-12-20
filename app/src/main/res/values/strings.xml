@@ -133,5 +133,14 @@
     <string name="enter_legal_needs">Enter Legal Needs</string>
     <string name="case_number_1431_divorce">Case Number: 1431: Divorce</string>
     <string name="lawyer_nappointment">Lawyer \nAppointment</string>
+    <string name="notary_nappointment">Notary \nAppointment</string>
+    <string name="document_nwriter">Document \nWriter</string>
+    <string name="recommendation">Recommendation</string>
+    <string name="ngo">Ngo</string>
+    <string name="legal_assist">Legal Assist</string>
+    <string name="legal_aid_clinic">Legal Aid Clinic</string>
+    <string name="rewards">Rewards</string>
+    <string name="consultancy">Consultancy</string>
+    <string name="our_services">Our Services</string>
 
 </resources>
