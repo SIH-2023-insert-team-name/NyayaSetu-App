@@ -333,7 +333,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvRewards"
+                    android:id="@+id/cvReferral"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="20dp"
@@ -345,7 +345,7 @@
                         android:layout_height="65dp"
                         android:layout_gravity="center"
                         android:layout_margin="15dp"
-                        android:src="@drawable/ic_rewards" />
+                        android:src="@drawable/ic_referral" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
@@ -354,7 +354,7 @@
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/sofiaprosoftmedium"
                     android:gravity="center"
-                    android:text="Rewards"
+                    android:text="Referral"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -367,7 +367,7 @@
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/cvConsultancy"
+                    android:id="@+id/cvCaseHistory"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:layout_marginStart="20dp"
@@ -379,7 +379,7 @@
                         android:layout_height="65dp"
                         android:layout_gravity="center"
                         android:layout_margin="15dp"
-                        android:src="@drawable/ic_consultancy" />
+                        android:src="@drawable/ic_check_case" />
                 </com.google.android.material.card.MaterialCardView>
 
                 <TextView
@@ -388,7 +388,7 @@
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/sofiaprosoftmedium"
                     android:gravity="center"
-                    android:text="Consultancy"
+                    android:text="Case History"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>

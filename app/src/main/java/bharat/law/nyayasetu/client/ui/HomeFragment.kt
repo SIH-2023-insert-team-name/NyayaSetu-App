@@ -100,8 +100,8 @@ class HomeFragment : Fragment() {
 //            findNavController().navigate(R.id.action_homeFragment_to_addOtherDetailsFragment)
         }
 
-        binding.cvConsultancy.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_consultancyFragment)
+        binding.cvCaseHistory.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_caseHistoryFragment)
         }
 
         binding.cvLegalAidClinic.setOnClickListener {
@@ -115,8 +115,12 @@ class HomeFragment : Fragment() {
         }
 
        binding.cvNGO.setOnClickListener {
-           findNavController().navigate(R.id.action_homeFragment_to_ngoFragment)
+           findNavController().navigate(R.id.action_homeFragment_to_ngoListFragment)
        }
+
+        binding.cvReferral.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_referralFragment)
+        }
 
     }
 

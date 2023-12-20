@@ -6,15 +6,27 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import bharat.law.nyayasetu.R
+import bharat.law.nyayasetu.databinding.FragmentNgoBinding
+import bharat.law.nyayasetu.databinding.FragmentNgoListBinding
 
 class NgoListFragment : Fragment() {
 
+
+    private var _binding: FragmentNgoListBinding? = null
+    private val binding
+        get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ngo_list, container, false)
+        _binding = FragmentNgoListBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
 }

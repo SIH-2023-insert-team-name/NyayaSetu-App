@@ -39,6 +39,15 @@
         <action
             android:id="@+id/action_homeFragment_to_ngoFragment"
             app:destination="@id/ngoFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ngoListFragment"
+            app:destination="@id/ngoListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_referralFragment"
+            app:destination="@id/referralFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_caseHistoryFragment"
+            app:destination="@id/caseHistoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -137,5 +146,27 @@
         android:name="bharat.law.nyayasetu.nonProfitOrg.NgoFragment"
         android:label="fragment_ngo"
         tools:layout="@layout/fragment_ngo" />
+    <fragment
+        android:id="@+id/ngoListFragment"
+        android:name="bharat.law.nyayasetu.client.ui.NgoListFragment"
+        android:label="NgoListFragment" />
+    <fragment
+        android:id="@+id/referralFragment"
+        android:name="bharat.law.nyayasetu.client.ui.ReferralFragment"
+        android:label="fragment_referral"
+        tools:layout="@layout/fragment_referral" />
+    <fragment
+        android:id="@+id/caseHistoryFragment"
+        android:name="bharat.law.nyayasetu.client.ui.CaseHistoryFragment"
+        android:label="fragment_case_history"
+        tools:layout="@layout/fragment_case_history" >
+        <action
+            android:id="@+id/action_caseHistoryFragment_to_videoChatFragment"
+            app:destination="@id/videoChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoChatFragment"
+        android:name="bharat.law.nyayasetu.client.ui.VideoChatFragment"
+        android:label="VideoChatFragment" />
 
 </navigation>
