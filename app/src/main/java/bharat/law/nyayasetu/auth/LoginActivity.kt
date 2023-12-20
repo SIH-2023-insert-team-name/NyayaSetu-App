@@ -52,12 +52,11 @@ class LoginActivity : AppCompatActivity() {
 //                    pass
 //                )
 //                lawyerViewModel.authUser(authUserData)
-                if (email == "client" && pass == "client"){
+                if (email == "client" && pass == "client") {
                     goToClient()
-                } else if (email == "lawyer" && pass == "lawyer"){
+                } else if (email == "lawyer" && pass == "lawyer") {
                     goToLawyer()
-                }
-                else{
+                } else if (email == "npo" && pass == "npo") {
                     goToNPO()
                 }
             } else {

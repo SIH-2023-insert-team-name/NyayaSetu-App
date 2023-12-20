@@ -77,4 +77,5 @@
     <string name="legal_needs">Legal Needs</string>
     <string name="enter_legal_needs">Enter Legal Needs</string>
     <string name="case_number_1431_divorce">Case Number: 1431: Divorce</string>
+    <string name="lawyer_nappointment">Lawyer \nAppointment</string>
 </resources>

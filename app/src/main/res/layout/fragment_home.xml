@@ -31,11 +31,14 @@
                     android:src="@drawable/ic_law_justice" />
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
+                    android:id="@+id/hamBurger"
+                    android:layout_width="50dp"
+                    android:layout_height="30dp"
                     android:layout_gravity="end"
-                    android:src="@drawable/ic_swach_bharat"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    android:src="@drawable/ic_menu"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -100,7 +103,7 @@
                     android:layout_marginTop="6dp"
                     android:fontFamily="@font/sofiaprosoftmedium"
                     android:gravity="center"
-                    android:text="Lawyer \nAppointment"
+                    android:text="@string/lawyer_nappointment"
                     android:textSize="13sp"
                     android:textStyle="bold" />
             </LinearLayout>

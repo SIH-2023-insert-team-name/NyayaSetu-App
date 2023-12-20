@@ -1,5 +1,6 @@
 package bharat.law.nyayasetu.client.ui
 
+import android.app.Activity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -7,23 +8,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.DimenRes
-import androidx.core.content.ContextCompat
+import android.widget.PopupMenu
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.adapter.ImageAdapter
 import bharat.law.nyayasetu.databinding.FragmentHomeBinding
-import bharat.law.nyayasetu.databinding.FragmentLawyerAppointmentBinding
 import com.skydoves.balloon.ArrowPositionRules
 import com.skydoves.balloon.Balloon
 import com.skydoves.balloon.BalloonAnimation
 import com.skydoves.balloon.BalloonSizeSpec
-import com.skydoves.balloon.createBalloon
-import com.skydoves.balloon.overlay.BalloonOverlayRoundRect
 import com.skydoves.balloon.showAlignBottom
-import com.skydoves.balloon.showAlignTop
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -46,8 +43,11 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         return binding.root
     }
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,6 +70,11 @@ class HomeFragment : Fragment() {
             .build()
 
        binding.cvLawyerAppointment.showAlignBottom(balloon)
+
+        binding.hamBurger.setOnClickListener{
+            val dialog = LanguageBottomSheet()
+            dialog.show(parentFragmentManager,"Dialog")
+        }
 
 
         viewPager = binding.viewPagerImages
@@ -114,6 +119,10 @@ class HomeFragment : Fragment() {
        }
 
     }
+
+
+
+
 
     override fun onPause() {
         super.onPause()

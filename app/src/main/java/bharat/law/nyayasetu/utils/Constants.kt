@@ -33,6 +33,7 @@ class Constants {
         const val ESTATE_CATEGORY = "estate planning"
         const val FAMILY_CATEGORY = "family"
         const val IMMIGRATION_CATEGORY = "immigration"
+        const val SAVED_LANG = "saved_lang"
         const val INTELLECTUAL_CATEGORY = "itellectual property"
         const val PERSONAL_CATEGORY = "personal injury"
         const val TAX_CATEGORY = "tax"

@@ -21,4 +21,15 @@ class LawyerActivity : AppCompatActivity() {
 
         setContentView(binding.root)
     }
+
+    fun restartFragment(fragmentId: Int) {
+        val currentFragment = this.supportFragmentManager.findFragmentById(fragmentId)!!
+
+        this.supportFragmentManager.beginTransaction()
+            .detach(currentFragment)
+            .commit()
+        this.supportFragmentManager.beginTransaction()
+            .attach(currentFragment)
+            .commit()
+    }
 }
