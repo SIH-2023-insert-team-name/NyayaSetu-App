@@ -21,9 +21,9 @@ class ChatFragment : Fragment() {
     ): View? {
         _binding = FragmentChatBinding.inflate(inflater, container, false)
 
-//        binding.payment.setOnClickListener {
-//            navigateToPayment()
-//        }
+        binding.payment.setOnClickListener {
+            navigateToPayment()
+        }
 
         binding.webView.loadUrl("https://65823b3bd35d1c0a9c63900d--charming-basbousa-e9b0c1.netlify.app/")
 

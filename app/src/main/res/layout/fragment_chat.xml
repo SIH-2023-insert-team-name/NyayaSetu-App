@@ -16,18 +16,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <TextView-->
-<!--        android:id="@+id/payment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        android:textAlignment="center"-->
-<!--        android:textSize="16sp"-->
-<!--        android:fontFamily="@font/sofiaprosoftbold"-->
-<!--        android:textColor="@color/black_tile"-->
-<!--        android:text="5 mins left. Click here to buy premium."-->
-<!--        />-->
+    <TextView
+        android:id="@+id/payment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:fontFamily="@font/sofiaprosoftbold"
+        android:textColor="@color/black_tile"
+        android:text="5 mins left. Click here to buy premium."
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
