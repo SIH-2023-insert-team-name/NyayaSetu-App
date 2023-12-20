@@ -110,6 +110,9 @@ interface ApiInterface {
         @Header("Authorization") authToken: String
     ): Response<List<GetLawyersResponse>>
 
+    @GET("/sorted")
+    suspend fun getRecommendedLawyers(): Response<List<GetLawyersResponse>>
+
     @GET("/get/notaries")
     suspend fun getNotaries(
         @Header("Authorization") authToken: String

@@ -2,8 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/client_nav_graph"
-    app:startDestination="@id/firebaseChatFragment">
+    android:id="@+id/client_nav_graph">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -27,6 +26,12 @@
         <action
             android:id="@+id/action_homeFragment_to_legalAidClinicFragment"
             app:destination="@id/legalAidClinicFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_chatBotFragment"
+            app:destination="@id/chatBotFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_recommendationFragment"
+            app:destination="@id/recommendationFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -113,8 +118,12 @@
         android:name="bharat.law.nyayasetu.client.ui.ChatScreenFragment"
         android:label="ChatScreenFragment" />
     <fragment
-        android:id="@+id/firebaseChatFragment"
-        android:name="bharat.law.nyayasetu.client.ui.FirebaseChatFragment"
-        android:label="FirebaseChatFragment" />
+        android:id="@+id/chatBotFragment"
+        android:name="bharat.law.nyayasetu.client.ui.ChatBotFragment"
+        android:label="ChatBotFragment" />
+    <fragment
+        android:id="@+id/recommendationFragment"
+        android:name="bharat.law.nyayasetu.client.ui.RecommendationFragment"
+        android:label="RecommendationFragment" />
 
 </navigation>

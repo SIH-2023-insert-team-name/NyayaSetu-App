@@ -2,10 +2,10 @@ package bharat.law.nyayasetu.utils
 
 class Constants {
     companion object {
-//        const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
-        const val BASE_URL = "http://34.16.167.243:5000/"
+        const val BASE_URL = "https://nyayasetu-backend.onrender.com/"
+//        const val BASE_URL = "http://34.16.167.243:5000/"
 
-        //        const val BASE_URL = "https://sih-backend-palaksv.onrender.com/"
+//                const val BASE_URL = "https://sih-backend-palaksv.onrender.com/"
         const val REGISTER_SUCCESS = "successfully registered"
         const val AUTH_SUCCESS = "Auth successful"
         const val PREFERENCES_NAME = "SHAREDPREFS"

@@ -209,4 +209,11 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
             _getLSPResponse.value = getResponse
         }
     }
+
+    fun getRecommendedLawyer(){
+        viewModelScope.launch {
+            val getResponse = repository.getRecommendation()
+            _getLSPResponse.value = getResponse
+        }
+    }
 }

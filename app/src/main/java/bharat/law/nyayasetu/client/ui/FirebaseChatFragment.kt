@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import bharat.law.nyayasetu.R
+import bharat.law.nyayasetu.adapter.ChatMessageAdapter
 import bharat.law.nyayasetu.databinding.FragmentFirebaseChatBinding
 import bharat.law.nyayasetu.databinding.FragmentRegisterCaseBinding
+import bharat.law.nyayasetu.models.ChatMessage
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
@@ -22,8 +24,10 @@ class FirebaseChatFragment : Fragment() {
         get() = _binding!!
     private lateinit var database: FirebaseDatabase
     private lateinit var messagesReference: DatabaseReference
-    private lateinit var messageAdapter: ArrayAdapter<String>
-    private lateinit var messagesList: MutableList<String>
+//    private lateinit var messageAdapter: ArrayAdapter<String>
+    private lateinit var messagesList: MutableList<ChatMessage>
+    private lateinit var messageAdapter: ChatMessageAdapter
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,18 +47,18 @@ class FirebaseChatFragment : Fragment() {
         messagesReference = database.getReference("messages")
 
         messagesList = ArrayList()
-        messageAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1, messagesList)
+        messageAdapter = ChatMessageAdapter(requireContext(), messagesList)
         binding.listViewChat.adapter = messageAdapter
 
         binding.buttonSend.setOnClickListener {
             val message = binding.editTextMessage.text.toString()
-            sendMessage(message)
+            sendMessage(message,true)
             binding.editTextMessage.text.clear()
         }
 
         messagesReference.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                val message = dataSnapshot.getValue(String::class.java)
+                val message = dataSnapshot.getValue(ChatMessage::class.java)
                 message?.let {
                     messagesList.add(it)
                     messageAdapter.notifyDataSetChanged()
@@ -72,11 +76,11 @@ class FirebaseChatFragment : Fragment() {
         })
     }
 
-    private fun sendMessage(message: String) {
+    private fun sendMessage(text: String, isUser1: Boolean) {
+        val message = ChatMessage(text, isUser1)
         val key = messagesReference.push().key
         key?.let {
             messagesReference.child(it).setValue(message)
         }
     }
-
 }

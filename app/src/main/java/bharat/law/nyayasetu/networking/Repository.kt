@@ -143,6 +143,10 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
         return apiInterface.getLawyers(authToken)
     }
 
+    suspend fun getRecommendation(): Response<List<GetLawyersResponse>> {
+        return apiInterface.getRecommendedLawyers()
+    }
+
     suspend fun getMessages(getChatParameter: GetChatParameter):Response<List<ChatResponseItemData>>{
         return apiInterface.getMessages(getChatParameter)
     }

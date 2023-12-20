@@ -68,6 +68,12 @@ class HomeFragment : Fragment() {
         binding.cvLegalAidClinic.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_legalAidClinicFragment)
         }
+        binding.cvLegalAssist.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_chatBotFragment)
+        }
+        binding.cvReview.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_recommendationFragment)
+        }
         return binding.root
     }
 
