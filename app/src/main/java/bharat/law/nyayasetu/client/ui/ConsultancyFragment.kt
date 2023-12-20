@@ -33,7 +33,7 @@ class ConsultancyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentConsultancyBinding.inflate(inflater, container, false)
-        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+//        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
         lawyerViewmodel.getLSP()
 
         lawyerViewmodel.getLSPResponse.observe(viewLifecycleOwner, Observer{

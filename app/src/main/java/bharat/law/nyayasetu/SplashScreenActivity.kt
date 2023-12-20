@@ -61,7 +61,6 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun navigateToNextScreen() {
         val destinationClass: Class<out Any> = when {
-            isLogin && isNPO -> NPOActivity::class.java
             isLogin && isLSP && isLSPOnboardingDone -> LawyerActivity::class.java
             isLogin && isLSP && !isLSPOnboardingDone -> LawyerOnboardingActivity::class.java
             isLogin && !isLSP -> ClientActivity::class.java

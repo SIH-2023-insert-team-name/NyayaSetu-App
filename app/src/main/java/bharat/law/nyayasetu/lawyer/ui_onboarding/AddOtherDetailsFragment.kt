@@ -57,7 +57,7 @@ class AddOtherDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         attachObservers()
-        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+//        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
         val lspType = arguments?.getString(Constants.LSP_TYPE)
         val personalDetails =
             arguments?.getParcelable<PersonalDetailsData>(Constants.PERSONAL_DETAILS)
