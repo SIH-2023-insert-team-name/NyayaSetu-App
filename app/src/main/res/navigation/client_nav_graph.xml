@@ -33,6 +33,12 @@
         <action
             android:id="@+id/action_homeFragment_to_recommendationFragment"
             app:destination="@id/recommendationFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_registerCaseFragment"
+            app:destination="@id/registerCaseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_ngoFragment"
+            app:destination="@id/ngoFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -126,5 +132,10 @@
         android:id="@+id/paymentFragment"
         android:name="bharat.law.nyayasetu.client.ui.PaymentFragment"
         android:label="PaymentFragment" />
+    <fragment
+        android:id="@+id/ngoFragment"
+        android:name="bharat.law.nyayasetu.nonProfitOrg.NgoFragment"
+        android:label="fragment_ngo"
+        tools:layout="@layout/fragment_ngo" />
 
 </navigation>

@@ -86,14 +86,12 @@ class HomeFragment : Fragment() {
         binding.viewPagerImages.adapter = adapter
         handler.postDelayed(imageChangeRunnable, 4000)
 
-
-
-
         binding.cvLawyerAppointment.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_lawyerAppointmentFragment)
+
+        findNavController().navigate(R.id.action_homeFragment_to_lawyerAppointmentFragment)
         }
 
-        binding.cvLegalAssist.setOnClickListener {
+        binding.cvLegalAssist.setOnClickListener{
 //            findNavController().navigate(R.id.action_homeFragment_to_addOtherDetailsFragment)
         }
 
@@ -110,6 +108,11 @@ class HomeFragment : Fragment() {
         binding.cvReview.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_recommendationFragment)
         }
+
+       binding.cvNGO.setOnClickListener {
+           findNavController().navigate(R.id.action_homeFragment_to_ngoFragment)
+       }
+
     }
 
     override fun onPause() {

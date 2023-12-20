@@ -179,7 +179,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/sofiaprosoftmedium"
                 android:paddingBottom="8dp"
-                android:text="@string/are_you_a_legal_service_provider"
+                android:text="Type of user: "
                 android:textSize="18sp" />
 
             <!-- RadioGroup -->
@@ -191,21 +191,29 @@
 
                 <!-- Yes Radio Button -->
                 <RadioButton
-                    android:id="@+id/radioButtonYes"
+                    android:id="@+id/radioButtonLSP"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:checked="false"
-                    android:text="@string/yes" />
+                    android:text="LSP" />
 
                 <!-- No Radio Button -->
                 <RadioButton
-                    android:id="@+id/radioButtonNo"
+                    android:id="@+id/radioButtonClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="5dp"
                     android:checked="false"
-                    android:text="@string/no" />
+                    android:text="Client" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonNPO"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="5dp"
+                    android:checked="false"
+                    android:text="NPO" />
             </RadioGroup>
         </LinearLayout>
 

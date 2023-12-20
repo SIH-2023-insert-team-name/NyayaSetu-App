@@ -23,7 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-    var isLSP = 0
+    var userType = 0
     private lateinit var email:String
 
     private val lawyerViewModel: LawyerViewModel by viewModels()
@@ -53,17 +53,21 @@ class SignUpActivity : AppCompatActivity() {
 
             val selectedRadioButtonId = binding.radioGroup.checkedRadioButtonId
             val result = when (selectedRadioButtonId) {
-                R.id.radioButtonYes -> 1
-                R.id.radioButtonNo -> 0
+                R.id.radioButtonLSP -> 1
+                R.id.radioButtonClient -> 0
+                R.id.radioButtonNPO -> 2
                 else -> -1 // No radio button selected
             }
 
             if (result!=-1){
                if (result==1){
-                   isLSP=1
-               } else {
-                   isLSP=0
+                   userType=1
+               } else if(result == 0) {
+                   userType = 0
                }
+                else{
+                    userType = 2
+                }
             } else {
                 Toast.makeText(this, "No Option Selected", Toast.LENGTH_SHORT).show()
             }
@@ -79,24 +83,33 @@ class SignUpActivity : AppCompatActivity() {
                     confirmPass
                 ) && pass.isNotEmpty()
             ) {
-                if (isLSP ==1){
+                if (userType ==1){
                     val registerData = RegisterData(
                         name,
                         email,
                         pass,
-                        isLSP
+                        userType
                     )
                     lawyerViewModel.registerUser(registerData)
 
-                } else if (isLSP == 0) {
+                } else if (userType == 0) {
                     val registerData = RegisterData(
                         name,
                         email,
                         pass,
-                        isLSP
+                        userType
                     )
                     lawyerViewModel.registerUser(registerData)
 
+                }
+                else{
+                    val registerData = RegisterData(
+                        name,
+                        email,
+                        pass,
+                        userType
+                    )
+                    lawyerViewModel.registerUser(registerData)
                 }
                 AppSession(this).putString(Constants.NAME, name)
 

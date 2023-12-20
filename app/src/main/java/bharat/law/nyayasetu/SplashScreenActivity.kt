@@ -13,6 +13,7 @@ import bharat.law.nyayasetu.client.ClientActivity
 import bharat.law.nyayasetu.databinding.ActivitySplashScreenBinding
 import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
 import bharat.law.nyayasetu.lawyer.activities.LawyerOnboardingActivity
+import bharat.law.nyayasetu.nonProfitOrg.NPOActivity
 import bharat.law.nyayasetu.utils.AppSession
 import bharat.law.nyayasetu.utils.Constants
 import bharat.law.nyayasetu.utils.CustomMediaController
@@ -26,6 +27,7 @@ class SplashScreenActivity : AppCompatActivity() {
     private var isLogin: Boolean = false
     private var isLSP: Boolean = false
     private var isLSPOnboardingDone: Boolean = false
+    private var isNPO = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashScreenBinding.inflate(layoutInflater)
@@ -34,6 +36,7 @@ class SplashScreenActivity : AppCompatActivity() {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         isLogin = AppSession(this).getBoolean(Constants.IS_LOGIN)
         isLSP = AppSession(this).getBoolean(Constants.IS_LSP)
+        isNPO = AppSession(this).getBoolean(Constants.IS_NPO)
         isLSPOnboardingDone = AppSession(this).getBoolean(Constants.IS_LSP_ONBOARDING_DONE)
 
         val videoView: VideoView = binding.videoView
@@ -58,6 +61,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun navigateToNextScreen() {
         val destinationClass: Class<out Any> = when {
+            isLogin && isNPO -> NPOActivity::class.java
             isLogin && isLSP && isLSPOnboardingDone -> LawyerActivity::class.java
             isLogin && isLSP && !isLSPOnboardingDone -> LawyerOnboardingActivity::class.java
             isLogin && !isLSP -> ClientActivity::class.java

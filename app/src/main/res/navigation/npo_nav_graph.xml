@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/npo_nav_graph"
+    app:startDestination="@id/ngoDashboardFragment">
+
+    <fragment
+        android:id="@+id/ngoFragment2"
+        android:name="bharat.law.nyayasetu.nonProfitOrg.NgoFragment"
+        android:label="NgoFragment" />
+    <fragment
+        android:id="@+id/ngoDashboardFragment"
+        android:name="bharat.law.nyayasetu.nonProfitOrg.NgoDashboardFragment"
+        android:label="fragment_ngo_dashboard"
+        tools:layout="@layout/fragment_ngo_dashboard" >
+        <action
+            android:id="@+id/action_ngoDashboardFragment_to_ngoFragment2"
+            app:destination="@id/ngoFragment2" />
+        <action
+            android:id="@+id/action_ngoDashboardFragment_to_communityForumFragment"
+            app:destination="@id/communityForumFragment" />
+        <action
+            android:id="@+id/action_ngoDashboardFragment_to_partnershipFragment"
+            app:destination="@id/partnershipFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/communityForumFragment"
+        android:name="bharat.law.nyayasetu.nonProfitOrg.CommunityForumFragment"
+        android:label="CommunityForumFragment" />
+    <fragment
+        android:id="@+id/partnershipFragment"
+        android:name="bharat.law.nyayasetu.nonProfitOrg.PartnershipFragment"
+        android:label="PartnershipFragment" />
+</navigation>

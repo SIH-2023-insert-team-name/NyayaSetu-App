@@ -14,6 +14,7 @@ import bharat.law.nyayasetu.databinding.ActivityLoginBinding
 import bharat.law.nyayasetu.lawyer.activities.LawyerActivity
 import bharat.law.nyayasetu.lawyer.activities.LawyerOnboardingActivity
 import bharat.law.nyayasetu.models.AuthUserData
+import bharat.law.nyayasetu.nonProfitOrg.NPOActivity
 import bharat.law.nyayasetu.utils.AppSession
 import bharat.law.nyayasetu.utils.Constants
 import bharat.law.nyayasetu.viewmodels.LawyerViewModel
@@ -56,6 +57,9 @@ class LoginActivity : AppCompatActivity() {
                 } else if (email == "lawyer" && pass == "lawyer"){
                     goToLawyer()
                 }
+                else{
+                    goToNPO()
+                }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
 
@@ -85,6 +89,15 @@ class LoginActivity : AppCompatActivity() {
         AppSession(this).put(Constants.IS_LOGIN, true)
         AppSession(this).put(Constants.IS_LSP, true)
         val intent = Intent(this, LawyerOnboardingActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun goToNPO() {
+        AppSession(this).put(Constants.IS_LOGIN, true)
+        AppSession(this).put(Constants.IS_NPO, true)
+        val intent = Intent(this, NPOActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()
