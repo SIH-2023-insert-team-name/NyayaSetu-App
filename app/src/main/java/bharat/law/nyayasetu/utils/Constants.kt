@@ -15,6 +15,7 @@ class Constants {
         const val IS_LOGIN = "false"
         const val IS_LSP = "false"
         const val LSP_TYPE = "lspType"
+        const val BASE_AUTH_TOKEN = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZpemFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTY3ODkwIiwiaWF0IjoxNzAzMDM5NDA3LCJleHAiOjE3MDMyMTIyMDd9.6-jAwg3PnjGaqNlNf68Bh3UdTDMYyQV97hqh4OrXWP8"
         const val PERSONAL_DETAILS = "personalDetails"
         const val CLIENT_PERSONAL_DETAILS = "clientPersonalDetails"
         const val CLIENT_BASIC_DETAILS = "clientBasicDetails"

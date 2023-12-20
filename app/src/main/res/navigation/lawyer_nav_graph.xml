@@ -9,5 +9,21 @@
         android:id="@+id/lawyerDashboardFragment"
         android:name="bharat.law.nyayasetu.lawyer.ui.LawyerDashboardFragment"
         android:label="fragment_lawyer_dashboard"
-        tools:layout="@layout/fragment_lawyer_dashboard" />
+        tools:layout="@layout/fragment_lawyer_dashboard" >
+        <action
+            android:id="@+id/action_lawyerDashboardFragment_to_userCaseDetailsFragment"
+            app:destination="@id/userCaseDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userCaseDetailsFragment"
+        android:name="bharat.law.nyayasetu.lawyer.ui.UserCaseDetailsFragment"
+        android:label="UserCaseDetailsFragment" >
+        <action
+            android:id="@+id/action_userCaseDetailsFragment_to_lawyerChatFragment"
+            app:destination="@id/lawyerChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lawyerChatFragment"
+        android:name="bharat.law.nyayasetu.lawyer.ui.LawyerChatFragment"
+        android:label="LawyerChatFragment" />
 </navigation>

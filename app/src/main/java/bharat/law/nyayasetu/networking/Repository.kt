@@ -139,8 +139,8 @@ class Repository @Inject constructor(private val apiInterface: ApiInterface) {
         return apiInterface.getMessages(getChatData)
     }
 
-    suspend fun getLSP(authToken: String): Response<List<GetLawyersResponse>> {
-        return apiInterface.getLawyers(authToken)
+    suspend fun getLSP(): Response<List<GetLawyersResponse>> {
+        return apiInterface.getLawyers()
     }
 
     suspend fun getRecommendation(): Response<List<GetLawyersResponse>> {

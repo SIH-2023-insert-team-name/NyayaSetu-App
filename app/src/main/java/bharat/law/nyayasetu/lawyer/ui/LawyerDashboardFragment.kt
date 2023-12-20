@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import bharat.law.nyayasetu.R
 import bharat.law.nyayasetu.adapter.ImageAdapter
@@ -28,6 +29,7 @@ class LawyerDashboardFragment : Fragment() {
             handler.postDelayed(this, 4000)
         }
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -43,6 +45,10 @@ class LawyerDashboardFragment : Fragment() {
             R.drawable.image_3,
             R.drawable.image_4
         )
+
+        binding.cvLawyerAppointment.setOnClickListener {
+            findNavController().navigate(R.id.action_lawyerDashboardFragment_to_userCaseDetailsFragment)
+        }
 
 
         val adapter = ImageAdapter(images, viewPager)

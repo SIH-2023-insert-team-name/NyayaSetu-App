@@ -203,9 +203,9 @@ class LawyerViewModel @Inject constructor(private val repository: Repository): V
         }
     }
 
-    fun getLSP(authToken: String) {
+    fun getLSP() {
         viewModelScope.launch {
-            val getResponse = repository.getLSP(authToken)
+            val getResponse = repository.getLSP()
             _getLSPResponse.value = getResponse
         }
     }

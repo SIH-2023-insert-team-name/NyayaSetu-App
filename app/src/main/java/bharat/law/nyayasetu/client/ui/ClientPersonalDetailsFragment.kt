@@ -71,7 +71,7 @@ class ClientPersonalDetailsFragment : Fragment() {
                 clientPersonalData
             )
 
-            findNavController().navigate(R.id.action_clientPersonalDetailsFragment_to_homeFragment)
+//            findNavController().navigate(R.id.action_clientPersonalDetailsFragment_to_homeFragment)
         }
 
 

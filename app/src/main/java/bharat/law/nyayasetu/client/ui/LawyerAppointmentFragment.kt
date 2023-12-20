@@ -24,7 +24,7 @@ class LawyerAppointmentFragment : Fragment() {
 
     lateinit var authToken: String
 
-    var lawyerList= ArrayList<GetLawyersResponse>()
+
 
     private val lawyerViewModel: LawyerViewModel by viewModels()
     override fun onCreateView(
@@ -33,60 +33,60 @@ class LawyerAppointmentFragment : Fragment() {
     ): View? {
         _binding = FragmentLawyerAppointmentBinding.inflate(inflater, container, false)
 
-        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+//        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
 
-        lawyerViewModel.getLSP(authToken)
+        lawyerViewModel.getLSP()
 
         lawyerViewModel.getLSPResponse.observe(viewLifecycleOwner, Observer {
-            lawyerList = it.body()!! as ArrayList<GetLawyersResponse>
+            val lawyerList = it.body() as ArrayList<GetLawyersResponse>
 
             binding.cvBankruptcy.setOnClickListener {
                 val bankruptcyList = filterList(Constants.BANKRUPTCY_CATEGORY,lawyerList)
-                setupBottomSheetDialog(bankruptcyList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvCorporate.setOnClickListener {
                 val corporateList = filterList(Constants.CORPORATE_CATEGORY,lawyerList)
-                setupBottomSheetDialog(corporateList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvConstitutional.setOnClickListener {
                 val constitutionalList = filterList(Constants.CONSTITUTIONAL_CATEGORY,lawyerList)
-                setupBottomSheetDialog(constitutionalList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvCriminal.setOnClickListener {
                 val criminalList = filterList(Constants.CRIMINAL_CATEGORY,lawyerList)
-                setupBottomSheetDialog(criminalList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvEmployment.setOnClickListener {
                 val employmentList = filterList(Constants.EMPLOYMENT_CATEGORY,lawyerList)
-                setupBottomSheetDialog(employmentList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvEntertainment.setOnClickListener {
                 val entertainmentList = filterList(Constants.ENTERTAINMENT_CATEGORY,lawyerList)
-                setupBottomSheetDialog(entertainmentList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvEstate.setOnClickListener {
                 val estateList = filterList(Constants.ESTATE_CATEGORY,lawyerList)
-                setupBottomSheetDialog(estateList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvFamily.setOnClickListener {
                 val familyList = filterList(Constants.FAMILY_CATEGORY,lawyerList)
-                setupBottomSheetDialog(familyList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvImmigration.setOnClickListener {
                 val immigrationList = filterList(Constants.IMMIGRATION_CATEGORY,lawyerList)
-                setupBottomSheetDialog(immigrationList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvIntellectual.setOnClickListener {
                 val intellectualList = filterList(Constants.INTELLECTUAL_CATEGORY,lawyerList)
-                setupBottomSheetDialog(intellectualList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvPersonal.setOnClickListener {
                 val personalList = filterList(Constants.PERSONAL_CATEGORY,lawyerList)
-                setupBottomSheetDialog(personalList)
+                setupBottomSheetDialog(lawyerList)
             }
             binding.cvTax.setOnClickListener {
                 val taxList = filterList(Constants.TAX_CATEGORY,lawyerList)
-                setupBottomSheetDialog(taxList)
+                setupBottomSheetDialog(lawyerList)
             }
         })
 
@@ -97,7 +97,7 @@ class LawyerAppointmentFragment : Fragment() {
 
     private fun filterList(
         category: String,
-        lList:MutableList<GetLawyersResponse>
+        lList:ArrayList<GetLawyersResponse>
     ): MutableList<GetLawyersResponse> {
         val filteredList = ArrayList<GetLawyersResponse>()
 

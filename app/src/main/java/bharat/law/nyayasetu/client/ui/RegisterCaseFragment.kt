@@ -43,34 +43,35 @@ class RegisterCaseFragment(data: GetLawyersResponse) : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val clientEmail: String? = AppSession(requireContext()).getString(Constants.CLIENT_EMAIL)
-        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+//        val clientEmail: String? = AppSession(requireContext()).getString(Constants.CLIENT_EMAIL)
+//        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
 
         binding.btnNext.setOnClickListener {
-            val addCaseData = AddCaseData(
-                Parties_involved = binding.etPartiesInvolved.text.toString(),
-                clientEmail,
-                binding.etCaseSummary.text.toString(),
-                lawyerData.email,
-                binding.etPrevActions.text.toString()
-            )
-
-            lawyerViewModel.addCase("Bearer $authToken", addCaseData)
+            navigateToChats()
+//            val addCaseData = AddCaseData(
+//                Parties_involved = binding.etPartiesInvolved.text.toString(),
+//                clientEmail,
+//                binding.etCaseSummary.text.toString(),
+//                lawyerData.email,
+//                binding.etPrevActions.text.toString()
+//            )
+//
+//            lawyerViewModel.addCase("Bearer $authToken", addCaseData)
 
         }
 
-        lawyerViewModel.addCaseResponse.observe(viewLifecycleOwner, Observer {
-            if (it.code() ==Constants.CODE_200){
-                if (it?.body()?.message == Constants.SUCCESSFULLY_SAVED){
-                    Toast.makeText(requireContext(), "Booked an Appointment", Toast.LENGTH_SHORT).show()
-                    navigateToChats(lawyerData)
-                }
-            }
-        })
+//        lawyerViewModel.addCaseResponse.observe(viewLifecycleOwner, Observer {
+//            if (it.code() ==Constants.CODE_200){
+//                if (it?.body()?.message == Constants.SUCCESSFULLY_SAVED){
+//                    Toast.makeText(requireContext(), "Booked an Appointment", Toast.LENGTH_SHORT).show()
+//                    navigateToChats(lawyerData)
+//                }
+//            }
+//        })
     }
 
-    private fun navigateToChats(data: GetLawyersResponse){
-        val fragmentToNavigateTo = ChatScreenFragment(data) // Replace with your actual Fragment class
+    private fun navigateToChats() {
+        val fragmentToNavigateTo = ChatFragment() // Replace with your actual Fragment class
 
         val fragmentManager =
             requireActivity().supportFragmentManager // Use requireActivity() if you are inside a Fragment, or getActivity() if inside an Activity

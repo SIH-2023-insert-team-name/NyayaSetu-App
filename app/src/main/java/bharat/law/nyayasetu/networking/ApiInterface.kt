@@ -106,9 +106,7 @@ interface ApiInterface {
     ): Response<AddUserDataResponse>
 
     @GET("/get/lawyers")
-    suspend fun getLawyers(
-        @Header("Authorization") authToken: String
-    ): Response<List<GetLawyersResponse>>
+    suspend fun getLawyers(): Response<List<GetLawyersResponse>>
 
     @GET("/sorted")
     suspend fun getRecommendedLawyers(): Response<List<GetLawyersResponse>>

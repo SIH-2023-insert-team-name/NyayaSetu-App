@@ -94,97 +94,97 @@ class AddOtherDetailsFragment : Fragment() {
             }
 
         binding.btnNext.setOnClickListener {
-            binding.progressBar4.isVisible = true
-            when (lspType) {
-                Constants.LAWYER -> {
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        viewModel.addLawyer(
-                            "Bearer $authToken",
-                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
-                            createRequestBody("text/plain", personalDetails?.age.toString()),
-                            createRequestBody("text/plain", workDetails?.availability.toString()),
-                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
-                            createRequestBody("text/plain", workDetails?.category.toString()), // Assuming category is available in workDetails
-                            createRequestBody("text/plain", binding.etCost.text.toString()),
-                            createMultipartBody(
-                                Uri.parse(workDetails?.document_url),
-                                "application/pdf",
-                                "document_url"
-                            ),
-                            createRequestBody("text/plain", workDetails?.yoe.toString()),
-                            createRequestBody("text/plain", personalDetails?.gender.toString()),
-                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
-                            createRequestBody("text/plain", languagesSpoken.toString()),
-                            createRequestBody("text/plain", binding.etLocation.text.toString()),
-                            createRequestBody("text/plain", personalDetails?.name.toString()),
-                            createRequestBody("text/plain", "0"),
-                            createRequestBody("text/plain", " "), // Assuming this is a placeholder, adjust as needed
-                            createRequestBody("text/plain", "5"),
-                            createRequestBody("text/plain", binding.etSummary.text.toString())
-                        )
-                    }
-                }
-
-                Constants.NOTARY -> {
-
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        viewModel.addNotary(
-                            "Bearer $authToken",
-                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
-                            createRequestBody("text/plain", personalDetails?.age.toString()),
-                            createRequestBody("text/plain", workDetails?.availability.toString()),
-                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
-                            createRequestBody(
-                                "text/plain",
-                                workDetails?.comm_expiry_date.toString()
-                            ),
-                            createRequestBody("text/plain", workDetails?.notary_comm_no.toString()),
-                            createRequestBody("text/plain", binding.etCost.text.toString()),
-                            createMultipartBody(
-                                Uri.parse(workDetails?.document_url),
-                                "application/pdf",
-                                "document_urk"
-                            ),
-                            createRequestBody("text/plain", workDetails?.yoe.toString()),
-                            createRequestBody("text/plain", personalDetails?.gender.toString()),
-                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
-                            createRequestBody(
-                                "text/plain",
-                                workDetails?.jurisdiction_area.toString()
-                            ),
-                            createRequestBody("text/plain", languagesSpoken.toString()),
-                            createRequestBody("text/plain", binding.etLocation.text.toString()),
-                            createRequestBody("text/plain", personalDetails?.name.toString()),
-                            createRequestBody("text/plain", "0"),
-                            createRequestBody("text/plain", " "),
-                            createRequestBody("text/plain", "5"),
-                            createRequestBody("text/plain", binding.etSummary.text.toString())
-                        )
-                    }
-
-                }
-
-                Constants.DOCWRITER -> {
-                    docWriterData = AddDocWriterData(
-                        personalDetails?.aadhar,
-                        personalDetails?.age,
-                        workDetails?.availability,
-                        binding.etCost.text.toString().toDouble(),
-                        workDetails?.document_url,
-                        workDetails?.yoe,
-                        personalDetails?.gender,
-                        Constants.INCENTIVE_NA,
-                        languagesSpoken,
-                        binding.etLocation.text.toString(),
-                        personalDetails?.name,
-                        0,
-                        " ",
-                        5.0,
-                        binding.etSummary.text.toString()
-                    )
-                    viewModel.addDocWriter("Bearer $authToken", docWriterData)
-                }
-            }
+           goToLawyerDashboard()
+//            when (lspType) {
+//                Constants.LAWYER -> {
+//                    viewLifecycleOwner.lifecycleScope.launch {
+//                        viewModel.addLawyer(
+//                            "Bearer $authToken",
+//                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
+//                            createRequestBody("text/plain", personalDetails?.age.toString()),
+//                            createRequestBody("text/plain", workDetails?.availability.toString()),
+//                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
+//                            createRequestBody("text/plain", workDetails?.category.toString()), // Assuming category is available in workDetails
+//                            createRequestBody("text/plain", binding.etCost.text.toString()),
+//                            createMultipartBody(
+//                                Uri.parse(workDetails?.document_url),
+//                                "application/pdf",
+//                                "document_url"
+//                            ),
+//                            createRequestBody("text/plain", workDetails?.yoe.toString()),
+//                            createRequestBody("text/plain", personalDetails?.gender.toString()),
+//                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
+//                            createRequestBody("text/plain", languagesSpoken.toString()),
+//                            createRequestBody("text/plain", binding.etLocation.text.toString()),
+//                            createRequestBody("text/plain", personalDetails?.name.toString()),
+//                            createRequestBody("text/plain", "0"),
+//                            createRequestBody("text/plain", " "), // Assuming this is a placeholder, adjust as needed
+//                            createRequestBody("text/plain", "5"),
+//                            createRequestBody("text/plain", binding.etSummary.text.toString())
+//                        )
+//                    }
+//                }
+//
+//                Constants.NOTARY -> {
+//
+//                    viewLifecycleOwner.lifecycleScope.launch {
+//                        viewModel.addNotary(
+//                            "Bearer $authToken",
+//                            createRequestBody("text/plain", personalDetails?.aadhar.toString()),
+//                            createRequestBody("text/plain", personalDetails?.age.toString()),
+//                            createRequestBody("text/plain", workDetails?.availability.toString()),
+//                            createRequestBody("text/plain", workDetails?.bar_reg_np.toString()),
+//                            createRequestBody(
+//                                "text/plain",
+//                                workDetails?.comm_expiry_date.toString()
+//                            ),
+//                            createRequestBody("text/plain", workDetails?.notary_comm_no.toString()),
+//                            createRequestBody("text/plain", binding.etCost.text.toString()),
+//                            createMultipartBody(
+//                                Uri.parse(workDetails?.document_url),
+//                                "application/pdf",
+//                                "document_urk"
+//                            ),
+//                            createRequestBody("text/plain", workDetails?.yoe.toString()),
+//                            createRequestBody("text/plain", personalDetails?.gender.toString()),
+//                            createRequestBody("text/plain", Constants.INCENTIVE_NA),
+//                            createRequestBody(
+//                                "text/plain",
+//                                workDetails?.jurisdiction_area.toString()
+//                            ),
+//                            createRequestBody("text/plain", languagesSpoken.toString()),
+//                            createRequestBody("text/plain", binding.etLocation.text.toString()),
+//                            createRequestBody("text/plain", personalDetails?.name.toString()),
+//                            createRequestBody("text/plain", "0"),
+//                            createRequestBody("text/plain", " "),
+//                            createRequestBody("text/plain", "5"),
+//                            createRequestBody("text/plain", binding.etSummary.text.toString())
+//                        )
+//                    }
+//
+//                }
+//
+//                Constants.DOCWRITER -> {
+//                    docWriterData = AddDocWriterData(
+//                        personalDetails?.aadhar,
+//                        personalDetails?.age,
+//                        workDetails?.availability,
+//                        binding.etCost.text.toString().toDouble(),
+//                        workDetails?.document_url,
+//                        workDetails?.yoe,
+//                        personalDetails?.gender,
+//                        Constants.INCENTIVE_NA,
+//                        languagesSpoken,
+//                        binding.etLocation.text.toString(),
+//                        personalDetails?.name,
+//                        0,
+//                        " ",
+//                        5.0,
+//                        binding.etSummary.text.toString()
+//                    )
+//                    viewModel.addDocWriter("Bearer $authToken", docWriterData)
+//                }
+//            }
         }
 
     }

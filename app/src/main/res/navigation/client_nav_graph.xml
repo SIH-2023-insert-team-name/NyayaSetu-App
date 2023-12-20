@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/client_nav_graph">
+    android:id="@+id/client_nav_graph"
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -96,14 +97,10 @@
         android:id="@+id/chatFragment"
         android:name="bharat.law.nyayasetu.client.ui.ChatFragment"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
-    <fragment
-        android:id="@+id/clientPersonalDetailsFragment"
-        android:name="bharat.law.nyayasetu.client.ui.ClientPersonalDetailsFragment"
-        android:label="ClientPersonalDetailsFragment" >
+        tools:layout="@layout/fragment_chat" >
         <action
-            android:id="@+id/action_clientPersonalDetailsFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_chatFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerCaseFragment"
@@ -125,5 +122,9 @@
         android:id="@+id/recommendationFragment"
         android:name="bharat.law.nyayasetu.client.ui.RecommendationFragment"
         android:label="RecommendationFragment" />
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="bharat.law.nyayasetu.client.ui.PaymentFragment"
+        android:label="PaymentFragment" />
 
 </navigation>

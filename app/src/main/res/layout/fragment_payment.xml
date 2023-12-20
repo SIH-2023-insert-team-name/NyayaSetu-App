@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_grey"
+    android:padding="20dp">
+
+    <ImageView
+        android:id="@+id/ivLawJustice"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_law_justice"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_swach_bharat"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvChooseProfession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/sofiaprosoftmedium"
+        android:text="Select your subscription"
+        android:textColor="@color/black_tile"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <!-- Wrap the entire layout in a LinearLayout -->
+    <LinearLayout
+        android:id="@+id/ll_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseProfession"> <!-- Set the orientation to vertical -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPlanA"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/llPlanA"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPlanA_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Subscription plan A"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_subscription" />
+
+                <TextView
+                    android:id="@+id/tvPlanA_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="1 min = 15.0 INR\n Minimum duration = 5 min"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+            <!-- Add content of the Lawyer container here (similar to the original layout) -->
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvPlanB"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Add content of the Notary container here (similar to the original layout) -->
+            <LinearLayout
+                android:id="@+id/llPlanB"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPlanB_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="Subscription plan B"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:src="@drawable/ic_subscription" />
+
+                <TextView
+                    android:id="@+id/tvPlanB_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="1 min = 12.0 INR\n Minimum duration = 15 min"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout> <!-- Close the LinearLayout -->
+
+    <!-- Buy Now Button -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buyNowButton"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/background_gradient_rounded"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

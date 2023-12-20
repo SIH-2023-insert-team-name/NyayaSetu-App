@@ -34,7 +34,7 @@ class ConsultancyFragment : Fragment() {
     ): View? {
         _binding = FragmentConsultancyBinding.inflate(inflater, container, false)
         authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
-        lawyerViewmodel.getLSP(authToken)
+        lawyerViewmodel.getLSP()
 
         lawyerViewmodel.getLSPResponse.observe(viewLifecycleOwner, Observer{
             lData = it.body() as ArrayList<GetLawyersResponse>

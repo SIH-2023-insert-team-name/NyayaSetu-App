@@ -97,4 +97,8 @@ dependencies {
 
     implementation platform('com.google.firebase:firebase-bom:32.7.0')
     implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.razorpay:checkout:1.6.35'
+    implementation("com.github.skydoves:balloon:1.6.3")
+
 }

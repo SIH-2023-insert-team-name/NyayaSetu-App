@@ -20,17 +20,17 @@ class ClientActivity : AppCompatActivity() {
         binding = ActivityClientBinding.inflate(layoutInflater)
         window.setStatusBarColor(ContextCompat.getColor(baseContext, R.color.light_grey))
 
-        val isOnboard = intent.getBooleanExtra("isOnboard", false)
+//        val isOnboard = intent.getBooleanExtra("isOnboard", false)
 
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         navController = navHostFragment.navController
-        val navGraph = navController.navInflater.inflate(R.navigation.client_nav_graph)
-        if (isOnboard){
-            navGraph.setStartDestination(R.id.homeFragment)
-        } else {
-            navGraph.setStartDestination(R.id.clientPersonalDetailsFragment)
-        }
+//        val navGraph = navController.navInflater.inflate(R.navigation.client_nav_graph)
+//        if (isOnboard){
+//            navGraph.setStartDestination(R.id.homeFragment)
+//        } else {
+//            navGraph.setStartDestination(R.id.clientPersonalDetailsFragment)
+//        }
 
         setContentView(binding.root)
 

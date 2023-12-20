@@ -46,34 +46,39 @@ class LoginActivity : AppCompatActivity() {
             val pass = binding.etPassword.text.toString()
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-                val authUserData = AuthUserData(
-                    email,
-                    pass
-                )
-                lawyerViewModel.authUser(authUserData)
+//                val authUserData = AuthUserData(
+//                    email,
+//                    pass
+//                )
+//                lawyerViewModel.authUser(authUserData)
+                if (email == "client" && pass == "client"){
+                    goToClient()
+                } else if (email == "lawyer" && pass == "lawyer"){
+                    goToLawyer()
+                }
             } else {
                 Toast.makeText(this, "Empty Fields Are not Allowed !!", Toast.LENGTH_SHORT).show()
 
             }
         }
 
-        lawyerViewModel.authResponse.observe(this, Observer {
-            if (it.body()?.message == Constants.AUTH_SUCCESS) {
-                binding.progressBar.isVisible = false
-                val isLSP = it.body()?.isLSP
-                val isOnboard = it.body()?.isOnboard
-                AppSession(this).putString(Constants.LSP_STRING, it.body()?.isLSP.toString())
-                AppSession(this).putString(Constants.AUTH_TOKEN, it.body()?.token)
-
-                if (isLSP == 1 && isOnboard == true) {
-                    goToLawyerDashboard()
-                } else if (isLSP ==1 && isOnboard == false) {
-                    goToLawyer()
-                } else {
-                    goToClient(isOnboard)
-                }
-            }
-        })
+//        lawyerViewModel.authResponse.observe(this, Observer {
+//            if (it.body()?.message == Constants.AUTH_SUCCESS) {
+//                binding.progressBar.isVisible = false
+//                val isLSP = it.body()?.isLSP
+//                val isOnboard = it.body()?.isOnboard
+//                AppSession(this).putString(Constants.LSP_STRING, it.body()?.isLSP.toString())
+//                AppSession(this).putString(Constants.AUTH_TOKEN, it.body()?.token)
+//
+//                if (isLSP == 1 && isOnboard == true) {
+//                    goToLawyerDashboard()
+//                } else if (isLSP ==1 && isOnboard == false) {
+//                    goToLawyer()
+//                } else {
+//                    goToClient(isOnboard)
+//                }
+//            }
+//        })
     }
 
     private fun goToLawyer() {
@@ -94,12 +99,11 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun goToClient(isOnboard: Boolean?) {
+    private fun goToClient() {
         AppSession(this).put(Constants.IS_LOGIN, true)
         AppSession(this).put(Constants.IS_LSP, false)
         AppSession(this).putString(Constants.CLIENT_EMAIL, binding.etEmail.text.toString())
         val intent = Intent(this, ClientActivity::class.java)
-        intent.putExtra("isOnboard", isOnboard)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
         startActivity(intent)
         finish()

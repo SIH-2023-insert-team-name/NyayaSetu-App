@@ -30,8 +30,8 @@ class BottomSheetDialogFragment(val lawyerList: MutableList<GetLawyersResponse>)
         val chatInflater = LayoutInflater.from(requireContext())
         binding = BottomSheetDialogFragmentBinding.inflate(chatInflater)
 
-        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
-        Log.d("authdebz", authToken)
+//        authToken = AppSession(requireContext()).getString(Constants.AUTH_TOKEN)!!
+//        Log.d("authdebz", authToken)
         setupFullHeight()
         onClick()
         setupRecyclerView()
